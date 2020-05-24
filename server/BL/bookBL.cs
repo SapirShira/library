@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+
+
     public class bookBL
     {
         public static bool addBook(string namen, int auther, int codeCat, int codeCro, int amount, double price)
         {
-            int coden;
+            int codeN;
             using (libraryEntities db = new libraryEntities())
             {
                 db.Books.Add(new Book
@@ -27,8 +29,8 @@ namespace BL
                 try
                 {
                     db.SaveChanges();
-                    coden = db.Books.First(b => b.name == namen).codeBook;
-                    return otekBL.addotek(coden, amount, price, amount);
+                    codeN = db.Books.First(b => b.name == namen).codeBook;
+                    return otekBL.addotek(codeN, amount, price, amount);
                 }
                 catch (Exception e)
                 {
