@@ -1,0 +1,12 @@
+C:\Users\שירה\Desktop\פרויקט סיום\labrery\DAL\bin\Debug\DAL.dll.config
+C:\Users\שירה\Desktop\פרויקט סיום\labrery\DAL\bin\Debug\DAL.dll
+C:\Users\שירה\Desktop\פרויקט סיום\labrery\DAL\bin\Debug\DAL.pdb
+C:\Users\שירה\Desktop\פרויקט סיום\labrery\DAL\bin\Debug\EntityFramework.dll
+C:\Users\שירה\Desktop\פרויקט סיום\labrery\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\שירה\Desktop\פרויקט סיום\labrery\DAL\bin\Debug\EntityFramework.xml
+C:\Users\שירה\Desktop\פרויקט סיום\labrery\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\שירה\Desktop\פרויקט סיום\labrery\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\שירה\Desktop\פרויקט סיום\labrery\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\שירה\Desktop\פרויקט סיום\labrery\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\שירה\Desktop\פרויקט סיום\labrery\DAL\obj\Debug\DAL.dll
+C:\Users\שירה\Desktop\פרויקט סיום\labrery\DAL\obj\Debug\DAL.pdb

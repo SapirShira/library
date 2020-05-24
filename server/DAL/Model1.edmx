@@ -1,0 +1,806 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="libraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aauthor">
+          <Key>
+            <PropertyRef Name="codAauthor" />
+          </Key>
+          <Property Name="codAauthor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="15" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="15" />
+          <Property Name="LiteraryAlias" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Books">
+          <Key>
+            <PropertyRef Name="codeBook" />
+          </Key>
+          <Property Name="codeBook" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="20" />
+          <Property Name="codAauthor" Type="int" />
+          <Property Name="date" Type="date" />
+          <Property Name="codeCategory" Type="int" />
+          <Property Name="codeCrowd" Type="int" />
+          <Property Name="isDeleted" Type="bit" />
+          <Property Name="numOtakim" Type="int" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="codeCategory" />
+          </Key>
+          <Property Name="codeCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nameCategory" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Crowd">
+          <Key>
+            <PropertyRef Name="codeCrowd" />
+          </Key>
+          <Property Name="codeCrowd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nameCrowd" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="LendingItem">
+          <Key>
+            <PropertyRef Name="codeLending" />
+            <PropertyRef Name="codeOtek" />
+          </Key>
+          <Property Name="codeLending" Type="int" Nullable="false" />
+          <Property Name="codeOtek" Type="int" Nullable="false" />
+          <Property Name="comment" Type="nvarchar" MaxLength="50" />
+          <Property Name="returnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Lendings">
+          <Key>
+            <PropertyRef Name="codeLending" />
+          </Key>
+          <Property Name="codeLending" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idSubscribers" Type="int" />
+          <Property Name="date" Type="datetime" />
+          <Property Name="worker" Type="int" />
+          <Property Name="expectReturnDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Otakim">
+          <Key>
+            <PropertyRef Name="codeOtek" />
+          </Key>
+          <Property Name="codeOtek" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Serial" Type="int" />
+          <Property Name="codeBook" Type="int" />
+          <Property Name="price" Type="int" />
+        </EntityType>
+        <EntityType Name="Subscribers">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="20" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="20" />
+          <Property Name="address" Type="nvarchar" MaxLength="20" />
+          <Property Name="phon" Type="nvarchar" MaxLength="10" />
+          <Property Name="startDate" Type="date" />
+          <Property Name="type" Type="int" />
+          <Property Name="isDeleted" Type="bit" />
+        </EntityType>
+        <EntityType Name="SubscriptionType">
+          <Key>
+            <PropertyRef Name="codeType" />
+          </Key>
+          <Property Name="codeType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="numOfBooks" Type="int" />
+          <Property Name="price" Type="int" />
+          <Property Name="status" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Workers">
+          <Key>
+            <PropertyRef Name="idWorker" />
+          </Key>
+          <Property Name="idWorker" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="30" />
+          <Property Name="address" Type="nvarchar" MaxLength="20" />
+          <Property Name="phone" Type="nvarchar" MaxLength="10" />
+          <Property Name="typeWork" Type="nvarchar" MaxLength="15" />
+          <Property Name="status" Type="bit" />
+          <Property Name="password" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Books__codeCateg__44952D46">
+          <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="codeCategory" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="codeCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books__codeCrowd__477199F1">
+          <End Role="Crowd" Type="Self.Crowd" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Crowd">
+              <PropertyRef Name="codeCrowd" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="codeCrowd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LendingIt__codeL__4E1E9780">
+          <End Role="Lendings" Type="Self.Lendings" Multiplicity="1" />
+          <End Role="LendingItem" Type="Self.LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lendings">
+              <PropertyRef Name="codeLending" />
+            </Principal>
+            <Dependent Role="LendingItem">
+              <PropertyRef Name="codeLending" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LendingIt__codeO__51EF2864">
+          <End Role="Otakim" Type="Self.Otakim" Multiplicity="1" />
+          <End Role="LendingItem" Type="Self.LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Otakim">
+              <PropertyRef Name="codeOtek" />
+            </Principal>
+            <Dependent Role="LendingItem">
+              <PropertyRef Name="codeOtek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lendings__idSubs__4C364F0E">
+          <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="0..1" />
+          <End Role="Lendings" Type="Self.Lendings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lendings">
+              <PropertyRef Name="idSubscribers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lendings__worker__4D2A7347">
+          <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
+          <End Role="Lendings" Type="Self.Lendings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="idWorker" />
+            </Principal>
+            <Dependent Role="Lendings">
+              <PropertyRef Name="worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Otakim__codeBook__50FB042B">
+          <End Role="Books" Type="Self.Books" Multiplicity="0..1" />
+          <End Role="Otakim" Type="Self.Otakim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books">
+              <PropertyRef Name="codeBook" />
+            </Principal>
+            <Dependent Role="Otakim">
+              <PropertyRef Name="codeBook" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subscriber__type__54CB950F">
+          <End Role="SubscriptionType" Type="Self.SubscriptionType" Multiplicity="0..1" />
+          <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscriptionType">
+              <PropertyRef Name="codeType" />
+            </Principal>
+            <Dependent Role="Subscribers">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_codeAuthor">
+          <End Role="Aauthor" Type="Self.Aauthor" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Books" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aauthor">
+              <PropertyRef Name="codAauthor" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="codAauthor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="libraryModelStoreContainer">
+          <EntitySet Name="Aauthor" EntityType="Self.Aauthor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Crowd" EntityType="Self.Crowd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LendingItem" EntityType="Self.LendingItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lendings" EntityType="Self.Lendings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Otakim" EntityType="Self.Otakim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subscribers" EntityType="Self.Subscribers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubscriptionType" EntityType="Self.SubscriptionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Books__codeCateg__44952D46" Association="Self.FK__Books__codeCateg__44952D46">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books__codeCrowd__477199F1" Association="Self.FK__Books__codeCrowd__477199F1">
+            <End Role="Crowd" EntitySet="Crowd" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LendingIt__codeL__4E1E9780" Association="Self.FK__LendingIt__codeL__4E1E9780">
+            <End Role="Lendings" EntitySet="Lendings" />
+            <End Role="LendingItem" EntitySet="LendingItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LendingIt__codeO__51EF2864" Association="Self.FK__LendingIt__codeO__51EF2864">
+            <End Role="Otakim" EntitySet="Otakim" />
+            <End Role="LendingItem" EntitySet="LendingItem" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lendings__idSubs__4C364F0E" Association="Self.FK__Lendings__idSubs__4C364F0E">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="Lendings" EntitySet="Lendings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lendings__worker__4D2A7347" Association="Self.FK__Lendings__worker__4D2A7347">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Lendings" EntitySet="Lendings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Otakim__codeBook__50FB042B" Association="Self.FK__Otakim__codeBook__50FB042B">
+            <End Role="Books" EntitySet="Books" />
+            <End Role="Otakim" EntitySet="Otakim" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subscriber__type__54CB950F" Association="Self.FK__Subscriber__type__54CB950F">
+            <End Role="SubscriptionType" EntitySet="SubscriptionType" />
+            <End Role="Subscribers" EntitySet="Subscribers" />
+          </AssociationSet>
+          <AssociationSet Name="fk_codeAuthor" Association="Self.fk_codeAuthor">
+            <End Role="Aauthor" EntitySet="Aauthor" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="libraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Aauthor">
+          <Key>
+            <PropertyRef Name="codAauthor" />
+          </Key>
+          <Property Name="codAauthor" Type="Int32" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="LiteraryAlias" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Books" Relationship="Self.fk_codeAuthor" FromRole="Aauthor" ToRole="Books" />
+        </EntityType>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="codeBook" />
+          </Key>
+          <Property Name="codeBook" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="codAauthor" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+          <Property Name="codeCategory" Type="Int32" />
+          <Property Name="codeCrowd" Type="Int32" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="Aauthor" Relationship="Self.fk_codeAuthor" FromRole="Books" ToRole="Aauthor" />
+          <NavigationProperty Name="Category" Relationship="Self.FK__Books__codeCateg__681373AD" FromRole="Books" ToRole="Categories" />
+          <NavigationProperty Name="Crowd" Relationship="Self.FK__Books__codeCrowd__690797E6" FromRole="Books" ToRole="Crowd" />
+          <NavigationProperty Name="Otakims" Relationship="Self.FK__Otakim__codeBook__6AEFE058" FromRole="Books" ToRole="Otakim" />
+          <Property Name="numOtakim" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="codeCategory" />
+          </Key>
+          <Property Name="codeCategory" Type="Int32" Nullable="false" />
+          <Property Name="nameCategory" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Books" Relationship="Self.FK__Books__codeCateg__681373AD" FromRole="Categories" ToRole="Books" />
+        </EntityType>
+        <EntityType Name="Crowd">
+          <Key>
+            <PropertyRef Name="codeCrowd" />
+          </Key>
+          <Property Name="codeCrowd" Type="Int32" Nullable="false" />
+          <Property Name="nameCrowd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Books" Relationship="Self.FK__Books__codeCrowd__690797E6" FromRole="Crowd" ToRole="Books" />
+        </EntityType>
+        <EntityType Name="LendingItem">
+          <Key>
+            <PropertyRef Name="codeLending" />
+            <PropertyRef Name="codeOtek" />
+          </Key>
+          <Property Name="codeLending" Type="Int32" Nullable="false" />
+          <Property Name="codeOtek" Type="Int32" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="returnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Lending" Relationship="Self.FK__LendingIt__codeL__24285DB4" FromRole="LendingItem" ToRole="Lendings" />
+          <NavigationProperty Name="Otakim" Relationship="Self.FK__LendingIt__codeO__251C81ED" FromRole="LendingItem" ToRole="Otakim" />
+        </EntityType>
+        <EntityType Name="Lending">
+          <Key>
+            <PropertyRef Name="codeLending" />
+          </Key>
+          <Property Name="codeLending" Type="Int32" Nullable="false" />
+          <Property Name="idSubscribers" Type="Int32" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <Property Name="worker" Type="Int32" />
+          <Property Name="expectReturnDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="LendingItems" Relationship="Self.FK__LendingIt__codeL__24285DB4" FromRole="Lendings" ToRole="LendingItem" />
+          <NavigationProperty Name="Subscriber" Relationship="Self.FK__Lendings__idSubs__1E6F845E" FromRole="Lendings" ToRole="Subscribers" />
+          <NavigationProperty Name="Worker1" Relationship="Self.FK__Lendings__worker__2057CCD0" FromRole="Lendings" ToRole="Workers" />
+        </EntityType>
+        <EntityType Name="Otakim">
+          <Key>
+            <PropertyRef Name="codeOtek" />
+          </Key>
+          <Property Name="codeOtek" Type="Int32" Nullable="false" />
+          <Property Name="Serial" Type="Int32" />
+          <Property Name="codeBook" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <NavigationProperty Name="Book" Relationship="Self.FK__Otakim__codeBook__6AEFE058" FromRole="Otakim" ToRole="Books" />
+          <NavigationProperty Name="LendingItems" Relationship="Self.FK__LendingIt__codeO__251C81ED" FromRole="Otakim" ToRole="LendingItem" />
+        </EntityType>
+        <EntityType Name="Subscriber">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="phon" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="startDate" Type="DateTime" Precision="0" />
+          <Property Name="type" Type="Int32" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="Lendings" Relationship="Self.FK__Lendings__idSubs__1E6F845E" FromRole="Subscribers" ToRole="Lendings" />
+          <NavigationProperty Name="SubscriptionType" Relationship="Self.FK__Subscriber__type__59C55456" FromRole="Subscribers" ToRole="SubscriptionType" />
+        </EntityType>
+        <EntityType Name="SubscriptionType">
+          <Key>
+            <PropertyRef Name="codeType" />
+          </Key>
+          <Property Name="codeType" Type="Int32" Nullable="false" />
+          <Property Name="numOfBooks" Type="Int32" />
+          <Property Name="price" Type="Int32" />
+          <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Subscribers" Relationship="Self.FK__Subscriber__type__59C55456" FromRole="SubscriptionType" ToRole="Subscribers" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Worker">
+          <Key>
+            <PropertyRef Name="idWorker" />
+          </Key>
+          <Property Name="idWorker" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="typeWork" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="status" Type="Boolean" />
+          <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Lendings" Relationship="Self.FK__Lendings__worker__2057CCD0" FromRole="Workers" ToRole="Lendings" />
+        </EntityType>
+        <Association Name="fk_codeAuthor">
+          <End Role="Aauthor" Type="Self.Aauthor" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aauthor">
+              <PropertyRef Name="codAauthor" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="codAauthor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books__codeCateg__681373AD">
+          <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="codeCategory" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="codeCategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Books__codeCrowd__690797E6">
+          <End Role="Crowd" Type="Self.Crowd" Multiplicity="0..1" />
+          <End Role="Books" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Crowd">
+              <PropertyRef Name="codeCrowd" />
+            </Principal>
+            <Dependent Role="Books">
+              <PropertyRef Name="codeCrowd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Otakim__codeBook__6AEFE058">
+          <End Role="Books" Type="Self.Book" Multiplicity="0..1" />
+          <End Role="Otakim" Type="Self.Otakim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Books">
+              <PropertyRef Name="codeBook" />
+            </Principal>
+            <Dependent Role="Otakim">
+              <PropertyRef Name="codeBook" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LendingIt__codeL__24285DB4">
+          <End Role="Lendings" Type="Self.Lending" Multiplicity="1" />
+          <End Role="LendingItem" Type="Self.LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lendings">
+              <PropertyRef Name="codeLending" />
+            </Principal>
+            <Dependent Role="LendingItem">
+              <PropertyRef Name="codeLending" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LendingIt__codeO__251C81ED">
+          <End Role="Otakim" Type="Self.Otakim" Multiplicity="1" />
+          <End Role="LendingItem" Type="Self.LendingItem" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Otakim">
+              <PropertyRef Name="codeOtek" />
+            </Principal>
+            <Dependent Role="LendingItem">
+              <PropertyRef Name="codeOtek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lendings__idSubs__1E6F845E">
+          <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="0..1" />
+          <End Role="Lendings" Type="Self.Lending" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subscribers">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Lendings">
+              <PropertyRef Name="idSubscribers" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lendings__worker__2057CCD0">
+          <End Role="Workers" Type="Self.Worker" Multiplicity="0..1" />
+          <End Role="Lendings" Type="Self.Lending" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Workers">
+              <PropertyRef Name="idWorker" />
+            </Principal>
+            <Dependent Role="Lendings">
+              <PropertyRef Name="worker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Subscriber__type__59C55456">
+          <End Role="SubscriptionType" Type="Self.SubscriptionType" Multiplicity="0..1" />
+          <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubscriptionType">
+              <PropertyRef Name="codeType" />
+            </Principal>
+            <Dependent Role="Subscribers">
+              <PropertyRef Name="type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="libraryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aauthors" EntityType="Self.Aauthor" />
+          <EntitySet Name="Books" EntityType="Self.Book" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Crowds" EntityType="Self.Crowd" />
+          <EntitySet Name="LendingItems" EntityType="Self.LendingItem" />
+          <EntitySet Name="Lendings" EntityType="Self.Lending" />
+          <EntitySet Name="Otakims" EntityType="Self.Otakim" />
+          <EntitySet Name="Subscribers" EntityType="Self.Subscriber" />
+          <EntitySet Name="SubscriptionTypes" EntityType="Self.SubscriptionType" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Workers" EntityType="Self.Worker" />
+          <AssociationSet Name="fk_codeAuthor" Association="Self.fk_codeAuthor">
+            <End Role="Aauthor" EntitySet="Aauthors" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books__codeCateg__681373AD" Association="Self.FK__Books__codeCateg__681373AD">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Books__codeCrowd__690797E6" Association="Self.FK__Books__codeCrowd__690797E6">
+            <End Role="Crowd" EntitySet="Crowds" />
+            <End Role="Books" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Otakim__codeBook__6AEFE058" Association="Self.FK__Otakim__codeBook__6AEFE058">
+            <End Role="Books" EntitySet="Books" />
+            <End Role="Otakim" EntitySet="Otakims" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LendingIt__codeL__24285DB4" Association="Self.FK__LendingIt__codeL__24285DB4">
+            <End Role="Lendings" EntitySet="Lendings" />
+            <End Role="LendingItem" EntitySet="LendingItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LendingIt__codeO__251C81ED" Association="Self.FK__LendingIt__codeO__251C81ED">
+            <End Role="Otakim" EntitySet="Otakims" />
+            <End Role="LendingItem" EntitySet="LendingItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lendings__idSubs__1E6F845E" Association="Self.FK__Lendings__idSubs__1E6F845E">
+            <End Role="Subscribers" EntitySet="Subscribers" />
+            <End Role="Lendings" EntitySet="Lendings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lendings__worker__2057CCD0" Association="Self.FK__Lendings__worker__2057CCD0">
+            <End Role="Workers" EntitySet="Workers" />
+            <End Role="Lendings" EntitySet="Lendings" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Subscriber__type__59C55456" Association="Self.FK__Subscriber__type__59C55456">
+            <End Role="SubscriptionType" EntitySet="SubscriptionTypes" />
+            <End Role="Subscribers" EntitySet="Subscribers" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(libraryModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(libraryModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="libraryModelStoreContainer" CdmEntityContainer="libraryEntities">
+          <EntitySetMapping Name="Aauthors">
+            <EntityTypeMapping TypeName="libraryModel.Aauthor">
+              <MappingFragment StoreEntitySet="Aauthor">
+                <ScalarProperty Name="codAauthor" ColumnName="codAauthor" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="LiteraryAlias" ColumnName="LiteraryAlias" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="libraryModel.Book">
+              <MappingFragment StoreEntitySet="Books">
+                <ScalarProperty Name="numOtakim" ColumnName="numOtakim" />
+                <ScalarProperty Name="codeBook" ColumnName="codeBook" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="codAauthor" ColumnName="codAauthor" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="codeCategory" ColumnName="codeCategory" />
+                <ScalarProperty Name="codeCrowd" ColumnName="codeCrowd" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="libraryModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="codeCategory" ColumnName="codeCategory" />
+                <ScalarProperty Name="nameCategory" ColumnName="nameCategory" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Crowds">
+            <EntityTypeMapping TypeName="libraryModel.Crowd">
+              <MappingFragment StoreEntitySet="Crowd">
+                <ScalarProperty Name="codeCrowd" ColumnName="codeCrowd" />
+                <ScalarProperty Name="nameCrowd" ColumnName="nameCrowd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LendingItems">
+            <EntityTypeMapping TypeName="libraryModel.LendingItem">
+              <MappingFragment StoreEntitySet="LendingItem">
+                <ScalarProperty Name="codeLending" ColumnName="codeLending" />
+                <ScalarProperty Name="codeOtek" ColumnName="codeOtek" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="returnDate" ColumnName="returnDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lendings">
+            <EntityTypeMapping TypeName="libraryModel.Lending">
+              <MappingFragment StoreEntitySet="Lendings">
+                <ScalarProperty Name="codeLending" ColumnName="codeLending" />
+                <ScalarProperty Name="idSubscribers" ColumnName="idSubscribers" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="worker" ColumnName="worker" />
+                <ScalarProperty Name="expectReturnDate" ColumnName="expectReturnDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Otakims">
+            <EntityTypeMapping TypeName="libraryModel.Otakim">
+              <MappingFragment StoreEntitySet="Otakim">
+                <ScalarProperty Name="codeOtek" ColumnName="codeOtek" />
+                <ScalarProperty Name="Serial" ColumnName="Serial" />
+                <ScalarProperty Name="codeBook" ColumnName="codeBook" />
+                <ScalarProperty Name="price" ColumnName="price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subscribers">
+            <EntityTypeMapping TypeName="libraryModel.Subscriber">
+              <MappingFragment StoreEntitySet="Subscribers">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phon" ColumnName="phon" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubscriptionTypes">
+            <EntityTypeMapping TypeName="libraryModel.SubscriptionType">
+              <MappingFragment StoreEntitySet="SubscriptionType">
+                <ScalarProperty Name="codeType" ColumnName="codeType" />
+                <ScalarProperty Name="numOfBooks" ColumnName="numOfBooks" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="libraryModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Workers">
+            <EntityTypeMapping TypeName="libraryModel.Worker">
+              <MappingFragment StoreEntitySet="Workers">
+                <ScalarProperty Name="idWorker" ColumnName="idWorker" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="typeWork" ColumnName="typeWork" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="libraryModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="libraryModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="libraryModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="libraryModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="libraryModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="libraryModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="libraryModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="libraryModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="libraryModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
