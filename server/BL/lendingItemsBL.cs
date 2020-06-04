@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +10,12 @@ namespace BL
 {
     public class lendingItemsBL
     {
-        public static bool addLendingItems(int codeL, int codeO, string com)
+        public static bool addLendingItems(LendingItemDTO l)
         {
             using (libraryEntities db = new libraryEntities())
             {
-                db.LendingItems.Add(new LendingItem
-                {
-                    codeLending=codeL,
-                    codeOtek=codeO,
-                    comment=com,
-                    returnDate=null
-                });
+                db.LendingItems.Add(Converters.LendingItemConverter.ConvertLendingItemDTOToDAL(l));
+                db.Otakims.First(a => a.codeOtek == l.codeOtek).status = "מושאל";
                 try
                 {
                     db.SaveChanges();

@@ -54,6 +54,16 @@
     <Compile Include="autherBL.cs" />
     <Compile Include="bookBL.cs" />
     <Compile Include="categoriesBL.cs" />
+    <Compile Include="Converters\AuthorConverter.cs" />
+    <Compile Include="Converters\BookConverter.cs" />
+    <Compile Include="Converters\categoriesConverter.cs" />
+    <Compile Include="Converters\CrowdConverter.cs" />
+    <Compile Include="Converters\LendingConverter.cs" />
+    <Compile Include="Converters\LendingItemConverter.cs" />
+    <Compile Include="Converters\OtekConverter.cs" />
+    <Compile Include="Converters\SubsciptionTypeConverter.cs" />
+    <Compile Include="Converters\SubsriberConverter.cs" />
+    <Compile Include="Converters\WorkerConverter.cs" />
     <Compile Include="crowdBL.cs" />
     <Compile Include="lendingBL.cs" />
     <Compile Include="lendingItemsBL.cs" />
@@ -67,11 +77,16 @@
       <Project>{3CA215AA-FF0B-49D0-991D-89F5DADE5F59}</Project>
       <Name>DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{06b6b5f8-ce99-4e50-bbdc-72324b78fdb3}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

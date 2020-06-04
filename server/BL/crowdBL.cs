@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,11 @@ namespace BL
 {
     public class crowdBL
     {
-        public static bool addCrowd(string newName)
+        public static bool addCrowd(CrowdDTO c)
         {
             using (libraryEntities db = new libraryEntities())
             {
-                db.Crowds.Add(new Crowd
-                {
-                    nameCrowd = newName
-                });
+                db.Crowds.Add(Converters.CrowdConverter.ConvertCrowdDTOCToDAL(c));
                 try
                 {
                     db.SaveChanges();

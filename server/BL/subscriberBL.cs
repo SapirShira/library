@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,21 +10,11 @@ namespace BL
 {
     public class subscriberBL
     {
-        public static bool addSubscriber(int idSub, string firstN, string lastN, string addres, string phonN, int typeN)
+        public static bool addSubscriber(SubsciberDTO s)
         {
             using (libraryEntities db = new libraryEntities())
             {
-                db.Subscribers.Add(new Subscriber
-                {
-                    id = idSub,
-                    firstName = firstN,
-                    lastName = lastN,
-                    address = addres,
-                    phon = phonN,
-                    startDate = DateTime.Now,
-                    type=typeN,
-                    isDeleted=false
-                }) ;
+                db.Subscribers.Add(Converters.SubsriberConverter.ConvertSubscriberDTOToDAL(s)) ;
                 try
                 {
                     db.SaveChanges();

@@ -24,6 +24,7 @@ namespace DAL
         public Nullable<int> Serial { get; set; }
         public Nullable<int> codeBook { get; set; }
         public Nullable<int> price { get; set; }
+        public string status { get; set; }
     
         public virtual Book Book { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

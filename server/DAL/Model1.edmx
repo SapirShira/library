@@ -69,6 +69,7 @@
           <Property Name="Serial" Type="int" />
           <Property Name="codeBook" Type="int" />
           <Property Name="price" Type="int" />
+          <Property Name="status" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Subscribers">
           <Key>
@@ -384,6 +385,7 @@
           <Property Name="price" Type="Int32" />
           <NavigationProperty Name="Book" Relationship="Self.FK__Otakim__codeBook__6AEFE058" FromRole="Otakim" ToRole="Books" />
           <NavigationProperty Name="LendingItems" Relationship="Self.FK__LendingIt__codeO__251C81ED" FromRole="Otakim" ToRole="LendingItem" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="Subscriber">
           <Key>
@@ -701,6 +703,7 @@
           <EntitySetMapping Name="Otakims">
             <EntityTypeMapping TypeName="libraryModel.Otakim">
               <MappingFragment StoreEntitySet="Otakim">
+                <ScalarProperty Name="status" ColumnName="status" />
                 <ScalarProperty Name="codeOtek" ColumnName="codeOtek" />
                 <ScalarProperty Name="Serial" ColumnName="Serial" />
                 <ScalarProperty Name="codeBook" ColumnName="codeBook" />

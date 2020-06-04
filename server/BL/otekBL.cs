@@ -19,7 +19,8 @@ namespace BL
                     {
                         codeBook = codeB,
                         Serial = i,
-                        price = Convert.ToInt32(priceO)
+                        price = Convert.ToInt32(priceO),
+                        status="נמצא"
                     }) ;
                 }
                 try

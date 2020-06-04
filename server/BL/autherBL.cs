@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,11 @@ namespace BL
 {
     public class autherBL
     {
-        public static bool addAuther(string firstN, string lastN, string litersryA)
+        public static bool addAuther(AuthorDTO a)
         {
             using (libraryEntities db = new libraryEntities())
             {
-                db.Aauthors.Add(new Aauthor
-                {
-                   firstName=firstN,
-                   lastName=lastN,
-                   LiteraryAlias=litersryA
-                });
+                db.Aauthors.Add(Converters.AuthorConverter.ConvertAuthorDTOToDAL(a));
                 try
                 {
                     db.SaveChanges();

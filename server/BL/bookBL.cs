@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,26 +12,17 @@ namespace BL
 
     public class bookBL
     {
-        public static bool addBook(string namen, int auther, int codeCat, int codeCro, int amount, double price)
+        public static bool addBook(BookDTO bo, double price)
         {
             int codeN;
             using (libraryEntities db = new libraryEntities())
             {
-                db.Books.Add(new Book
-                {
-                    name = namen,
-                    codAauthor = auther,
-                    codeCategory = codeCat,
-                    codeCrowd = codeCro,
-                    date = DateTime.Now, 
-                    isDeleted=false,
-                    numOtakim=amount
-                }) ;
+                db.Books.Add(Converters.BookConverter.ConvertBookDTOToDAL(bo)) ;
                 try
                 {
                     db.SaveChanges();
-                    codeN = db.Books.First(b => b.name == namen).codeBook;
-                    return otekBL.addotek(codeN, amount, price, amount);
+                    codeN = db.Books.First(b => b.name == bo.name).codeBook;
+                    return otekBL.addotek(codeN, Convert.ToInt32(bo.numOtakim), price, Convert.ToInt32(bo.numOtakim));
                 }
                 catch (Exception e)
                 {

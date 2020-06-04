@@ -78,6 +78,7 @@
     <Property Name="price" Type="Int32" />
     <NavigationProperty Name="Book" Relationship="Self.FK__Otakim__codeBook__6AEFE058" FromRole="Otakim" ToRole="Books" />
     <NavigationProperty Name="LendingItems" Relationship="Self.FK__LendingIt__codeO__251C81ED" FromRole="Otakim" ToRole="LendingItem" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
   </EntityType>
   <EntityType Name="Subscriber">
     <Key>

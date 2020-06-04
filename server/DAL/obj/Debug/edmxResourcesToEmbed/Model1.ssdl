@@ -64,6 +64,7 @@
     <Property Name="Serial" Type="int" />
     <Property Name="codeBook" Type="int" />
     <Property Name="price" Type="int" />
+    <Property Name="status" Type="nchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="Subscribers">
     <Key>

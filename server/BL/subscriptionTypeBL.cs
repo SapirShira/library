@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,11 @@ namespace BL
 {
     public class subscriptionTypeBL
     {
-        public static bool addSubscriptionType(int num, double priceN)
+        public static bool addSubscriptionType(SubscriptionTypeDTO s)
         {
             using (libraryEntities db = new libraryEntities())
             {
-                db.SubscriptionTypes.Add(new SubscriptionType
-                {
-                    numOfBooks = num,
-                    price=Convert.ToInt32(priceN),
-                    status=null
-                });
+                db.SubscriptionTypes.Add(Converters.SubsciptionTypeConverter.ConvertSubsciptionTypeDTOToDAL(s));
                 try
                 {
                     db.SaveChanges();

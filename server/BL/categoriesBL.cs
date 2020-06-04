@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,11 @@ namespace BL
 {
     public class categoriesBL
     {
-        public static bool addCategory(string newName)
+        public static bool addCategory(CategoryDTO c)
         {
             using (libraryEntities db = new libraryEntities())
             {
-                db.Categories.Add(new Category
-                {
-                    nameCategory=newName
-                });
+                db.Categories.Add(Converters.categoriesConverter.ConvertCategoryDTOToDAL(c));
                 try
                 {
                     db.SaveChanges();

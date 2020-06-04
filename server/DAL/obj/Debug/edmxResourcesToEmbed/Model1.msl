@@ -65,6 +65,7 @@
     <EntitySetMapping Name="Otakims">
       <EntityTypeMapping TypeName="libraryModel.Otakim">
         <MappingFragment StoreEntitySet="Otakim">
+          <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="codeOtek" ColumnName="codeOtek" />
           <ScalarProperty Name="Serial" ColumnName="Serial" />
           <ScalarProperty Name="codeBook" ColumnName="codeBook" />
