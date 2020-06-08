@@ -14,6 +14,7 @@ import { WorkesComponent } from './components/workes/workes.component';
 import { BuyingDitailsComponent } from './components/buying-ditails/buying-ditails.component';
 import { BuyingComponent } from './components/buying/buying.component';
 import { StorsComponent } from './components/stors/stors.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { StorsComponent } from './components/stors/stors.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
