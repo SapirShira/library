@@ -52,8 +52,37 @@ namespace BL
                     return false;
                 }
 
-                
+
             }
         }
+
+            public static bool updateBook(BookDTO a)
+            {
+            using (libraryEntities db = new libraryEntities())
+            {
+                Book b = db.Books.First(x => x.codeBook == a.codeBook);
+
+                b.name = a.name;
+                b.numOtakim = a.numOtakim;
+                b.codAauthor = a.codeCategory;
+                b.codeCategory = a.codeCategory;
+                b.codeCrowd = a.codeCrowd;
+                b.date = a.date;
+                b.isDeleted = a.isDeleted;
+
+
+                try
+                {
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+
+            }
+            }
+        
     }
 }
