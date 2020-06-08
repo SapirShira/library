@@ -14,6 +14,7 @@ import { WorkesComponent } from './components/workes/workes.component';
 import { BuyingDitailsComponent } from './components/buying-ditails/buying-ditails.component';
 import { BuyingComponent } from './components/buying/buying.component';
 import { StorsComponent } from './components/stors/stors.component';
+import { CopiecComponent } from './components/copiec/copiec.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { StorsComponent } from './components/stors/stors.component';
     WorkesComponent,
     BuyingDitailsComponent,
     BuyingComponent,
-    StorsComponent
+    StorsComponent,
+    CopiecComponent
   ],
   imports: [
     BrowserModule,
