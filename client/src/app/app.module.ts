@@ -14,7 +14,13 @@ import { WorkesComponent } from './components/workes/workes.component';
 import { BuyingDitailsComponent } from './components/buying-ditails/buying-ditails.component';
 import { BuyingComponent } from './components/buying/buying.component';
 import { StorsComponent } from './components/stors/stors.component';
+<<<<<<< HEAD
+import { CopiecComponent } from './components/copiec/copiec.component';
+import { SubcriptionTypesComponent } from './components/subcription-types/subcription-types.component';
+import { AuthorComponent } from './components/author/author.component';
+=======
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+>>>>>>> c746cb82900ad8a49e939b82fbf22180fcfc7eb7
 
 @NgModule({
   declarations: [
@@ -29,7 +35,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     WorkesComponent,
     BuyingDitailsComponent,
     BuyingComponent,
-    StorsComponent
+    StorsComponent,
+    CopiecComponent,
+    SubcriptionTypesComponent,
+    AuthorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BuyingDitailsComponent } from './buying-ditails.component';
+import { SubcriptionTypesComponent } from './subcription-types.component';
 
-describe('BuyingDitailsComponent', () => {
-  let component: BuyingDitailsComponent;
-  let fixture: ComponentFixture<BuyingDitailsComponent>;
+describe('SubcriptionTypesComponent', () => {
+  let component: SubcriptionTypesComponent;
+  let fixture: ComponentFixture<SubcriptionTypesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BuyingDitailsComponent ]
+      declarations: [ SubcriptionTypesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BuyingDitailsComponent);
+    fixture = TestBed.createComponent(SubcriptionTypesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
