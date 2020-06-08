@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StorsComponent } from './stors.component';
+import { SubcriptionTypesComponent } from './subcription-types.component';
 
-describe('StorsComponent', () => {
-  let component: StorsComponent;
-  let fixture: ComponentFixture<StorsComponent>;
+describe('SubcriptionTypesComponent', () => {
+  let component: SubcriptionTypesComponent;
+  let fixture: ComponentFixture<SubcriptionTypesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StorsComponent ]
+      declarations: [ SubcriptionTypesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StorsComponent);
+    fixture = TestBed.createComponent(SubcriptionTypesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
