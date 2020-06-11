@@ -14,6 +14,7 @@ namespace BL.Converters
         {
             return new BookDTO
             {
+                codeBook=book.codeBook,
                 name = book.name,
                 codAauthor = book.codAauthor,
                 codeCategory = book.codeCategory,

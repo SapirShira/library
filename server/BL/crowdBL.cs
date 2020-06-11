@@ -27,5 +27,24 @@ namespace BL
 
             }
         }
+
+        public static bool updateCrowd(CrowdDTO a)
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                Crowd b = db.Crowds.First(x => x.codeCrowd == a.codeCrowd);
+                b.nameCrowd = a.nameCrowd;
+
+                try
+                {
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

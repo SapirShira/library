@@ -14,6 +14,7 @@ namespace BL.Converters
         {
             return new OtakimDTO
             {
+                codeOtek=otek.codeOtek,
                 codeBook = otek.codeBook,
                 Serial = otek.Serial,
                 price = otek.price,

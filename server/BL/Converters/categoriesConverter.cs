@@ -14,6 +14,7 @@ namespace BL.Converters
         {
             return new CategoryDTO
             {
+                codeCategory=category.codeCategory,
                nameCategory=category.nameCategory
             };
         }

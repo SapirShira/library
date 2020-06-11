@@ -28,3 +28,5 @@ C:\Users\שירה\Desktop\פרויקט סיום\git\server\BL\obj\Debug\BL.cspro
 C:\Users\שירה\Desktop\פרויקט סיום\git\server\BL\obj\Debug\BL.csproj.CopyComplete
 C:\Users\שירה\Desktop\פרויקט סיום\git\server\BL\obj\Debug\BL.dll
 C:\Users\שירה\Desktop\פרויקט סיום\git\server\BL\obj\Debug\BL.pdb
+C:\Users\שירה\Desktop\פרויקט סיום\git\server\BL\bin\Debug\DTO.dll
+C:\Users\שירה\Desktop\פרויקט סיום\git\server\BL\bin\Debug\DTO.pdb

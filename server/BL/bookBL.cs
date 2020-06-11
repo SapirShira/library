@@ -32,6 +32,14 @@ namespace BL
             }
         }
 
+        public static List<BookDTO> GetBooks()
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                return Converters.BookConverter.ConvertBookListToDTO(db.Books.ToList());
+            }
+         }
+
         public static bool addExistsBook(int code, int amount, double price)
         {
             using (libraryEntities db = new libraryEntities())
@@ -56,12 +64,11 @@ namespace BL
             }
         }
 
-            public static bool updateBook(BookDTO a)
-            {
+        public static bool updateBook(BookDTO a)
+        {
             using (libraryEntities db = new libraryEntities())
             {
                 Book b = db.Books.First(x => x.codeBook == a.codeBook);
-
                 b.name = a.name;
                 b.numOtakim = a.numOtakim;
                 b.codAauthor = a.codeCategory;
@@ -69,7 +76,6 @@ namespace BL
                 b.codeCrowd = a.codeCrowd;
                 b.date = a.date;
                 b.isDeleted = a.isDeleted;
-
 
                 try
                 {
@@ -80,9 +86,8 @@ namespace BL
                 {
                     return false;
                 }
-
             }
-            }
+        }
         
     }
 }

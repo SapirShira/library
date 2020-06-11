@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatCalendarCellCssClasses} from '@angular/material/datepicker';
+import { BookService } from 'src/app/servises/book.service';
+import { Book } from 'src/app/classes/book';
 
 @Component({
   selector: 'app-books',
@@ -14,10 +16,12 @@ export class BooksComponent implements OnInit{
     // Highlight the 1st and 20th day of each month.
     return (date === 1 || date === 20) ? 'example-custom-date-class' : '';
   }
-
-  constructor() { }
+  books: Book[];
+  constructor(private bookServise: BookService) { }
 
   ngOnInit(): void {
+    this.bookServise.getAllBooks().subscribe((data: Book[]) => { this.books = data });
+
   }
 
 }

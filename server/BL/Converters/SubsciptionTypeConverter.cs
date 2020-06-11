@@ -14,6 +14,7 @@ namespace BL.Converters
         {
             return new SubscriptionTypeDTO
             {
+                codeType=subscriptionType.codeType,
                 numOfBooks = subscriptionType.numOfBooks,
                 price = subscriptionType.price,
                 status = subscriptionType.status

@@ -36,6 +36,24 @@ namespace BL
                 
         }
 
-        
+        public static bool updateOtekStatus(int code, string status)
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                Otakim b = db.Otakims.First(x => x.codeOtek == code);
+                b.status = status;
+
+                try
+                {
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+            }
+        }
+
     }
 }

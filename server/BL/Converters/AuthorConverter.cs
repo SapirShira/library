@@ -12,8 +12,9 @@ namespace BL.Converters
     {
         public static AuthorDTO ConvertAuthorToDTO(Aauthor auther)
         {
-            return new AuthorDTO 
+            return new AuthorDTO
             {
+                codAauthor = auther.codAauthor,
                 firstName = auther.firstName,
                 lastName = auther.lastName,
                 LiteraryAlias = auther.LiteraryAlias

@@ -15,6 +15,7 @@ namespace BL.Converters
         {
             return new CrowdDTO
             {
+                codeCrowd=crowd.codeCrowd,
                 nameCrowd = crowd.nameCrowd
             };
         }

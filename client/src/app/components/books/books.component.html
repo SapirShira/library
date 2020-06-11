@@ -1,16 +1,28 @@
+<p>try</p>
    <form>
-   קוד:<input type="text"><br>
+   קוד:<input type="text" ><br>
     שם:<input type="text"><br>
     מחבר:<input type="text"><br>
     תאריך קטלוג:<input type="date"><br>
-    קהל יעד:<mat-autocomplete>
-      <mat-option *ngFor="let option of options" [value]="option">
+    <!-- קהל יעד:<mat-autocomplete> -->
+      <!-- <mat-option *ngFor="let option of options" [value]="option">
         {{ option }}
-      </mat-option>
-    </mat-autocomplete>
+      </mat-option> -->
+    <!-- </mat-autocomplete> -->
     תחום:<input type="text"><br>
     מס עותקים:<input type="number"><br>
    מחיר: <input type="number"><br>
 <input type="submit" value=" ">
 </form>
-<p>try</p>
+
+
+<div *ngFor="let item of books">
+  codebook: {{item.codeBook}}<br>
+  name: {{item.name}}<br>
+  other: {{item.auther}}<br>
+  date: {{item.date}}<br>
+  codeCategory: {{item.category}}<br>
+  codeCrowd: {{item.crowd}}<br>
+  numOtakim: {{item.num_copies}}<br>
+
+</div>

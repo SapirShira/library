@@ -32,7 +32,6 @@ namespace BL
             using (libraryEntities db = new libraryEntities())
             {
                 Aauthor au = db.Aauthors.First(x => x.codAauthor == a.codAauthor);
-
                 au.firstName = a.firstName;
                 au.lastName = a.lastName;
                 au.LiteraryAlias = a.LiteraryAlias;

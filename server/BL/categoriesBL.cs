@@ -27,5 +27,24 @@ namespace BL
 
             }
         }
+
+        public static bool updateCategory(CategoryDTO a)
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                Category b = db.Categories.First(x => x.codeCategory == a.codeCategory);
+                b.nameCategory = a.nameCategory;
+               
+                try
+                {
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

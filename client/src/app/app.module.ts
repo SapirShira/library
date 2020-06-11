@@ -9,18 +9,12 @@ import { SubscribersComponent } from './components/subscribers/subscribers.compo
 import { LendingComponent } from './components/lending/lending.component';
 import { CrowdComponent } from './components/crowd/crowd.component';
 import { LendindDitilsComponent } from './components/lendind-ditils/lendind-ditils.component';
-import { TypesComponent } from './components/types/types.component';
 import { WorkesComponent } from './components/workes/workes.component';
-import { BuyingDitailsComponent } from './components/buying-ditails/buying-ditails.component';
-import { BuyingComponent } from './components/buying/buying.component';
-import { StorsComponent } from './components/stors/stors.component';
-<<<<<<< HEAD
 import { CopiecComponent } from './components/copiec/copiec.component';
 import { SubcriptionTypesComponent } from './components/subcription-types/subcription-types.component';
 import { AuthorComponent } from './components/author/author.component';
-=======
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
->>>>>>> c746cb82900ad8a49e939b82fbf22180fcfc7eb7
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,11 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LendingComponent,
     CrowdComponent,
     LendindDitilsComponent,
-    TypesComponent,
     WorkesComponent,
-    BuyingDitailsComponent,
-    BuyingComponent,
-    StorsComponent,
     CopiecComponent,
     SubcriptionTypesComponent,
     AuthorComponent
@@ -43,7 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

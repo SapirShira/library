@@ -166,3 +166,11 @@ C:\Users\שירה\Desktop\פרויקט סיום\git\server\labrery\obj\Debug\GUI
 C:\Users\שירה\Desktop\פרויקט סיום\git\server\labrery\obj\Debug\GUI.csproj.CopyComplete
 C:\Users\שירה\Desktop\פרויקט סיום\git\server\labrery\obj\Debug\labrery.dll
 C:\Users\שירה\Desktop\פרויקט סיום\git\server\labrery\obj\Debug\labrery.pdb
+C:\Users\שירה\Desktop\פרויקט סיום\git\server\labrery\bin\BL.dll
+C:\Users\שירה\Desktop\פרויקט סיום\git\server\labrery\bin\DTO.dll
+C:\Users\שירה\Desktop\פרויקט סיום\git\server\labrery\bin\DAL.dll
+C:\Users\שירה\Desktop\פרויקט סיום\git\server\labrery\bin\BL.pdb
+C:\Users\שירה\Desktop\פרויקט סיום\git\server\labrery\bin\BL.dll.config
+C:\Users\שירה\Desktop\פרויקט סיום\git\server\labrery\bin\DTO.pdb
+C:\Users\שירה\Desktop\פרויקט סיום\git\server\labrery\bin\DAL.pdb
+C:\Users\שירה\Desktop\פרויקט סיום\git\server\labrery\bin\DAL.dll.config
