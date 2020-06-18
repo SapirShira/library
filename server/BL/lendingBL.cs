@@ -12,7 +12,6 @@ namespace BL
     {
         public static bool addLending(LendingDTO l)
         {
-            int coden;
             using (libraryEntities db = new libraryEntities())
             {
                 db.Lendings.Add(Converters.LendingConverter.ConvertLendingDTOToDAL(l)) ;
@@ -28,5 +27,14 @@ namespace BL
 
             }
         }
+
+        public static List<LendingDTO> GetLendings()
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                return Converters.LendingConverter.ConvertLendingListToDTO(db.Lendings.ToList());
+            }
+        }
+
     }
 }

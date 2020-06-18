@@ -28,6 +28,7 @@ namespace DAL
         public Nullable<System.DateTime> startDate { get; set; }
         public Nullable<int> type { get; set; }
         public Nullable<bool> isDeleted { get; set; }
+        public string email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Lending> Lendings { get; set; }

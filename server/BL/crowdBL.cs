@@ -46,5 +46,15 @@ namespace BL
                 }
             }
         }
+
+        public static List<CrowdDTO> GetCrowds()
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                return Converters.CrowdConverter.ConvertCrowdListToDTO(db.Crowds.ToList());
+
+            }
+        }
+
     }
 }

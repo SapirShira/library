@@ -49,5 +49,13 @@ namespace BL
 
             }
         }
+
+        public static List<AuthorDTO> GetAuthor()
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                return Converters.AuthorConverter.ConvertAuthorListToDTO(db.Aauthors.ToList());
+            }
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace DTO
         public string lastName { get; set; }
         public string address { get; set; }
         public string phon { get; set; }
+        public string email { get; set; }
         public Nullable<System.DateTime> startDate { get; set; }
         public Nullable<int> type { get; set; }
         public Nullable<bool> isDeleted { get; set; }

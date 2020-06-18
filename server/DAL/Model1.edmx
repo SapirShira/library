@@ -83,6 +83,7 @@
           <Property Name="startDate" Type="date" />
           <Property Name="type" Type="int" />
           <Property Name="isDeleted" Type="bit" />
+          <Property Name="email" Type="nchar" MaxLength="25" Nullable="false" />
         </EntityType>
         <EntityType Name="SubscriptionType">
           <Key>
@@ -401,6 +402,7 @@
           <Property Name="isDeleted" Type="Boolean" />
           <NavigationProperty Name="Lendings" Relationship="Self.FK__Lendings__idSubs__1E6F845E" FromRole="Subscribers" ToRole="Lendings" />
           <NavigationProperty Name="SubscriptionType" Relationship="Self.FK__Subscriber__type__59C55456" FromRole="Subscribers" ToRole="SubscriptionType" />
+          <Property Name="email" Type="String" Nullable="false" MaxLength="25" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="SubscriptionType">
           <Key>
@@ -714,6 +716,7 @@
           <EntitySetMapping Name="Subscribers">
             <EntityTypeMapping TypeName="libraryModel.Subscriber">
               <MappingFragment StoreEntitySet="Subscribers">
+                <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />

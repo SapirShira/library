@@ -1,4 +1,5 @@
 ﻿using DAL;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +53,14 @@ namespace BL
                 {
                     return false;
                 }
+            }
+        }
+
+        public static List<OtakimDTO> GetOtakim()
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                return Converters.OtekConverter.ConvertOtakimListToDTO(db.Otakims.ToList());
             }
         }
 

@@ -78,6 +78,7 @@
     <Property Name="startDate" Type="date" />
     <Property Name="type" Type="int" />
     <Property Name="isDeleted" Type="bit" />
+    <Property Name="email" Type="nchar" MaxLength="25" Nullable="false" />
   </EntityType>
   <EntityType Name="SubscriptionType">
     <Key>

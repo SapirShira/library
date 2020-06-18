@@ -76,6 +76,7 @@
     <EntitySetMapping Name="Subscribers">
       <EntityTypeMapping TypeName="libraryModel.Subscriber">
         <MappingFragment StoreEntitySet="Subscribers">
+          <ScalarProperty Name="email" ColumnName="email" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="firstName" ColumnName="firstName" />
           <ScalarProperty Name="lastName" ColumnName="lastName" />

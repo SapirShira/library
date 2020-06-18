@@ -27,5 +27,48 @@ namespace BL
 
             }
         }
+
+
+
+
+        public static bool updateSubsciber(SubsciberDTO a)
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                Subscriber au = db.Subscribers.First(x => x.id == a.id);
+                au.firstName = a.firstName;
+                au.lastName = a.lastName;
+                au.id = a.id;
+                au.isDeleted = a.isDeleted;
+                au.address = a.address;
+                au.phon = a.phon;
+                au.startDate = a.startDate;
+                au.type = a.type;
+                au.email = a.email;
+
+
+                try
+                {
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+
+            }
+        }
+
+
+
+        public static List<SubsciberDTO> GetSubscibers()
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                return Converters.SubsriberConverter.ConvertSubscriberListToDTO(db.Subscribers.ToList());
+
+            }
+        }
     }
 }

@@ -28,5 +28,14 @@ namespace BL
 
             }
         }
+
+        public static List<LendingItemDTO> GetLendingItems()
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                return Converters.LendingItemConverter.ConvertLendingItemListToDTO(db.LendingItems.ToList());
+            }
+        }
+
     }
 }

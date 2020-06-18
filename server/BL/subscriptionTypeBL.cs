@@ -27,5 +27,38 @@ namespace BL
 
             }
         }
+
+
+        public static bool updateSubscriptionType(SubscriptionType a)
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                SubscriptionType b = db.SubscriptionTypes.First(x => x.codeType == a.codeType);
+                b.numOfBooks = a.numOfBooks;
+                b.price = a.price;
+                b.status = a.status;
+                
+
+                try
+                {
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+            }
+        }
+
+
+        public static List<SubscriptionTypeDTO> GetSubscriptionTypes()
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                return Converters.SubsciptionTypeConverter.ConvertSubsciptionTypeListToDTO(db.SubscriptionTypes.ToList());
+            }
+        }
+
     }
 }

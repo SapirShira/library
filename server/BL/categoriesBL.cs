@@ -46,5 +46,14 @@ namespace BL
                 }
             }
         }
+
+        public static List<CategoryDTO> GetCategorys()
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                return Converters.categoriesConverter.ConvertCategoryListToDTO(db.Categories.ToList());
+            }
+        }
+
     }
 }
