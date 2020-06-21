@@ -1,5 +1,4 @@
-<form>
-    קוד:<input type="text"><br>
-    שם:<input type="text"><br>
+<form (submit)="saveCategory()">
+    שם:<input type="text" [(ngModel)]="category.nameCategory" name="name"><br>
     <input type="submit" value=" ">
 </form>

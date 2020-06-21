@@ -1,5 +1,5 @@
 export class categories {
-    code:number;
-    name:string;
+    codeCategory:number;
+    nameCategory:string;
     constructor(){}
 }

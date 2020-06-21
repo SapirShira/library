@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { categories } from 'src/app/classes/categories';
+import { CategoryService } from 'src/app/servises/category.service';
 
 @Component({
   selector: 'app-categories',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor() { }
+  category:categories = new categories();
+  constructor(private categoryService:CategoryService) { }
 
   ngOnInit(): void {
+  }
+
+  saveCategory()
+  {
+    this.categoryService.createCategory(this.category).subscribe(
+      res=>
+      {
+
+      })
   }
 
 }
