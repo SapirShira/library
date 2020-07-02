@@ -5,12 +5,11 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class SubscribersService {
+export class LendindDitilsService {
 
   constructor(private http:HttpClient) { }
-
-  getAllSubscribers()
+  getAllLendind-ditils()
   {
-    return this.http.get(environment.api+"subscribers/getBookSubscriberss");
+    return this.http.get(environment.api+"lendind-ditils/getLendind-ditils");
   }
 }

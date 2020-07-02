@@ -5,12 +5,11 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class SubscribersService {
+export class LendingService {
 
   constructor(private http:HttpClient) { }
-
-  getAllSubscribers()
+  getAllLending()
   {
-    return this.http.get(environment.api+"subscribers/getBookSubscriberss");
+    return this.http.get(environment.api+"lending/getLending");
   }
 }
