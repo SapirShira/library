@@ -1,10 +1,10 @@
 export class worker {
-    id: number;
+    idWorker: number;
     name: string;
     adress:string;
     phone:number;
-    worker_type:Text;
-    Password: string;
+    typeWorker:Text;
+    password: string;
 
      constructor(){}
  }

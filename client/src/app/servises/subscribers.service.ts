@@ -13,4 +13,8 @@ export class SubscribersService {
   {
     return this.http.get(environment.api+"subscribers/getBookSubscriberss");
   }
+  createSubscribers(subscribers:subscribers):Observable<boolean>
+  {
+      return this.http.post<boolean>(environment.api+'subscribers/AddSubscribers',subscribers)
+  }
 }

@@ -1,9 +1,9 @@
 
   export class Author {
-      code_auther: number;
-      name: string;
-      lastname: string;
-      Literary_alias: string;
+      codeAuther: number;
+      firstName: string;
+      lastName: string;
+      LiteraryAlias: string;
     constructor(){}
 
   }

@@ -13,4 +13,8 @@ export class WorkersService {
   {
     return this.http.get(environment.api+"worker/getWorkers");
   }
+  createWorkers(workers:workers):Observable<boolean>
+  {
+      return this.http.post<boolean>(environment.api+'workers/AddWorkers',workers)
+  }
 }

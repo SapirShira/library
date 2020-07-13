@@ -1,11 +1,11 @@
 export class Book {
     codeBook: number;
     name: string;
-    auther: string;
+    codeAuther: string;
     date:Date;
-    crowd: number;
-    category: number;
-    num_copies: number;
+    codeCrowd: number;
+    codeCategory: number;
+    numOtakim: number;
     price:number;
     isDeleted:boolean;
     constructor(){}

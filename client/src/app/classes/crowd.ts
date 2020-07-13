@@ -1,5 +1,5 @@
 export class crowd {
-    code:number;
-    name:string;
+    codeCrowd:number;
+    nameCrowd:string;
     constructor(){}
 }

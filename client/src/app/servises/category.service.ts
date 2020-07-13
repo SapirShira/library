@@ -12,6 +12,10 @@ import { Observable } from 'rxjs';
 export class CategoryService {
 
   constructor(private http:HttpClient) { }
+  getAllCategory()
+  {
+    return this.http.get(environment.api+"category/getCategory");
+  }
 
   createCategory(category:categories):Observable<boolean>
   {

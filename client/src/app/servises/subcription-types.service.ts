@@ -8,10 +8,13 @@ import { environment } from 'src/environments/environment';
 export class SubcriptionTypesService {
 
   constructor(private http:HttpClient) { }
-  getAllSubcription-types()
+  getAllSubcription_types()
   {
     return this.http.get(environment.api+"subcription-types/getSubcription-types");
   }
-
+  createSubcription_types(subcription_types:subcription_types):Observable<boolean>
+  {
+      return this.http.post<boolean>(environment.api+'subcription_types/Subcription_types',subcription_types)
+  }
   
 }

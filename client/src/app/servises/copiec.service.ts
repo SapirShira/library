@@ -12,4 +12,11 @@ export class CopiecService {
   getAllCopiec()
   {
     return this.http.get(environment.api+"copiec/getCopiecs");
+
+    
+}
+createCopiec(copiec:copiec):Observable<boolean>
+  {
+      return this.http.post<boolean>(environment.api+'copiec/AddCopiec',copiec)
+  }
 }
