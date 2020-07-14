@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { subcription_types } from '../classes/subcription_types';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

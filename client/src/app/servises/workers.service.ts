@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { worker } from '../classes/workes';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ export class WorkersService {
   {
     return this.http.get(environment.api+"worker/getWorkers");
   }
-  createWorkers(workers:workers):Observable<boolean>
+  createWorkers(workers:worker):Observable<boolean>
   {
       return this.http.post<boolean>(environment.api+'workers/AddWorkers',workers)
   }
