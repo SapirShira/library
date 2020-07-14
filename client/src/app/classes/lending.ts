@@ -1,9 +1,9 @@
 export class lending {
-    code_lending: number;
-    id:number;
+    codeLending: number;
+    idSubscrbibers:number;
     date: Date;
     worker: string;
-    date_Return_is_expected: Date;
+    expectdReturnDate: Date;
      constructor(){}
  }
 

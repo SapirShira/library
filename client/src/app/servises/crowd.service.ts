@@ -13,4 +13,8 @@ export class CrowdService {
   {
     return this.http.get(environment.api+"crowd/getCrowd");
   }
+  createCrowd(crowd:crowd):Observable<boolean>
+  {
+      return this.http.post<boolean>(environment.api+'crowd/AddCrowd',crowd)
+  }
 }

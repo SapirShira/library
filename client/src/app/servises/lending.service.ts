@@ -12,4 +12,8 @@ export class LendingService {
   {
     return this.http.get(environment.api+"lending/getLending");
   }
+  createLending(lending:lending):Observable<boolean>
+  {
+      return this.http.post<boolean>(environment.api+'lending/AddLending',lending)
+  }
 }

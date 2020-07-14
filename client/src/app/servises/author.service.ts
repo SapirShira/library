@@ -12,5 +12,9 @@ export class AuthorService {
   {
     return this.http.get(environment.api+"author/getAuthor");
   }
+  createAuthor(author:Author):Observable<boolean>
+  {
+      return this.http.post<boolean>(environment.api+'author/AddAuthor',author)
+  }
   
 }

@@ -16,4 +16,9 @@ export class BookService {
   {
     return this.http.get(environment.api+"book/getBooks");
   }
+
+  createBooks(books:book):Observable<boolean>
+  {
+      return this.http.post<boolean>(environment.api+'books/AddBooks',books)
+  }
 }
