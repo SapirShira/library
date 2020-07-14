@@ -15,6 +15,8 @@ namespace BL.Converters
             return new LendingDTO
             {
                 codeLending=lending.codeLending,
+                SubscriberFullName=lending.Subscriber.firstName+" "+lending.Subscriber.lastName,
+                WorkerFullName=lending.Worker1.name,
                 idSubscribers = lending.idSubscribers,
                 worker = lending.worker,
                 date = lending.date,

@@ -10,6 +10,8 @@ namespace DTO
     {
         public int codeLending { get; set; }
         public Nullable<int> idSubscribers { get; set; }
+        public string SubscriberFullName { get; set; }
+        public string WorkerFullName { get; set; }
         public Nullable<System.DateTime> date { get; set; }
         public Nullable<int> worker { get; set; }
         public Nullable<System.DateTime> expectReturnDate { get; set; }

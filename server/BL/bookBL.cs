@@ -32,11 +32,16 @@ namespace BL
             }
         }
 
+        public static bool addBook(BookDTO book)
+        {
+            throw new NotImplementedException();
+        }
+
         public static List<BookDTO> GetBooks()
         {
             using (libraryEntities db = new libraryEntities())
             {
-                return Converters.BookConverter.ConvertBookListToDTO(db.Books.ToList());
+                return Converters.BookConverter.ConvertBookListToDTO(db.Books.Where(a=>a.isDeleted==false).ToList());
             }
          }
 

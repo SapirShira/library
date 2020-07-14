@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -16,6 +17,13 @@ namespace labrery.Controllers
         public IHttpActionResult GetBooks()
         {
             return Ok(BL.bookBL.GetBooks());
+        }
+
+
+        [Route("AddBook"), HttpPost]
+        public IHttpActionResult AddBook(BookDTO book)
+        {
+            return Ok(BL.bookBL.addBook(book));
         }
     }
 }

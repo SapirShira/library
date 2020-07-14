@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -18,6 +19,12 @@ namespace labrery.Controllers
             return Ok(BL.categoriesBL.GetCategorys());
         }
 
+
+        [Route("AddCrowd"), HttpPost]
+        public IHttpActionResult AddCrowd(CrowdDTO crowd)
+        {
+            return Ok(BL.crowdBL.addCrowd(crowd));
+        }
 
     }
 }
