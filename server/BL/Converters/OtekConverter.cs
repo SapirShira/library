@@ -18,7 +18,8 @@ namespace BL.Converters
                 codeBook = otek.codeBook,
                 Serial = otek.Serial,
                 price = otek.price,
-                status=otek.status
+                status=otek.status,
+                bookName=otek.Book.name
             };
         }
 

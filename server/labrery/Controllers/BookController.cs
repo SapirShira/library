@@ -25,5 +25,17 @@ namespace labrery.Controllers
         {
             return Ok(BL.bookBL.addBook(book));
         }
+
+        [Route("UpdateBook"), HttpPost]
+        public IHttpActionResult UpdateBook(BookDTO book)
+        {
+            return Ok(BL.bookBL.updateBook(book));
+        }
+
+        [Route("DeleteBook"), HttpPost]
+        public IHttpActionResult DeleteBook(BookDTO book)
+        {
+            return Ok(BL.bookBL.deleteBook(book));
+        }
     }
 }

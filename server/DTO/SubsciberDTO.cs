@@ -16,6 +16,7 @@ namespace DTO
         public string email { get; set; }
         public Nullable<System.DateTime> startDate { get; set; }
         public Nullable<int> type { get; set; }
+        public int numOfBooks { get; set; }
         public Nullable<bool> isDeleted { get; set; }
     }
 }

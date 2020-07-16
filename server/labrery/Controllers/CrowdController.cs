@@ -26,5 +26,11 @@ namespace labrery.Controllers
             return Ok(BL.crowdBL.addCrowd(crowd));
         }
 
+        [Route("UpdateCrowd"), HttpPost]
+        public IHttpActionResult UpdateCrowd(CrowdDTO crowd)
+        {
+            return Ok(BL.crowdBL.updateCrowd(crowd));
+        }
+
     }
 }

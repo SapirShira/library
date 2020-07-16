@@ -25,5 +25,11 @@ namespace labrery.Controllers
             return Ok(BL.categoriesBL.addCategory(category));
         }
 
+        [Route("UpdateCategory"), HttpPost]
+        public IHttpActionResult UpdateCategory(CategoryDTO category)
+        {
+            return Ok(BL.categoriesBL.updateCategory(category));
+        }
+
     }
 }

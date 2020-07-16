@@ -60,13 +60,35 @@ namespace BL
             }
         }
 
+        public static bool deleteSubsciber(SubsciberDTO a)
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                Subscriber au = db.Subscribers.First(x => x.id == a.id);
+                
+                au.isDeleted = true;
+               
+
+
+                try
+                {
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+
+            }
+        }
 
 
         public static List<SubsciberDTO> GetSubscibers()
         {
             using (libraryEntities db = new libraryEntities())
             {
-                return Converters.SubsriberConverter.ConvertSubscriberListToDTO(db.Subscribers.ToList());
+                return Converters.SubsriberConverter.ConvertSubscriberListToDTO(db.Subscribers.Where(a=>a.isDeleted==false).ToList());
 
             }
         }

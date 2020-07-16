@@ -32,11 +32,7 @@ namespace BL
             }
         }
 
-        public static bool addBook(BookDTO book)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public static List<BookDTO> GetBooks()
         {
             using (libraryEntities db = new libraryEntities())
@@ -93,6 +89,26 @@ namespace BL
                 }
             }
         }
-        
+
+
+        public static bool deleteBook(BookDTO a)
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                Book b = db.Books.First(x => x.codeBook == a.codeBook);
+                b.isDeleted = true;
+
+                try
+                {
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+            }
+        }
+
     }
 }

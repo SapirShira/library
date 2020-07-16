@@ -27,5 +27,11 @@ namespace labrery.Controllers
             return Ok(BL.autherBL.addAuther(author));
         }
 
+        [Route("UpdateAuthor"), HttpPost]
+        public IHttpActionResult UpdateAuthor(AuthorDTO author)
+        {
+            return Ok(BL.autherBL.updateAuther(author));
+        }
+
     }
 }

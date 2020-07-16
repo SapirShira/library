@@ -35,6 +35,7 @@ namespace BL
                 au.firstName = a.firstName;
                 au.lastName = a.lastName;
                 au.LiteraryAlias = a.LiteraryAlias;
+                
             
 
                 try

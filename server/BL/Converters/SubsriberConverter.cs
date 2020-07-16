@@ -22,7 +22,8 @@ namespace BL.Converters
                 startDate = subscriber.startDate,
                 type = subscriber.type,
                 isDeleted = subscriber.isDeleted,
-                email = subscriber.email
+                email = subscriber.email,
+                numOfBooks=Convert.ToInt32(subscriber.SubscriptionType.numOfBooks)
             };
         }
 

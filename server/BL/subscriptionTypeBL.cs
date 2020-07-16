@@ -29,7 +29,7 @@ namespace BL
         }
 
 
-        public static bool updateSubscriptionType(SubscriptionType a)
+        public static bool updateSubscriptionType(SubscriptionTypeDTO a)
         {
             using (libraryEntities db = new libraryEntities())
             {

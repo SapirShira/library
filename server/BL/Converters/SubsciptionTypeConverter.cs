@@ -17,7 +17,8 @@ namespace BL.Converters
                 codeType=subscriptionType.codeType,
                 numOfBooks = subscriptionType.numOfBooks,
                 price = subscriptionType.price,
-                status = subscriptionType.status
+                status = subscriptionType.status,
+                
             };
         }
 

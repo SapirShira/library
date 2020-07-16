@@ -12,13 +12,18 @@ namespace BL.Converters
     {
         public static LendingItemDTO ConvertLendingItemToDTO(LendingItem lendingItem)
         {
-            return new LendingItemDTO
-            {
-                codeLending = lendingItem.codeLending,
-                codeOtek = lendingItem.codeOtek,
-                comment = lendingItem.comment,
-                returnDate = lendingItem.returnDate
-            };
+            using (libraryEntities db = new libraryEntities())
+            {               
+                return new LendingItemDTO
+                {
+
+                    codeLending = lendingItem.codeLending,
+                    codeOtek = lendingItem.codeOtek,
+                    comment = lendingItem.comment,
+                    returnDate = lendingItem.returnDate,
+                    bookName = db.Books.First(b => b.codeBook ==lendingItem.Otakim.codeBook).name
+                };
+            }
         }
 
         public static LendingItem ConvertLendingItemDTOToDAL(LendingItemDTO lendingItem)
