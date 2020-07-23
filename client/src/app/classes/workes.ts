@@ -3,8 +3,9 @@ export class worker {
     name: string;
     adress:string;
     phone:number;
-    typeWorker:Text;
+    typeWork:Text;
     password: string;
+    status:boolean;
 
      constructor(){}
  }
