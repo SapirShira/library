@@ -32,7 +32,11 @@ namespace BL
             }
         }
 
-       
+        public static bool addBook(BookDTO book)
+        {
+            throw new NotImplementedException();
+        }
+
         public static List<BookDTO> GetBooks()
         {
             using (libraryEntities db = new libraryEntities())
