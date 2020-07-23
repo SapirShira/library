@@ -21,7 +21,11 @@ namespace BL.Converters
                 codeCrowd = book.codeCrowd,
                 date = book.date,
                 isDeleted = book.isDeleted,
-                numOtakim = book.numOtakim
+                numOtakim = book.numOtakim,
+                category=book.Category.nameCategory,
+                author=book.Aauthor.LiteraryAlias,
+                crowd=book.Crowd.nameCrowd
+
             };
         }
 
