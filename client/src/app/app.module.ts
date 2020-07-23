@@ -59,6 +59,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
+import { HeaderComponent } from './components/header/header.component';
 
 
 
@@ -75,7 +76,8 @@ import {MatTreeModule} from '@angular/material/tree';
     WorkesComponent,
     CopiecComponent,
     SubcriptionTypesComponent,
-    AuthorComponent
+    AuthorComponent,
+    HeaderComponent
   ],
   imports: [
     DragDropModule,
