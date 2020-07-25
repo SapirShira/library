@@ -6,7 +6,9 @@ export class Book {
     codeCrowd: number;
     codeCategory: number;
     numOtakim: number;
-    price:number;
     isDeleted:boolean;
+    crowd:string;
+    category:string;
+    auther:string;
     constructor(){}
 }

@@ -1,6 +1,8 @@
 export class lending {
     codeLending: number;
-    idSubscrbibers:number;
+    idSubscribers:number;
+    SubscriberFullName:string;
+    WorkerFullName:string;
     date: Date;
     worker: string;
     expectdReturnDate: Date;

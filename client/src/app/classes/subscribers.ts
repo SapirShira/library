@@ -4,8 +4,11 @@ export class subscribers {
     lastname:string;
     adress:string;
     phone:string;
+    email:string;
     startDate:Date;
     type: string;
+    numOfBooks:number;
+    isDeleted:boolean;
     
 
 
