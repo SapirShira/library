@@ -60,6 +60,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { HeaderComponent } from './components/header/header.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+ import {OverlayModule} from '@angular/cdk/overlay';
+ 
+
 
 
 
@@ -80,6 +84,8 @@ import { HeaderComponent } from './components/header/header.component';
     HeaderComponent
   ],
   imports: [
+    MatAutocompleteModule,
+    OverlayModule,
     DragDropModule,
     PortalModule,
     ScrollingModule,

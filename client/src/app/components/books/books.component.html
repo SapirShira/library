@@ -1,24 +1,42 @@
-<p>try</p>
-   <form>
-   קוד:<input type="text" ><br>
-    שם:<input type="text"><br>
-    מחבר:<input type="text"><br>
-    תאריך קטלוג:
-    <mat-form-field>
-      <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field><br>
-     קהל יעד:<input type="text">
-    תחום:<input type="text"><br>
-    מס עותקים:<input type="number"><br>
-   מחיר: <input type="number"><br>
-<input type="submit" value=" ">
-</form>dataSource
+<br><br>
+<form>
+
+  שם:<input type="text" ><br><br>
+  מחבר:<input type="text" ><br><br>
+  תאריך קטלוג:
+  <mat-form-field>
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field><br><br>
+  קהל יעד:<input type="text" >
+  
+  
+  <!-- <mat-form-field class="example-full-width">
+    <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+            matInput
+           
+           [matAutocomplete]="auto">
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">[formControl]="myControl"
+      <mat-option *ngFor="let option of crowds" [value]="option">
+        {{option.nameCrowd}}
+        
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field> -->
+  <br><br>
+
+  תחום:<input type="text" ><br><br>
+  מס עותקים:<input type="number" ><br><br>
+  <input type="submit" value="הוסף"  (click)="savaBook()">
+</form>
 
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+<table mat-table [dataSource]="books" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
@@ -31,13 +49,13 @@
 
   <!-- Name Column -->
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <th mat-header-cell *matHeaderCellDef> שם הספר </th>
     <td mat-cell *matCellDef="let element"> {{element.name}} </td>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="author">
-    <th mat-header-cell *matHeaderCellDef> מחבר</th>
+    <th mat-header-cell *matHeaderCellDef> מחבר </th>
     <td mat-cell *matCellDef="let element"> {{element.author}} </td>
   </ng-container>
 
@@ -47,17 +65,24 @@
     <td mat-cell *matCellDef="let element"> {{element.date}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="crowd">
+    <th mat-header-cell *matHeaderCellDef> קהל יעד </th>
+    <td mat-cell *matCellDef="let element"> {{element.crowd}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="category">
+    <th mat-header-cell *matHeaderCellDef> תחום </th>
+    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="numOtakim">
+    <th mat-header-cell *matHeaderCellDef> מס עותקים </th>
+    <td mat-cell *matCellDef="let element"> {{element.numOtakim}} </td>
+  </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 
-<div *ngFor="let item of books">
-  codebook: {{item.codeBook}}<br>
-  name: {{item.name}}<br>
-  other: {{item.codeAuther}}<br>
-  date: {{item.date}}<br>
-  codeCategory: {{item.codeCategory}}<br>
-  codeCrowd: {{item.codeCrowd}}<br>
-  numOtakim: {{item.numOtakim}}<br>
 
-</div>
+

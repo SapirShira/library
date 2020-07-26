@@ -1,7 +1,7 @@
 h1{
     font-size: 70px;
    text-align: center; 
-   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+   font-family:'ankaclm' ;
 }
 div{
     background-color: aquamarine;
@@ -10,4 +10,9 @@ div{
 a{
     margin: 5px;
     font-size: 30px;
+}
+@font-face
+{
+    font-family: ankaclm;
+    src: url(src/assets/ankaclm-bold-webfont.ttf) format("OpenType");
 }

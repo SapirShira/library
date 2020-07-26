@@ -17,11 +17,7 @@ export class CategoriesComponent implements OnInit {
 
   saveCategory()
   {
-    this.categoryService.createCategory(this.category).subscribe(
-      res=>
-      {
-
-      })
+    this.categoryService.createCategory(this.category).subscribe(res=>{})
   }
 
 }
