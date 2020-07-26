@@ -1,14 +1,25 @@
 table {
-    width: 100%;
-    position: absolute;
+    width: 80%;
+    margin-right: 10%;
+    text-align: center;
+    color: pink;
+    overflow: initial;
   }
 
+  th{
+text-align: center;
+color: rgb(219, 126, 141);
+overflow: initial;
+background-color: lightgray;
+    }
+  td{
+text-align: center;
+overflow: initial;
+  }
   .example-form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
   }
   
-  .example-full-width {
-    
-  }
+  

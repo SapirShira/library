@@ -1,11 +1,15 @@
 h1{
     font-size: 70px;
    text-align: center; 
-   font-family:'ankaclm' ;
+   font-family:'GveretLevin' ;
+  
 }
 div{
-    background-color: aquamarine;
+    background-color: #66b3ff;
     text-align: center;
+    height:60px;
+   
+
 }
 a{
     margin: 5px;
@@ -15,4 +19,14 @@ a{
 {
     font-family: ankaclm;
     src: url(src/assets/ankaclm-bold-webfont.ttf) format("OpenType");
+}
+@font-face
+{
+    font-family: GveretLevin;
+    src: url(src/assets/GveretLevinAlefAlefAlef-Regular.ttf) format("OpenType");
+}
+@font-face
+{
+    font-family: DanaYad;
+    src: url(src/assets/DanaYadAlefAlefAlef-Normal.otf) format("OpenType");
 }

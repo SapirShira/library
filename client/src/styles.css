@@ -1,4 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-body {direction: rtl;}
+body {direction: rtl;
+    background-image: url(src/assets/cube2.jpg);
+    
+}
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; text-align: center;}
+
+input{
+    border: none;
+}
+
+mat-label{
+    text-align: center;
+}
