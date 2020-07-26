@@ -21,5 +21,11 @@ overflow: initial;
     max-width: 500px;
     width: 100%;
   }
+  th.mat-header-cell
+  {
+    text-align: center;
+
+  }
+
   
   

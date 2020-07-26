@@ -7,9 +7,24 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; text-align: center;}
 
 input{
+    margin: 1%;
+}
+
+input[text] {
     border: none;
+    width: 15%;
+    height: 30px;
+}
+
+input[submit]{
+    border: none;
+    width: 50px;
+    height: 30px;
 }
 
 mat-label{
     text-align: center;
+}
+a{
+    font-size: 200%;
 }

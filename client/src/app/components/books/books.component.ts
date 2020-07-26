@@ -22,7 +22,7 @@ export class BooksComponent implements OnInit {
     // Highlight the 1st and 20th day of each month.
     return (date === 1 || date === 20) ? 'example-custom-date-class' : '';
   }
-  newBook: Book;
+  newBook: Book=new Book();
   newCrowd:crowd;
   books: Book[];
   crowds:crowd[];
@@ -36,8 +36,8 @@ export class BooksComponent implements OnInit {
 
   ngOnInit(): void {
     this.bookServise.getAllBooks().subscribe((data: Book[]) => { this.books = data });
-    this.crowdService.getAllCrowd().subscribe((data:crowd[])=> {this.crowds = data });
-    this.newCrowd=this.crowds[0];
+    this.crowdService.getAllCrowd().subscribe((data:crowd[])=> {this.crowds = data ; console.log(this.crowds); this.newCrowd=this.crowds[0];});
+    
     //this.dataSource=this.books;
 
 

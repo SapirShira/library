@@ -8,12 +8,13 @@ div{
     background-color: #66b3ff;
     text-align: center;
     height:60px;
-   
+   font-size:100%;
+   margin-bottom: 2%;
 
 }
 a{
     margin: 5px;
-    font-size: 30px;
+    
 }
 @font-face
 {

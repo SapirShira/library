@@ -13,10 +13,10 @@ namespace labrery.Controllers
     [RoutePrefix("api/crowd")]
     public class CrowdController : ApiController
     {
-        [Route("GetCategorys"), HttpGet]
-        public IHttpActionResult GetCategorys()
+        [Route("GetCrowd"), HttpGet]
+        public IHttpActionResult GetCrowd()
         {
-            return Ok(BL.categoriesBL.GetCategorys());
+            return Ok(BL.crowdBL.GetCrowds());
         }
 
 

@@ -1,26 +1,25 @@
 <br><br>
 <form>
 
-<input type="text" placeholder="שם ספר" ><br><br>
-
-  <input type="text" placeholder="מחבר"><br><br>
+  <input type="text" placeholder="שם ספר" name="bookName" [(ngModel)]="newBook.name">
+  <input type="text" placeholder="מחבר">
   <mat-form-field>
     <mat-label>תאריך קטלוג</mat-label>
     <input matInput [matDatepicker]="picker">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field><br><br>
- <input type="text" placeholder="קהל יעד">
-  
- <h4>Basic mat-select</h4>
- <mat-form-field appearance="fill">
-   <mat-label>      תחום          .</mat-label>
-   <mat-select>
-     <mat-option *ngFor="let crowd of crowds" [value]="crowd.codeCrowd">
-       {{crowd.nameCrowd}}
-     </mat-option>
-   </mat-select>
- </mat-form-field>
+  <input type="text" placeholder="קהל יעד">
+
+  <h4>Basic mat-select</h4>
+  <mat-form-field appearance="fill">
+    <mat-label> תחום .</mat-label>
+    <mat-select [(ngModel)]="newBook.codeCrowd" name="codeC">
+      <mat-option *ngFor="let crowd of crowds" [value]="crowd.codeCrowd">
+        {{crowd.nameCrowd}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
   <!-- <mat-form-field class="example-full-width">
     <input type="text"
            placeholder="Pick one"
@@ -37,13 +36,13 @@
   </mat-form-field> -->
   <br><br>
 
- <input type="text" placeholder=" תחום"><br><br>
-  <input type="number" placeholder="מס עותקים"><br><br>
-  <input type="submit" value="הוסף"  (click)="savaBook()">
+  <input type="text" placeholder=" תחום">
+  <input type="number" placeholder="מס עותקים">
+  <input type="submit" value="הוסף" (click)="savaBook()">
 </form>
 
 
-
+<p>{{newBook|json}}</p>
 <table mat-table [dataSource]="books" class="mat-elevation-z8">
 
   <!--- Note that these columns can be defined in any order.
@@ -91,6 +90,3 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-
-
-
