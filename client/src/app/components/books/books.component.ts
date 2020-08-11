@@ -4,9 +4,8 @@ import { BookService } from 'src/app/servises/book.service';
 import { Book } from 'src/app/classes/book';
 import { CrowdService } from 'src/app/servises/crowd.service';
 import { crowd } from 'src/app/classes/crowd';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+
+
 
 
 @Component({
@@ -27,7 +26,7 @@ export class BooksComponent implements OnInit {
   books: Book[];
   crowds:crowd[];
   dataSource: Book[];
-  displayedColumns: string[] = ['codeBooke', 'name', 'author', 'date', 'crowd', 'category', 'numOtakim'];
+  displayedColumns: string[] = ['codeBooke', 'name', 'author', 'date', 'crowd', 'category', 'numOtakim', 'otakim'];
   constructor(private bookServise: BookService, private crowdService:CrowdService) { }
 
   savaBook() {

@@ -126,6 +126,7 @@
     <Compile Include="Controllers\CrowdController.cs" />
     <Compile Include="Controllers\LendingController.cs" />
     <Compile Include="Controllers\LendingItemsController.cs" />
+    <Compile Include="Controllers\otakimController.cs" />
     <Compile Include="Controllers\SubsciberController.cs" />
     <Compile Include="Controllers\subscriptionTypeController.cs" />
     <Compile Include="Global.asax.cs">

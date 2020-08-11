@@ -4,17 +4,28 @@ table {
     text-align: center;
     color: pink;
     overflow: initial;
+    background-color: rgb(238, 203, 209);
+    /* background-color: transparent; */
+
   }
 
   th{
 text-align: center;
 color: rgb(219, 126, 141);
 overflow: initial;
-background-color: lightgray;
-    }
+background-color: rgb(202, 194, 194);
+font-size: 150%;
+font-weight: bolder;
+font-family: GveretLevin;
+
+
+  }
   td{
 text-align: center;
 overflow: initial;
+font-weight: bold;
+font-size: 150%;
+font-family: DanaYad;
   }
   .example-form {
     min-width: 150px;
@@ -27,5 +38,10 @@ overflow: initial;
 
   }
 
-  
+  td.mat-header-cell
+  {
+    text-align: center;
+   
+  }
+
   

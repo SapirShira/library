@@ -1,9 +1,9 @@
 
     export class copiec {
-        codeOtek:number;
-        serial:number;
-        codeBook:number;
-        bookName:string;
+        Serial:number; 
+         bookName:string;
+          codeBook:number;
+       codeOtek:number;
         price: number;
         status: boolean;
         constructor(){}

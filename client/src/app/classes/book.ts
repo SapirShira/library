@@ -1,3 +1,5 @@
+import { DatePipe } from '@angular/common';
+
 export class Book {
     codeBook: number;
     name: string;

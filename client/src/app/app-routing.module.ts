@@ -16,6 +16,7 @@ const routes: Routes = [
   {path:'author',component:AuthorComponent },
   {path:'books',component:BooksComponent },
   {path:'categories',component:CategoriesComponent },
+  {path:'copiec/:id',component:CopiecComponent },
   {path:'copiec',component:CopiecComponent },
   {path:'crowd',component:CrowdComponent },
   {path:'lendind ditils',component:LendindDitilsComponent },

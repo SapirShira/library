@@ -1,0 +1,36 @@
+table {
+    width: 60%;
+    /* margin-right: 20%; */
+    text-align: center;
+    color: pink;
+    overflow: initial;
+  }
+
+  th{
+text-align: center;
+color: rgb(219, 126, 141);
+overflow: initial;
+background-color: lightgray;
+  }
+  td{
+text-align: center;
+overflow: initial;
+font-family: DanaYad;
+  }
+
+  th.mat-header-cell
+  {
+    text-align: center;
+  }
+
+  td.mat-header-cell
+  {
+    font-family: DanaYad;
+  }
+
+  table.mat-header-cell
+  {
+      position: fixed;
+      background-color: lightblue;
+  }
+

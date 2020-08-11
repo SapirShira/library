@@ -64,5 +64,15 @@ namespace BL
             }
         }
 
+        public static List<OtakimDTO> GetOtakimByCodeBook(int code)
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                List < OtakimDTO > t= Converters.OtekConverter.ConvertOtakimListToDTO(db.Otakims.Where(x => x.codeBook == code).ToList());
+                return t;
+            }
+        }
+
+
     }
 }

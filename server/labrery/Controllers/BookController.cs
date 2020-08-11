@@ -37,5 +37,7 @@ namespace labrery.Controllers
         {
             return Ok(BL.bookBL.deleteBook(book));
         }
+
+       
     }
 }

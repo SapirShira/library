@@ -1,10 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
-body {direction: rtl;
+body {
+    direction: rtl;
     background-image: url(src/assets/cube2.jpg);
-    
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; text-align: center;}
+body { margin: 0; font-family: ankaclm, "Helvetica Neue", sans-serif; text-align: center;}
+
+@font-face
+{
+    font-family: ankaclm;
+    src: url(src/assets/ankaclm-bold-webfont.ttf) format("OpenType");
+}
+@font-face
+{
+    font-family: GveretLevin;
+    src: url(src/assets/GveretLevinAlefAlefAlef-Regular.ttf) format("OpenType");
+}
+@font-face
+{
+    font-family: DanaYad;
+    src: url(src/assets/DanaYadAlefAlefAlef-Normal.otf) format("OpenType");
+}
+
+h1{
+    font-family:'DanaYad' ;
+}
+
 
 input{
     margin: 1%;
@@ -25,6 +46,30 @@ input[submit]{
 mat-label{
     text-align: center;
 }
-a{
+/* a{
+    
+} */
+.headerA{
     font-size: 200%;
 }
+
+
+
+table {
+    width: 80%;
+    margin-right: 10%;
+    text-align: center;
+    color: pink;
+    overflow: initial;
+  }
+
+  th{
+text-align: center;
+color: rgb(219, 126, 141);
+overflow: initial;
+background-color: lightgray;
+  }
+  td{
+text-align: center;
+overflow: initial;
+  }

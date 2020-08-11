@@ -2,7 +2,7 @@ h1{
     font-size: 70px;
    text-align: center; 
    font-family:'GveretLevin' ;
-  
+
 }
 div{
     background-color: #66b3ff;
@@ -13,21 +13,7 @@ div{
 
 }
 a{
-    margin: 5px;
-    
-}
-@font-face
-{
-    font-family: ankaclm;
-    src: url(src/assets/ankaclm-bold-webfont.ttf) format("OpenType");
-}
-@font-face
-{
-    font-family: GveretLevin;
-    src: url(src/assets/GveretLevinAlefAlefAlef-Regular.ttf) format("OpenType");
-}
-@font-face
-{
-    font-family: DanaYad;
-    src: url(src/assets/DanaYadAlefAlefAlef-Normal.otf) format("OpenType");
+    margin: 1%;
+    font-family:'GveretLevin' ;
+
 }

@@ -11,7 +11,6 @@
   </mat-form-field><br><br>
   <input type="text" placeholder="קהל יעד">
 
-  <h4>Basic mat-select</h4>
   <mat-form-field appearance="fill">
     <mat-label> תחום .</mat-label>
     <mat-select [(ngModel)]="newBook.codeCrowd" name="codeC">
@@ -20,20 +19,7 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <!-- <mat-form-field class="example-full-width">
-    <input type="text"
-           placeholder="Pick one"
-           aria-label="Number"
-            matInput
-           
-           [matAutocomplete]="auto">
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">[formControl]="myControl"
-      <mat-option *ngFor="let option of crowds" [value]="option">
-        {{option.nameCrowd}}
-        
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field> -->
+  
   <br><br>
 
   <input type="text" placeholder=" תחום">
@@ -69,13 +55,14 @@
   <!-- Symbol Column -->
   <ng-container matColumnDef="date">
     <th mat-header-cell *matHeaderCellDef> תאריך קיטלוג </th>
-    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    <td mat-cell *matCellDef="let element"> {{  element.date| date:'shortDate' }} </td>
   </ng-container>
 
   <ng-container matColumnDef="crowd">
     <th mat-header-cell *matHeaderCellDef> קהל יעד </th>
     <td mat-cell *matCellDef="let element"> {{element.crowd}} </td>
   </ng-container>
+
 
   <ng-container matColumnDef="category">
     <th mat-header-cell *matHeaderCellDef> תחום </th>
@@ -85,6 +72,11 @@
   <ng-container matColumnDef="numOtakim">
     <th mat-header-cell *matHeaderCellDef> מס עותקים </th>
     <td mat-cell *matCellDef="let element"> {{element.numOtakim}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="otakim">
+    <th mat-header-cell *matHeaderCellDef> עותקים </th>
+    <td mat-cell *matCellDef="let element"> <a routerLink="/copiec/{{element.codeBook}}">לעותקים</a> </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
