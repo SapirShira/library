@@ -10,11 +10,14 @@ import { LendingComponent } from './components/lending/lending.component';
 import { SubcriptionTypesComponent } from './components/subcription-types/subcription-types.component';
 import { SubscribersComponent } from './components/subscribers/subscribers.component';
 import { WorkesComponent } from './components/workes/workes.component';
+import { AddBookComponent } from './components/add-book/add-book.component';
+
 
 
 const routes: Routes = [
   {path:'author',component:AuthorComponent },
   {path:'books',component:BooksComponent },
+  {path:'addBook',component:AddBookComponent },
   {path:'categories',component:CategoriesComponent },
   {path:'copiec/:id',component:CopiecComponent },
   {path:'copiec',component:CopiecComponent },

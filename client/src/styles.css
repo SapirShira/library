@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 body {
     direction: rtl;
-    background-image: url(src/assets/cube2.jpg);
+    background-image: url(src/assets/cube22.jpg);
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: ankaclm, "Helvetica Neue", sans-serif; text-align: center;}
@@ -73,3 +73,6 @@ background-color: lightgray;
 text-align: center;
 overflow: initial;
   }
+
+
+  

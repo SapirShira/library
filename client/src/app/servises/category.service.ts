@@ -14,7 +14,7 @@ export class CategoryService {
   constructor(private http:HttpClient) { }
   getAllCategory()
   {
-    return this.http.get(environment.api+"category/getCategory");
+    return this.http.get(environment.api+"category/GetCategorys");
   }
 
   createCategory(category:categories):Observable<boolean>

@@ -21,21 +21,15 @@ export class BooksComponent implements OnInit {
     // Highlight the 1st and 20th day of each month.
     return (date === 1 || date === 20) ? 'example-custom-date-class' : '';
   }
-  newBook: Book=new Book();
-  newCrowd:crowd;
   books: Book[];
-  crowds:crowd[];
   dataSource: Book[];
   displayedColumns: string[] = ['codeBooke', 'name', 'author', 'date', 'crowd', 'category', 'numOtakim', 'otakim'];
   constructor(private bookServise: BookService, private crowdService:CrowdService) { }
 
-  savaBook() {
-    this.bookServise.createBooks(this.newBook).subscribe(res => { })
-  }
+  
 
   ngOnInit(): void {
     this.bookServise.getAllBooks().subscribe((data: Book[]) => { this.books = data });
-    this.crowdService.getAllCrowd().subscribe((data:crowd[])=> {this.crowds = data ; console.log(this.crowds); this.newCrowd=this.crowds[0];});
     
     //this.dataSource=this.books;
 

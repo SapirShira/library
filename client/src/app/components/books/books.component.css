@@ -43,5 +43,12 @@ font-family: DanaYad;
     text-align: center;
    
   }
+button{
+  /*background-image: url(src/assets/add3..png);*/
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  margin-bottom: 0.5%;
+ }
 
   

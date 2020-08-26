@@ -25,5 +25,12 @@ namespace labrery.Controllers
             return Ok(BL.otekBL.GetOtakimByCodeBook(code));
         }
 
+
+        [Route("DeleteCopy"), HttpPost]
+        public IHttpActionResult DeleteCopy(int codeCopy)
+        {
+            return Ok(BL.otekBL.updateOtekStatus(codeCopy,"נמחק"));
+        }
+
     }
 }

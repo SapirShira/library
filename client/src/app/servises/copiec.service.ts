@@ -22,4 +22,10 @@ export class CopiecService {
   createCopiec(copiec: copiec): Observable<boolean> {
     return this.http.post<boolean>(environment.api + 'copy/AddCopiec', copiec)
   }
+
+  deleteCopy(code: number): Observable<boolean> {
+    return this.http.post<boolean>(environment.api + 'copy/DeleteCopy', code)
+  }
+
+  
 }

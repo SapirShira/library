@@ -1,36 +1,10 @@
-<br><br>
-<form>
 
-  <input type="text" placeholder="שם ספר" name="bookName" [(ngModel)]="newBook.name">
-  <input type="text" placeholder="מחבר">
-  <mat-form-field>
-    <mat-label>תאריך קטלוג</mat-label>
-    <input matInput [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field><br><br>
-  <input type="text" placeholder="קהל יעד">
+<button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon"  routerLink="/addBook">
+  <mat-icon>plus_one</mat-icon>
+</button>
+<br>
 
-  <mat-form-field appearance="fill">
-    <mat-label> תחום .</mat-label>
-    <mat-select [(ngModel)]="newBook.codeCrowd" name="codeC">
-      <mat-option *ngFor="let crowd of crowds" [value]="crowd.codeCrowd">
-        {{crowd.nameCrowd}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  
-  <br><br>
-
-  <input type="text" placeholder=" תחום">
-  <input type="number" placeholder="מס עותקים">
-  <input type="submit" value="הוסף" (click)="savaBook()">
-</form>
-
-
-<p>{{newBook|json}}</p>
 <table mat-table [dataSource]="books" class="mat-elevation-z8">
-
   <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 

@@ -62,6 +62,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import { HeaderComponent } from './components/header/header.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
  import {OverlayModule} from '@angular/cdk/overlay';
+import { AddBookComponent } from './components/add-book/add-book.component';
  
 
 
@@ -81,7 +82,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     CopiecComponent,
     SubcriptionTypesComponent,
     AuthorComponent,
-    HeaderComponent
+    HeaderComponent,
+    AddBookComponent
   ],
   imports: [
     MatAutocompleteModule,
