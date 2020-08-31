@@ -22,6 +22,7 @@ export class CopiecComponent implements OnInit {
 
   deleteCopy(codeCopy: number) {
     this.copiecService.deleteCopy(codeCopy);
+    this.copiecService.getCopiecByCodeBook(this.id).subscribe((data: copiec[]) => { this.copies = data });
   }
 
 
