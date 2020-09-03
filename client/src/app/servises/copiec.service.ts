@@ -24,7 +24,7 @@ export class CopiecService {
   }
 
   deleteCopy(code: number): Observable<boolean> {
-    return this.http.post<boolean>(environment.api + 'copy/DeleteCopy', code)
+    return this.http.delete<boolean>(environment.api + 'copy/DeleteCopy/'+ code)
   }
 
   

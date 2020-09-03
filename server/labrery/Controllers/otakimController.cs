@@ -26,7 +26,7 @@ namespace labrery.Controllers
         }
 
 
-        [Route("DeleteCopy"), HttpPost]
+        [Route("DeleteCopy/{codeCopy}"), HttpDelete]
         public IHttpActionResult DeleteCopy(int codeCopy)
         {
             return Ok(BL.otekBL.updateOtekStatus(codeCopy,"נמחק"));

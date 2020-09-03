@@ -14,7 +14,7 @@ namespace BL.Converters
         {
             return new BookDTO
             {
-                codeBook=book.codeBook,
+                codeBook = book.codeBook,
                 name = book.name,
                 codAauthor = book.codAauthor,
                 codeCategory = book.codeCategory,
@@ -22,10 +22,10 @@ namespace BL.Converters
                 date = book.date,
                 isDeleted = book.isDeleted,
                 numOtakim = book.numOtakim,
-                category=book.Category.nameCategory,
-                author=book.Aauthor.LiteraryAlias,
-                crowd=book.Crowd.nameCrowd
-
+                category = book.Category.nameCategory,
+                author = book.Aauthor.LiteraryAlias,
+                crowd = book.Crowd.nameCrowd,
+                price=0
             };
         }
 

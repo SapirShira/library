@@ -12,17 +12,19 @@ namespace BL
 
     public class bookBL
     {
-        public static bool addBook(BookDTO bo, double price)
+        public static bool addBook(BookDTO bo)
         {
             int codeN;
             using (libraryEntities db = new libraryEntities())
             {
-                db.Books.Add(Converters.BookConverter.ConvertBookDTOToDAL(bo)) ;
+                Book newB = Converters.BookConverter.ConvertBookDTOToDAL(bo);
+                newB.isDeleted = false;
+                db.Books.Add(newB) ;
                 try
                 {
                     db.SaveChanges();
                     codeN = db.Books.First(b => b.name == bo.name).codeBook;
-                    return otekBL.addotek(codeN, Convert.ToInt32(bo.numOtakim), price, Convert.ToInt32(bo.numOtakim));
+                    return otekBL.addotek(codeN, Convert.ToInt32(bo.numOtakim), Convert.ToDouble(bo.price), Convert.ToInt32(bo.numOtakim));
                 }
                 catch (Exception e)
                 {
@@ -32,11 +34,7 @@ namespace BL
             }
         }
 
-        public static bool addBook(BookDTO book)
-        {
-            throw new NotImplementedException();
-        }
-
+       
         public static List<BookDTO> GetBooks()
         {
             using (libraryEntities db = new libraryEntities())

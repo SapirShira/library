@@ -1,6 +1,6 @@
 
   export class Author {
-    codAauther: number;
+    codAauthor: number;
       firstName: string;
       lastName: string;
       LiteraryAlias: string;

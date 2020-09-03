@@ -19,8 +19,9 @@
   <mat-form-field appearance="fill">
     <mat-label> מחבר .</mat-label>
     <mat-select [(ngModel)]="newBook.codAauthor" name="codeA">
-      <mat-option *ngFor="let author of authors" [value]="author.codAauther">
-        {{author.LiteraryAlias}}
+      <mat-option *ngFor="let author of authors" [value]="author.codAauthor">
+     
+        {{author|json}}
       </mat-option>
     </mat-select>
   </mat-form-field><br><br>
@@ -47,7 +48,13 @@
   
   <br><br>
 
-  <input type="number" placeholder="מס עותקים">
+  <input type="number" placeholder="מס עותקים"  [(ngModel)]="newBook.numOtakim" name="numOfCopies"><br><br>
+
+
+  <mat-form-field>
+  <mat-label>מחיר</mat-label>
+        <input matInput name="price" [(ngModel)]="newBook.price">
+      </mat-form-field><br><br>
   <input type="submit" value="הוסף" (click)="savaBook()"><br><br>
 </form>
 

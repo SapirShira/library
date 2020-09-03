@@ -12,5 +12,6 @@ export class Book {
     crowd:string;
     category:string;
     auther:string;
+    price:number;
     constructor(){}
 }

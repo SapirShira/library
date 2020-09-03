@@ -19,5 +19,6 @@ namespace DTO
         public string crowd { get; set; }
         public Nullable<bool> isDeleted { get; set; }
         public Nullable<int> numOtakim { get; set; }
+        public Nullable<double> price { get; set; }
     }
 }
