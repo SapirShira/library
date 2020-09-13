@@ -1,4 +1,6 @@
 <br><br>
+
+
 <form>
 
     
@@ -21,7 +23,7 @@
     <mat-select [(ngModel)]="newBook.codAauthor" name="codeA">
       <mat-option *ngFor="let author of authors" [value]="author.codAauthor">
      
-        {{author|json}}
+        {{author.LiteraryAlias}}
       </mat-option>
     </mat-select>
   </mat-form-field><br><br>

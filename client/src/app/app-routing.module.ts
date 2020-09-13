@@ -11,22 +11,24 @@ import { SubcriptionTypesComponent } from './components/subcription-types/subcri
 import { SubscribersComponent } from './components/subscribers/subscribers.component';
 import { WorkesComponent } from './components/workes/workes.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
+import { AddSubscriberComponent } from './components/add-subscriber/add-subscriber.component';
 
 
 
 const routes: Routes = [
-  {path:'author',component:AuthorComponent },
-  {path:'books',component:BooksComponent },
-  {path:'addBook',component:AddBookComponent },
-  {path:'categories',component:CategoriesComponent },
-  {path:'copiec/:id',component:CopiecComponent },
-  {path:'copiec',component:CopiecComponent },
-  {path:'crowd',component:CrowdComponent },
-  {path:'lendind ditils',component:LendindDitilsComponent },
-  {path:'lending',component:LendingComponent },
-  {path:'subcription types',component:SubcriptionTypesComponent },
-  {path:'subscribers',component:SubscribersComponent },
-  {path:'workes',component:WorkesComponent }
+  { path: 'author', component: AuthorComponent },
+  { path: 'books', component: BooksComponent },
+  { path: 'addBook', component: AddBookComponent },
+  { path: 'categories', component: CategoriesComponent },
+  { path: 'copiec/:id', component: CopiecComponent },
+  { path: 'copiec', component: CopiecComponent },
+  { path: 'crowd', component: CrowdComponent },
+  { path: 'lendind ditils', component: LendindDitilsComponent },
+  { path: 'lending', component: LendingComponent },
+  { path: 'subcription types', component: SubcriptionTypesComponent },
+  { path: 'subscribers', component: SubscribersComponent },
+  { path: 'addSubscribers', component: AddSubscriberComponent },
+  { path: 'workes', component: WorkesComponent }
 ];
 
 @NgModule({

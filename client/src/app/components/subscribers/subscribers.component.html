@@ -1,10 +1,71 @@
-<form>
-    תעודת זהות::<input type="text"><br>
-    שם פרטי:<input type="text"><br>
-    שם משפחה:<input type="text"><br>
-    כתובת:<input type="text"><br>
-    טלפון:<input type="text"><br>
-    תאריך תחילת מנוי:<input type="date"><br>
-    סוג מנוי:<input type="text"><br>
-    <input type="submit" value=" ">
-</form>
+
+
+
+<button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon"  routerLink="/addSubscribers">
+    <mat-icon>plus_one</mat-icon>
+  </button>
+  <br>
+  
+
+  <table mat-table [dataSource]="sub" class="mat-elevation-z8">
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> קוד מנוי </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef> שם פרטי </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef> שם משפחה </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> כתובת </th>
+      <td mat-cell *matCellDef="let element"> {{  element.adress }} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="phon">
+      <th mat-header-cell *matHeaderCellDef> מספר טלפון </th>
+      <td mat-cell *matCellDef="let element"> {{element.phon}} </td>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> מייל </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef> תאריך פתיחת מנוי </th>
+      <td mat-cell *matCellDef="let element"> {{element.startDate| date:'shortDate'}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> סוג מנוי </th>
+      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="numOfBooks">
+        <th mat-header-cell *matHeaderCellDef> כמות ספרים </th>
+        <td mat-cell *matCellDef="let element"> {{element.numOfBooks}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="garbege">
+        <th mat-header-cell *matHeaderCellDef> למחיקה </th>
+        <td mat-cell *matCellDef="let element"> </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

@@ -1,0 +1,47 @@
+<form>
+
+    <mat-form-field>
+        <mat-label>תעודת זהות</mat-label>
+        <input matInput name="subId" [(ngModel)]="newSubsriber.id">
+      </mat-form-field><br><br>
+
+      <mat-form-field>
+        <mat-label>שם פרטי</mat-label>
+        <input matInput name="subFirstName" [(ngModel)]="newSubsriber.firstName">
+      </mat-form-field><br><br>
+
+      <mat-form-field>
+        <mat-label>שם משפחה</mat-label>
+        <input matInput name="subLastName" [(ngModel)]="newSubsriber.lastName">
+      </mat-form-field><br><br>
+
+      <mat-form-field>
+        <mat-label>כתובת</mat-label>
+        <input matInput name="subAddress" [(ngModel)]="newSubsriber.address">
+      </mat-form-field><br><br>
+
+      <mat-form-field>
+        <mat-label>טלפון</mat-label>
+        <input matInput name="subPhon" [(ngModel)]="newSubsriber.phon">
+      </mat-form-field><br><br>
+
+      <mat-form-field>
+        <mat-label>מייל</mat-label>
+        <input matInput name="subMail" [(ngModel)]="newSubsriber.email">
+      </mat-form-field><br><br>
+
+      <mat-form-field appearance="fill">
+        <mat-label> כמות ספרים למנוי .</mat-label>
+        <mat-select [(ngModel)]="newSubsriber.type" name="subType">
+          <mat-option *ngFor="let subType of subscriptionTypes" [value]="subType.codeType">
+         
+            {{subType.numOfBooks}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br><br>
+    
+      <button class="example-button-row" mat-stroked-button color="accent" (click)="savaSubscriber()">Accent</button>
+
+
+
+</form>
