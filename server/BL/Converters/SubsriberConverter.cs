@@ -38,7 +38,8 @@ namespace BL.Converters
                 phon = subscriber.phon,
                 startDate = subscriber.startDate,
                 type = subscriber.type,
-                isDeleted = subscriber.isDeleted
+                isDeleted = subscriber.isDeleted, 
+                email=subscriber.email
             };
         }
 

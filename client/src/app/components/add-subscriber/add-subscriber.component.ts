@@ -13,13 +13,13 @@ import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 })
 export class AddSubscriberComponent implements OnInit {
 
-  newSubsriber: subscribers;
+  newSubsriber: subscribers=new subscribers;
   subscriptionTypes:subcription_types[];
   constructor(private subscribersService: SubscribersService, private subcriptionTypesService: SubcriptionTypesService) { }
 
   savaSubscriber() {
     this.newSubsriber.isDeleted=false;
-    this.newSubsriber.startDate=Date.now();
+    this.newSubsriber.startDate=new Date();
     this.subscribersService.createSubscribers(this.newSubsriber).subscribe(res => { })
   }
 

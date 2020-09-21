@@ -12,11 +12,11 @@ export class SubcriptionTypesService {
   constructor(private http:HttpClient) { }
   getAllSubcription_types()
   {
-    return this.http.get(environment.api+"subcription-types/getSubcription-types");
+    return this.http.get(environment.api+"subscriptionType/GetSubscriptionTypes");
   }
   createSubcription_types(subcription_types:subcription_types):Observable<boolean>
   {
-      return this.http.post<boolean>(environment.api+'subcription_types/Subcription_types',subcription_types)
+      return this.http.post<boolean>(environment.api+'subscriptionType/AddSubscriptionType',subcription_types)
   }
   
 }

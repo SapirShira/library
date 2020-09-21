@@ -50,12 +50,16 @@
   
   <br><br>
 
-  <input type="number" placeholder="מס עותקים"  [(ngModel)]="newBook.numOtakim" name="numOfCopies"><br><br>
+  <mat-form-field  appearance="fill">
+    <mat-label>מס עותקים</mat-label>
+    <input matInput type="number"  name="numOfCopies" [(ngModel)]="newBook.numOtakim" class="form-control">
+  </mat-form-field><br><br>
 
 
-  <mat-form-field>
+
+  <mat-form-field >
   <mat-label>מחיר</mat-label>
-        <input matInput name="price" [(ngModel)]="newBook.price">
+        <input matInput name="price" [(ngModel)]="newBook.price" class="form-control">
       </mat-form-field><br><br>
   <input type="submit" value="הוסף" (click)="savaBook()"><br><br>
 </form>

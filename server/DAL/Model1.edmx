@@ -19,7 +19,7 @@
             <PropertyRef Name="codeBook" />
           </Key>
           <Property Name="codeBook" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="20" />
+          <Property Name="name" Type="nvarchar" MaxLength="35" />
           <Property Name="codAauthor" Type="int" />
           <Property Name="date" Type="date" />
           <Property Name="codeCategory" Type="int" />
@@ -323,7 +323,7 @@
             <PropertyRef Name="codeBook" />
           </Key>
           <Property Name="codeBook" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="name" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
           <Property Name="codAauthor" Type="Int32" />
           <Property Name="date" Type="DateTime" Precision="0" />
           <Property Name="codeCategory" Type="Int32" />
