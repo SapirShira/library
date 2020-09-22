@@ -1,8 +1,8 @@
 table {
-    width: 80%;
-    margin-right: 10%;
+    width: 90%;
+    margin-right: 5%;
     text-align: center;
-    color: pink;
+    color: rgb(218, 141, 154);
     overflow: initial;
     background-color: rgb(238, 203, 209);
     /* background-color: transparent; */
@@ -13,7 +13,7 @@ table {
 text-align: center;
 color: rgb(219, 126, 141);
 overflow: initial;
-background-color: rgb(202, 194, 194);
+background-color:lightgray;
 font-size: 150%;
 font-weight: bolder;
 font-family: GveretLevin;

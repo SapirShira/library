@@ -18,7 +18,7 @@ export class SubscribersComponent implements OnInit {
     return (date === 1 || date === 20) ? 'example-custom-date-class' : '';
   }
   sub:subscribers[];
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'address', 'phon', 'email', 'startDate', 'type', 'numOfBooks', 'garbege'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'address', 'phon', 'email', 'startDate', 'numOfBooks', 'garbege'];
 
 
   constructor(private subscribersService: SubscribersService) { }

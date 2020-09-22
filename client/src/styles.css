@@ -59,7 +59,9 @@ table {
     width: 80%;
     margin-right: 10%;
     text-align: center;
-    color: pink;
+    border-bottom: none;
+
+    /* color: pink; */
     overflow: initial;
   }
 
@@ -68,10 +70,13 @@ text-align: center;
 color: rgb(219, 126, 141);
 overflow: initial;
 background-color: lightgray;
+border: none;
+
   }
   td{
 text-align: center;
 overflow: initial;
+
   }
 
 
