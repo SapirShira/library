@@ -4,9 +4,3 @@ C:\Users\שירה\Desktop\פרויקט סיום\git\server\DTO\obj\Debug\DTO.csp
 C:\Users\שירה\Desktop\פרויקט סיום\git\server\DTO\obj\Debug\DTO.dll
 C:\Users\שירה\Desktop\פרויקט סיום\git\server\DTO\obj\Debug\DTO.pdb
 C:\Users\שירה\Desktop\פרויקט סיום\git\server\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
-C:\Users\shira\OneDrive\שולחן העבודה\פרויקט סיום\library\server\DTO\bin\Debug\DTO.dll
-C:\Users\shira\OneDrive\שולחן העבודה\פרויקט סיום\library\server\DTO\bin\Debug\DTO.pdb
-C:\Users\shira\OneDrive\שולחן העבודה\פרויקט סיום\library\server\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
-C:\Users\shira\OneDrive\שולחן העבודה\פרויקט סיום\library\server\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
-C:\Users\shira\OneDrive\שולחן העבודה\פרויקט סיום\library\server\DTO\obj\Debug\DTO.dll
-C:\Users\shira\OneDrive\שולחן העבודה\פרויקט סיום\library\server\DTO\obj\Debug\DTO.pdb
