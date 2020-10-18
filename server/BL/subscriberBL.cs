@@ -60,11 +60,11 @@ namespace BL
             }
         }
 
-        public static bool deleteSubsciber(SubsciberDTO a)
+        public static bool deleteSubsciber(int a)
         {
             using (libraryEntities db = new libraryEntities())
             {
-                Subscriber au = db.Subscribers.First(x => x.id == a.id);
+                Subscriber au = db.Subscribers.First(x => x.id == a);
                 
                 au.isDeleted = true;
                

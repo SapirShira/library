@@ -33,9 +33,9 @@ namespace labrery.Controllers
         }
 
         [Route("DeleteSubscriber"), HttpPost]
-        public IHttpActionResult DeleteSubscriber(SubsciberDTO sub)
+        public IHttpActionResult DeleteSubscriber(int id)
         {
-            return Ok(BL.subscriberBL.deleteSubsciber(sub));
+            return Ok(BL.subscriberBL.deleteSubsciber(id));
         }
     }
 }

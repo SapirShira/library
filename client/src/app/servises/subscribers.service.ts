@@ -18,4 +18,9 @@ export class SubscribersService {
   createSubscribers(subscribers: subscribers): Observable<boolean> {
     return this.http.post<boolean>(environment.api + 'subscriber/AddSubscriber', subscribers)
   }
+
+  deleteCopy(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(environment.api + 'subscriber/DeleteSubscriber/'+ id)
+  }
+
 }

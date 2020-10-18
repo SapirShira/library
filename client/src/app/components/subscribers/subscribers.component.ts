@@ -22,8 +22,17 @@ export class SubscribersComponent implements OnInit {
 
 
   constructor(private subscribersService: SubscribersService) { }
+   
+
+
   ngOnInit(): void {
     this.subscribersService.getAllSubscribers().subscribe((data: subscribers[]) => { this.sub = data });
+  }
+
+  delete(id:number) {
+    
+    this.subscribersService.deleteCopy(id).subscribe(res=>
+      this.subscribersService.getAllSubscribers().subscribe((data: subscribers[]) => { this.sub = data }));
   }
 
 }
