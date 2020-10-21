@@ -19,6 +19,12 @@ namespace labrery.Controllers
             return Ok(BL.subscriberBL.GetSubscibers());
         }
 
+        [Route("GetSubscriberById/{id}"), HttpGet]
+        public IHttpActionResult GetSubscriberById([FromUri] int id)
+        {
+            return Ok(BL.subscriberBL.GetSubscibersById(id));
+        }
+
 
         [Route("AddSubscriber"), HttpPost]
         public IHttpActionResult AddAddSubscriberBook(SubsciberDTO sub)
@@ -32,7 +38,7 @@ namespace labrery.Controllers
             return Ok(BL.subscriberBL.updateSubsciber(sub));
         }
 
-        [Route("DeleteSubscriber"), HttpPost]
+        [Route("DeleteSubscriber/{id}"), HttpDelete]
         public IHttpActionResult DeleteSubscriber(int id)
         {
             return Ok(BL.subscriberBL.deleteSubsciber(id));

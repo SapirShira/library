@@ -15,8 +15,18 @@ export class SubscribersService {
   getAllSubscribers() {
     return this.http.get(environment.api + "subscriber/GetSubscribers");
   }
+
+  getAllSubscribersById(id:number) {
+    return this.http.get(environment.api + "subscriber/GetSubscriberById/"+id );
+  }
+
   createSubscribers(subscribers: subscribers): Observable<boolean> {
     return this.http.post<boolean>(environment.api + 'subscriber/AddSubscriber', subscribers)
+  }
+
+
+  updateSubscribers(subscribers: subscribers): Observable<boolean> {
+    return this.http.post<boolean>(environment.api + 'subscriber/UpdateSubscriber', subscribers)
   }
 
   deleteCopy(id: number): Observable<boolean> {

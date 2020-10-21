@@ -1,10 +1,75 @@
-<form>
-   ת"ז:<input type="text"><br>
-   שם:<input type="text"><br>
-  כתובת:<input type="text"><br>
-  טלפון:<input type="text"><br>
-   סוג עובד:<input type="text"><br>
-  סיסמא:<input type="text"><br>
+<!--   
 
-   <input type="submit" value=" ">
-   <form>
+
+<button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon"  routerLink="/addSubscribers">
+   <mat-icon>plus_one</mat-icon>
+ </button>
+ <br>
+ 
+
+ <table mat-table [dataSource]="sub" class="mat-elevation-z8">
+   
+  
+   <ng-container matColumnDef="id">
+     <th mat-header-cell *matHeaderCellDef> קוד מנוי </th>
+     <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+   </ng-container>
+ 
+   <ng-container matColumnDef="firstName">
+     <th mat-header-cell *matHeaderCellDef> שם פרטי </th>
+     <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+   </ng-container>
+ 
+  
+ 
+   <ng-container matColumnDef="address">
+     <th mat-header-cell *matHeaderCellDef> כתובת </th>
+     <td mat-cell *matCellDef="let element"> {{  element.address }} </td>
+   </ng-container>
+ 
+   <ng-container matColumnDef="phon">
+     <th mat-header-cell *matHeaderCellDef> מספר טלפון </th>
+     <td mat-cell *matCellDef="let element"> {{element.phon}} </td>
+   </ng-container>
+ 
+ 
+  
+
+   <ng-container matColumnDef="numOfBooks">
+       <th mat-header-cell *matHeaderCellDef> סוג </th>
+       <td mat-cell *matCellDef="let element"> {{element.numOfBooks}} </td>
+     </ng-container>
+
+
+   <ng-container matColumnDef="email">
+     <th mat-header-cell *matHeaderCellDef> סיסמא </th>
+     <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+   </ng-container>
+
+     <ng-container matColumnDef="update">
+       <th mat-header-cell *matHeaderCellDef>  </th>
+       <td mat-cell *matCellDef="let element"> 
+         <button mat-fab color="primary"   routerLink="/addSubscribers/{{element.id}}">>
+           <mat-icon>update</mat-icon>
+         </button>  
+       </td>
+     </ng-container>
+
+
+     <ng-container matColumnDef="garbege">
+       <th mat-header-cell *matHeaderCellDef>  </th>
+       <td mat-cell *matCellDef="let element">
+         <button mat-fab color="primary"  class="example-button-container" aria-label="Example icon button with a delete icon" (click)="delete(element.id)">
+           <mat-icon>delete</mat-icon>
+         </button>  
+       </td>
+     </ng-container>
+
+    
+
+
+    
+ 
+   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+   <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ </table> -->

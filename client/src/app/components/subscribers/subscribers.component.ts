@@ -4,6 +4,7 @@ import { SubscribersService } from 'src/app/servises/subscribers.service';
 import { subscribers } from 'src/app/classes/subscribers';
 
 
+
 @Component({
   selector: 'app-subscribers',
   templateUrl: './subscribers.component.html',
@@ -18,7 +19,7 @@ export class SubscribersComponent implements OnInit {
     return (date === 1 || date === 20) ? 'example-custom-date-class' : '';
   }
   sub:subscribers[];
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'address', 'phon', 'email', 'startDate', 'numOfBooks', 'garbege'];
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'address', 'phon', 'email', 'startDate', 'numOfBooks', 'update', 'garbege'];
 
 
   constructor(private subscribersService: SubscribersService) { }
@@ -26,6 +27,9 @@ export class SubscribersComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+
+   
     this.subscribersService.getAllSubscribers().subscribe((data: subscribers[]) => { this.sub = data });
   }
 

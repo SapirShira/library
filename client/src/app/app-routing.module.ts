@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'lendind ditils', component: LendindDitilsComponent },
   { path: 'lending', component: LendingComponent },
   { path: 'subcription types', component: SubcriptionTypesComponent },
+  { path: 'addSubscribers/:id', component: AddSubscriberComponent },
   { path: 'subscribers', component: SubscribersComponent },
   { path: 'addSubscribers', component: AddSubscriberComponent },
   { path: 'workes', component: WorkesComponent }

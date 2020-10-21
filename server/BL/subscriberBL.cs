@@ -14,7 +14,14 @@ namespace BL
         {
             using (libraryEntities db = new libraryEntities())
             {
-                db.Subscribers.Add(Converters.SubsriberConverter.ConvertSubscriberDTOToDAL(s)) ;
+
+                if (db.Subscribers.First(x => x.id == s.id) != null)
+                {
+                    Subscriber au = db.Subscribers.First(x => x.id == s.id);
+                    au.isDeleted = false;
+                }
+                else
+                    db.Subscribers.Add(Converters.SubsriberConverter.ConvertSubscriberDTOToDAL(s));
                 try
                 {
                     db.SaveChanges();
@@ -80,6 +87,16 @@ namespace BL
                     return false;
                 }
 
+            }
+        }
+
+
+        public static List<SubsciberDTO> GetSubscibersById(int code)
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+                List<SubsciberDTO> t = Converters.SubsriberConverter.ConvertSubscriberListToDTO(db.Subscribers.Where(x => x.id == code).ToList());
+                return t;
             }
         }
 
