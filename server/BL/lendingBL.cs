@@ -41,11 +41,11 @@ namespace BL
 
         //public static void sentEmail()
         //{
-        //    var fromAddress = new MailAddress("veaarevnaproject@gmail.com", "Veaarev Na");
+        //    var fromAddress = new MailAddress("the.book.we.loved@gmail.com", "הספרים שאהבנו");
         //    var toAddress = new MailAddress(user.user_email, "To Name");
-        //    const string fromPassword = "v211651880v";
-        //    const string subject = "תודה על תרומתך!";
-        //    string body = "שלום  " + user.user_firsname + Environment.NewLine +" תודה שהשתתפת בהגרלה!@ זכית להפיץ תורה!!!";
+        //    const string fromPassword = "thebookweloved";
+        //    const string subject = "הינך מאחר בהחזרת ספרים לסיפרייה";
+        //    string body = "שלום  " + user.user_firsname + Environment.NewLine +" הינך מתבקש להחזיר את הספרים בהקדם";
 
 
         //    var smtp = new SmtpClient
