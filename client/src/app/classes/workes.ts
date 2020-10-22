@@ -1,11 +1,12 @@
 export class worker {
     idWorker: number;
     name: string;
-    adress:string;
+    address:string;
     phone:number;
     typeWork:Text;
     password: string;
     status:boolean;
+
 
      constructor(){}
  }

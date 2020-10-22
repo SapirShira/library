@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SubscribersService } from 'src/app/servises/subscribers.service';
-import {  } from 'src/app/classes/subscribers';
+import { WorkersService } from 'src/app/servises/workers.service';
+import { worker } from 'src/app/classes/workes';
 
 
 @Component({
@@ -10,12 +10,23 @@ import {  } from 'src/app/classes/subscribers';
 })
 export class WorkesComponent implements OnInit {
 
-  constructor() { }
+  displayedColumns: string[] = ['idWorker', 'name', 'address', 'phone', 'typeWork', 'password', 'update', 'garbege'];
+  workers: worker[];
+
+
+
+  constructor(private workersService: WorkersService) { }
 
   ngOnInit(): void {
 
+    this.workersService.getAllWorkers().subscribe((data: worker[]) => { this.workers = data });
 
+  }
 
+  delete(id:number) {
+    
+    this.workersService.deleteWorker(id).subscribe(res=>
+      this.workersService.getAllWorkers().subscribe((data: worker[]) => { this.workers = data }));
   }
 
 }

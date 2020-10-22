@@ -29,7 +29,6 @@ C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DAL\
 C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DAL\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DAL\bin\Debug\EntityFramework.xml
 C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DAL\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
 C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DAL\obj\Debug\DAL.dll

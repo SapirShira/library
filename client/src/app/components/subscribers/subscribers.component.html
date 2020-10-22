@@ -1,10 +1,17 @@
 
 
 
-<button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon"  routerLink="/addSubscribers">
+<button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon"  routerLink="/addSubscribers/-1">
     <mat-icon>plus_one</mat-icon>
   </button>
   <br>
+
+
+  <!-- Material input -->
+<div class="md-form">
+  <input type="text" id="inputDisabledEx" class="form-control" disabled>
+  <label for="inputDisabledEx" class="disabled">Example label</label>
+ </div>‏
   
 
   <table mat-table [dataSource]="sub" class="mat-elevation-z8">

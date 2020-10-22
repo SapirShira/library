@@ -12,6 +12,7 @@ import { SubscribersComponent } from './components/subscribers/subscribers.compo
 import { WorkesComponent } from './components/workes/workes.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { AddSubscriberComponent } from './components/add-subscriber/add-subscriber.component';
+import { AddWorkerComponent } from './components/add-worker/add-worker.component';
 
 
 
@@ -28,8 +29,9 @@ const routes: Routes = [
   { path: 'subcription types', component: SubcriptionTypesComponent },
   { path: 'addSubscribers/:id', component: AddSubscriberComponent },
   { path: 'subscribers', component: SubscribersComponent },
-  { path: 'addSubscribers', component: AddSubscriberComponent },
-  { path: 'workes', component: WorkesComponent }
+  // { path: 'addSubscribers', component: AddSubscriberComponent },
+  { path: 'workes', component: WorkesComponent },
+  {path:'addWorker/:id', component:AddWorkerComponent}
 ];
 
 @NgModule({

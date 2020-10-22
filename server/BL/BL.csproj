@@ -71,6 +71,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="subscriberBL.cs" />
     <Compile Include="subscriptionTypeBL.cs" />
+    <Compile Include="workerBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">

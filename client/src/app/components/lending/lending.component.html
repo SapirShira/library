@@ -1,9 +1,60 @@
-<form>
-    קוד השאלה:<input type="text"><br>
-   ת"ז מנוי:<input type="text"><br>
-   תאריך:<input type="text"><br>
-   עובד מבצע:<input type="text"><br>
-   תאריך החזרה צפוי:<input type="date"><br>
-   
-    <input type="submit" value=" ">
-</form>
+<mat-form-field >
+    <mat-label>תז מנוי</mat-label>
+    <input matInput name="subId" [(ngModel)]="newLending.idSubscribers" >
+  </mat-form-field>   
+
+
+  
+  <mat-form-field >
+    <mat-label>תז עובד</mat-label>
+    <input matInput name="subId" [(ngModel)]="newLending.worker" >
+  </mat-form-field>
+
+
+<button mat-mini-fab color="accent" aria-label="Example icon button with a search one icon" (click)="addLend()">
+    <mat-icon>search</mat-icon>
+</button>
+<br>
+
+<div *ngIf="lendingDitils != null">
+
+    <table mat-table [dataSource]="lendingDitils" class="mat-elevation-z8">
+
+        <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+      
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="serial">
+          <th mat-header-cell *matHeaderCellDef> מספר סידורי </th>
+          <td mat-cell *matCellDef="let element"> {{element.codeOtek}} </td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="bookName">
+          <th mat-header-cell *matHeaderCellDef> שם ספר </th>
+          <td mat-cell *matCellDef="let element"> {{element.bookName}} </td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="comment">
+          <th mat-header-cell *matHeaderCellDef> הערה  </th>
+          <td mat-cell *matCellDef="let element"> {{element.comment}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="return">
+          <th mat-header-cell *matHeaderCellDef> החזרה </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-fab color="primary"  class="example-button-container" aria-label="Example icon button with a keyboard_return icon" (click)="returnD(element.codeOtek)">
+              <mat-icon>keyboard_return</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+      
+      
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+</div>

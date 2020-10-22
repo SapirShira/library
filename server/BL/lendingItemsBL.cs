@@ -33,8 +33,35 @@ namespace BL
         {
             using (libraryEntities db = new libraryEntities())
             {
-                return Converters.LendingItemConverter.ConvertLendingItemListToDTO(db.LendingItems.ToList());
+                
+                Lending l = db.Lendings.Last();
+                List<LendingItemDTO> s = Converters.LendingItemConverter.ConvertLendingItemListToDTO(db.LendingItems.ToList());
+                return (s.Where(x=>x.idSUB==l.idSubscribers).ToList());
+                
             }
+        }
+
+
+        public static bool ReturnD(int code)
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+               
+                LendingItem au = db.LendingItems.First(x => x.codeLending == code && x.returnDate==null);
+                au.returnDate = DateTime.Today;
+              
+
+                try
+                {
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+            }
+
         }
 
     }

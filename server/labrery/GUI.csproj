@@ -129,6 +129,7 @@
     <Compile Include="Controllers\otakimController.cs" />
     <Compile Include="Controllers\SubsciberController.cs" />
     <Compile Include="Controllers\subscriptionTypeController.cs" />
+    <Compile Include="Controllers\WorkerController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

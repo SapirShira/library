@@ -4,8 +4,10 @@ export class lending {
     SubscriberFullName:string;
     WorkerFullName:string;
     date: Date;
-    worker: string;
+    worker: number;
     expectdReturnDate: Date;
      constructor(){}
  }
 
+
+ 

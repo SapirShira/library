@@ -13,12 +13,13 @@ namespace BL.Converters
         public static LendingItemDTO ConvertLendingItemToDTO(LendingItem lendingItem)
         {
             using (libraryEntities db = new libraryEntities())
-            {               
+            {
                 return new LendingItemDTO
                 {
 
                     codeLending = lendingItem.codeLending,
                     codeOtek = lendingItem.codeOtek,
+                    idSUB = Convert.ToInt32(lendingItem.Lending.idSubscribers),
                     comment = lendingItem.comment,
                     returnDate = lendingItem.returnDate,
                     bookName = db.Books.First(b => b.codeBook ==lendingItem.Otakim.codeBook).name

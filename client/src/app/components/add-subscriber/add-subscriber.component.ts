@@ -17,12 +17,14 @@ export class AddSubscriberComponent implements OnInit {
 
   newSubsriber: subscribers = new subscribers();
   id: number = null;
+  workerTypes:string[]=['מנהל','ספרנית'];
+
 
   subscriptionTypes: subcription_types[];
   constructor(private subscribersService: SubscribersService, private subcriptionTypesService: SubcriptionTypesService, private activatedRoute: ActivatedRoute) { }
 
   savaSubscriber() {
-    if (this.id == null) {
+    if (this.id == -1) {
       this.newSubsriber.isDeleted = false;
       this.newSubsriber.startDate = new Date();
       this.subscribersService.createSubscribers(this.newSubsriber).subscribe(res => { })
@@ -34,15 +36,15 @@ export class AddSubscriberComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.subcriptionTypesService.getAllSubcription_types().subscribe((data: subcription_types[]) => { this.subscriptionTypes = data; console.log(this.subscriptionTypes); });
 
 
     this.id = +this.activatedRoute.snapshot.paramMap.get('id');
 
-    if (this.id != null) {
-
+    if (this.id == -1) {
+      this.newSubsriber = new subscribers();
+    }
+    else {
       this.subscribersService.getAllSubscribersById(this.id).subscribe((data: subscribers[]) => { this.newSubsriber = data[0] });
-
     }
     this.subcriptionTypesService.getAllSubcription_types().subscribe((data: subcription_types[]) => { this.subscriptionTypes = data; console.log(this.subscriptionTypes); });
   }

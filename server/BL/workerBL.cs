@@ -8,20 +8,20 @@ using System.Threading.Tasks;
 
 namespace BL
 {
-    public class subscriberBL
+    public class workerBL
     {
-        public static bool addSubscriber(SubsciberDTO s)
+        public static bool addWorker(WorkerDTO s)
         {
             using (libraryEntities db = new libraryEntities())
             {
 
-                if (db.Subscribers.First(x => x.id == s.id) != null)
+                if (db.Workers.First(x => x.idWorker == s.idWorker) != null)
                 {
-                    s.startDate = DateTime.Today;
-                    updateSubsciber(s);
+                    s.status = true;
+                    updateWorker(s);
                 }
                 else
-                    db.Subscribers.Add(Converters.SubsriberConverter.ConvertSubscriberDTOToDAL(s));
+                    db.Workers.Add(Converters.WorkerConverter.ConvertWorkerDTOToDAL(s));
                 try
                 {
                     db.SaveChanges();
@@ -36,22 +36,17 @@ namespace BL
         }
 
 
-
-
-        public static bool updateSubsciber(SubsciberDTO a)
+        public static bool updateWorker(WorkerDTO a)
         {
             using (libraryEntities db = new libraryEntities())
             {
-                Subscriber au = db.Subscribers.First(x => x.id == a.id);
-                au.firstName = a.firstName;
-                au.lastName = a.lastName;
-                au.id = a.id;
-                au.isDeleted = a.isDeleted;
+                Worker au = db.Workers.First(x => x.idWorker == a.idWorker);
+                au.name = a.name;
+                au.status = a.status;
                 au.address = a.address;
-                au.phon = a.phon;
-                au.startDate = a.startDate;
-                au.type = a.type;
-                au.email = a.email;
+                au.phone = a.phone;
+                au.password = a.password;
+                au.typeWork = a.typeWork;
 
 
                 try
@@ -67,13 +62,14 @@ namespace BL
             }
         }
 
-        public static bool deleteSubsciber(int a)
+
+        public static bool deleteWorker(int a)
         {
             using (libraryEntities db = new libraryEntities())
             {
-                Subscriber au = db.Subscribers.First(x => x.id == a);
-                
-                au.isDeleted = true;
+                Worker au = db.Workers.First(x => x.idWorker == a);
+
+                au.status = false;
 
                 try
                 {
@@ -89,23 +85,26 @@ namespace BL
         }
 
 
-        public static List<SubsciberDTO> GetSubscibersById(int code)
+
+        public static List<WorkerDTO> GetWorkerById(int code)
         {
             using (libraryEntities db = new libraryEntities())
             {
-                List<SubsciberDTO> t = Converters.SubsriberConverter.ConvertSubscriberListToDTO(db.Subscribers.Where(x => x.id == code).ToList());
+                List<WorkerDTO> t = Converters.WorkerConverter.ConvertWorkerListToDTO(db.Workers.First(x => x.idWorker == code).ToList());
                 return t;
             }
         }
 
 
-        public static List<SubsciberDTO> GetSubscibers()
+        public static List<WorkerDTO> GetWorkers()
         {
             using (libraryEntities db = new libraryEntities())
             {
-                return Converters.SubsriberConverter.ConvertSubscriberListToDTO(db.Subscribers.Where(a=>a.isDeleted==false).ToList());
+                return Converters.WorkerConverter.ConvertWorkerListToDTO(db.Workers.Where(a => a.status == true).ToList());
 
             }
         }
+
+
     }
 }

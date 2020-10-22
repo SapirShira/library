@@ -25,5 +25,12 @@ namespace labrery.Controllers
         {
             return Ok(BL.lendingItemsBL.addLendingItems(l));
         }
+
+
+        [Route("returnD"), HttpPost]
+        public IHttpActionResult returnD(int code)
+        {
+            return Ok(BL.lendingItemsBL.ReturnD(code));
+        }
     }
 }
