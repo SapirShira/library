@@ -65,6 +65,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { AddSubscriberComponent } from './components/add-subscriber/add-subscriber.component';
 import { AddWorkerComponent } from './components/add-worker/add-worker.component';
+import { ReturnsComponent } from './components/returns/returns.component';
  
 
 
@@ -87,7 +88,8 @@ import { AddWorkerComponent } from './components/add-worker/add-worker.component
     HeaderComponent,
     AddBookComponent,
     AddSubscriberComponent,
-    AddWorkerComponent
+    AddWorkerComponent,
+    ReturnsComponent
   ],
   imports: [
     MatAutocompleteModule,

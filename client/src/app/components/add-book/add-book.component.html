@@ -1,5 +1,5 @@
 <br><br>
-
+<h2>הוספת ספר</h2>
 
 <form>
 
@@ -7,7 +7,7 @@
     <mat-form-field>
         <mat-label>שם ספר</mat-label>
         <input matInput name="bookName" [(ngModel)]="newBook.name">
-      </mat-form-field><br><br>
+      </mat-form-field>
 
 
       <mat-form-field  > 
@@ -15,7 +15,7 @@
     <input matInput [matDatepicker]="picker" [(ngModel)]="newBook.date" name="dateK">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field><br><br>
+  </mat-form-field>
 
 
   <mat-form-field appearance="fill">
@@ -35,7 +35,7 @@
         {{crowd.nameCrowd}}
       </mat-option>
     </mat-select>
-  </mat-form-field><br><br>
+  </mat-form-field>
 
 
 
@@ -48,7 +48,6 @@
     </mat-select>
   </mat-form-field>
   
-  <br><br>
 
   <mat-form-field  appearance="fill">
     <mat-label>מס עותקים</mat-label>
@@ -65,4 +64,3 @@
 </form>
 
 
-<p>{{newBook|json}}</p>

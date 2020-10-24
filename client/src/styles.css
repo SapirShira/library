@@ -29,7 +29,7 @@ h1{
 
 
 input{
-    margin: 1%;
+    margin: 2%;
 }
 
 input[text] {
@@ -79,6 +79,12 @@ text-align: center;
 overflow: initial;
 
   }
+
+  h2{
+    font-size: 300%;
+    font-family:'GveretLevin' ;
+
+}
 
  
 

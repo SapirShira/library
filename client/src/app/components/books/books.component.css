@@ -9,6 +9,12 @@ table {
 
   }
 
+  h2{
+    font-size: 300%;
+    font-family:'GveretLevin' ;
+
+}
+
   th{
 text-align: center;
 color: rgb(219, 126, 141);

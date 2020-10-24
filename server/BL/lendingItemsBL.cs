@@ -34,7 +34,7 @@ namespace BL
             using (libraryEntities db = new libraryEntities())
             {
                 
-                Lending l = db.Lendings.Last();
+                Lending l = db.Lendings.Last(X=>X.date==DateTime.Today);
                 List<LendingItemDTO> s = Converters.LendingItemConverter.ConvertLendingItemListToDTO(db.LendingItems.ToList());
                 return (s.Where(x=>x.idSUB==l.idSubscribers).ToList());
                 

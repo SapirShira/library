@@ -90,7 +90,7 @@ namespace BL
         {
             using (libraryEntities db = new libraryEntities())
             {
-                List<WorkerDTO> t = Converters.WorkerConverter.ConvertWorkerListToDTO(db.Workers.First(x => x.idWorker == code).ToList());
+                List<WorkerDTO> t = Converters.WorkerConverter.ConvertWorkerListToDTO(db.Workers.Where(x => x.idWorker == code).ToList());
                 return t;
             }
         }

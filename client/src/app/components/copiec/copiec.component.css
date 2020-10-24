@@ -9,6 +9,11 @@ table {
   /* background-color: transparent; */
 
 }
+h2{
+  font-size: 300%;
+  font-family:'GveretLevin' ;
+
+}
 
 th{
 text-align: center;
