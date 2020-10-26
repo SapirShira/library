@@ -18,7 +18,7 @@ export class LendindDitilsService {
   }
 
   returnD(code: number): Observable<boolean> {
-    return this.http.post<boolean>(environment.api + 'lendingItem/returnD', code);
+    return this.http.get<boolean>(environment.api + 'lendingItem/returnD/'+code);
   }
 
 }

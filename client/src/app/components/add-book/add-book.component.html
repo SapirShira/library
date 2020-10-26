@@ -1,18 +1,18 @@
 <br><br>
 <h2>הוספת ספר</h2>
 
-<form>
+<form #f="ngForm" (ngSubmit)="f.valid && savaBook()"> 
 
     
     <mat-form-field>
         <mat-label>שם ספר</mat-label>
-        <input matInput name="bookName" [(ngModel)]="newBook.name">
+        <input matInput name="bookName" [(ngModel)]="newBook.name" required>
       </mat-form-field>
 
 
       <mat-form-field  > 
     <mat-label>תאריך קטלוג</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="newBook.date" name="dateK">
+    <input matInput [matDatepicker]="picker" [(ngModel)]="newBook.date" name="dateK" required>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
@@ -20,7 +20,7 @@
 
   <mat-form-field appearance="fill">
     <mat-label> מחבר .</mat-label>
-    <mat-select [(ngModel)]="newBook.codAauthor" name="codeA">
+    <mat-select [(ngModel)]="newBook.codAauthor" name="codeA" required>
       <mat-option *ngFor="let author of authors" [value]="author.codAauthor">
      
         {{author.LiteraryAlias}}
@@ -30,7 +30,7 @@
 
   <mat-form-field appearance="fill">
     <mat-label> קהל יעד .</mat-label>
-    <mat-select [(ngModel)]="newBook.codeCrowd" name="codeC">
+    <mat-select [(ngModel)]="newBook.codeCrowd" name="codeC" required>
       <mat-option *ngFor="let crowd of crowds" [value]="crowd.codeCrowd">
         {{crowd.nameCrowd}}
       </mat-option>
@@ -41,8 +41,8 @@
 
   <mat-form-field appearance="fill">
     <mat-label> קטגוריה .</mat-label>
-    <mat-select [(ngModel)]="newBook.codeCategory" name="codeCa">
-      <mat-option *ngFor="let category1 of category" [value]="category1.codeCategory">
+    <mat-select [(ngModel)]="newBook.codeCategory" name="codeCa" required>
+      <mat-option *ngFor="let category1 of category" [value]="category1.codeCategory" >
         {{category1.nameCategory}}
       </mat-option>
     </mat-select>
@@ -51,16 +51,16 @@
 
   <mat-form-field  appearance="fill">
     <mat-label>מס עותקים</mat-label>
-    <input matInput type="number"  name="numOfCopies" [(ngModel)]="newBook.numOtakim" class="form-control">
+    <input matInput type="number"  name="numOfCopies" [(ngModel)]="newBook.numOtakim" class="form-control" required>
   </mat-form-field><br><br>
 
 
 
   <mat-form-field >
   <mat-label>מחיר</mat-label>
-        <input matInput name="price" [(ngModel)]="newBook.price" class="form-control">
+        <input matInput name="price" [(ngModel)]="newBook.price" class="form-control" required/>
       </mat-form-field><br><br>
-  <input type="submit" value="הוסף" (click)="savaBook()"><br><br>
+  <input type="submit" value="הוסף" ><br><br>
 </form>
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 import { SubscribersService } from 'src/app/servises/subscribers.service';
 import { subscribers } from 'src/app/classes/subscribers';
+import { Router } from '@angular/router';
 
 
 
@@ -22,14 +23,19 @@ export class SubscribersComponent implements OnInit {
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'address', 'phon', 'email', 'startDate', 'numOfBooks', 'update', 'garbege'];
 
 
-  constructor(private subscribersService: SubscribersService) { }
+  constructor(private subscribersService: SubscribersService,
+    private router:Router) { }
    
 
 
   ngOnInit(): void {
+    this.router.events.subscribe(
+      e => { this.subList()});
+      this.subList()
+  }
 
-
-   
+  subList()
+  {
     this.subscribersService.getAllSubscribers().subscribe((data: subscribers[]) => { this.sub = data });
   }
 

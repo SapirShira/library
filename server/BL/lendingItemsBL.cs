@@ -29,14 +29,17 @@ namespace BL
             }
         }
 
-        public static List<LendingItemDTO> GetLendingItems()
+        public static newLendingDitaile GetLendingItems()
         {
             using (libraryEntities db = new libraryEntities())
             {
                 
-                Lending l = db.Lendings.Last(X=>X.date==DateTime.Today);
+                Lending l = db.Lendings.ToList().Last();
                 List<LendingItemDTO> s = Converters.LendingItemConverter.ConvertLendingItemListToDTO(db.LendingItems.ToList());
-                return (s.Where(x=>x.idSUB==l.idSubscribers).ToList());
+                newLendingDitaile le= new newLendingDitaile();
+                le.code = l.codeLending;
+                le.lendingItemsToSub=(s.Where(x => x.idSUB == l.idSubscribers && x.returnDate == null).ToList());
+                return le;
                 
             }
         }
@@ -47,7 +50,7 @@ namespace BL
             using (libraryEntities db = new libraryEntities())
             {
                
-                LendingItem au = db.LendingItems.First(x => x.codeLending == code && x.returnDate==null);
+                LendingItem au = db.LendingItems.FirstOrDefault(x => x.codeOtek == code && x.returnDate==null);
                 au.returnDate = DateTime.Today;
               
 

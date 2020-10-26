@@ -47,11 +47,10 @@
   <mat-form-field appearance="fill">
           <mat-label> סוג עובד .</mat-label>
           <mat-select [(ngModel)]="newWorker.typeWork" name="subType">
-            <mat-select >
-                <mat-option value="option1">מנהל/ת</mat-option>
-                <mat-option value="option2" >Option 2 (disabled)</mat-option>
-                <mat-option value="option3">ספרן/ית</mat-option>
-              </mat-select>
+            <mat-option *ngFor="let type of types" [value]="type">
+     
+              {{type}}
+            </mat-option>
           </mat-select>
         </mat-form-field><br><br>
 

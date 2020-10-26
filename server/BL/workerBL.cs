@@ -15,7 +15,7 @@ namespace BL
             using (libraryEntities db = new libraryEntities())
             {
 
-                if (db.Workers.First(x => x.idWorker == s.idWorker) != null)
+                if (db.Workers.FirstOrDefault(x => x.idWorker == s.idWorker) != null)
                 {
                     s.status = true;
                     updateWorker(s);

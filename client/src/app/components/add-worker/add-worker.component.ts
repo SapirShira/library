@@ -15,6 +15,7 @@ export class AddWorkerComponent implements OnInit {
 
   newWorker: worker = new worker();
   id: number = null;
+  types:string[]=['ספרנית', 'מנהל/ת']
 
   ngOnInit(): void {
 

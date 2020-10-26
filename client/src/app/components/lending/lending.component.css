@@ -37,13 +37,13 @@ font-family: DanaYad;
   }
   th.mat-header-cell
   {
-    text-align: center;
+    text-align: center !important ;
 
   }
 
   td.mat-header-cell
   {
-    text-align: center;
+    text-align: center !important;
    
   }
 button{

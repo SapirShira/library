@@ -22,6 +22,16 @@
 
 <div *ngIf="lendingDitils != null">
 
+  <mat-form-field >
+    <mat-label>קוד ספר להשאלה</mat-label>
+    <input matInput name="codeOtek" [(ngModel)]="newLendingDitail.codeOtek" >
+  </mat-form-field>
+
+  <button mat-mini-fab color="accent" aria-label="Example icon button with a search one icon" (click)="addBookToLend()">
+    <mat-icon>search</mat-icon>
+</button>
+
+
     <table mat-table [dataSource]="lendingDitils" class="mat-elevation-z8">
 
         <!--- Note that these columns can be defined in any order.

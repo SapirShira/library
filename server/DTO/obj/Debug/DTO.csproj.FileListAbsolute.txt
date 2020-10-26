@@ -9,3 +9,4 @@ C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DTO\
 C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DTO\obj\Debug\DTO.dll
 C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DTO\obj\Debug\DTO.pdb
+C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DTO\obj\Debug\DTO.csprojAssemblyReference.cache

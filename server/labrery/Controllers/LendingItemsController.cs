@@ -27,7 +27,7 @@ namespace labrery.Controllers
         }
 
 
-        [Route("returnD"), HttpPost]
+        [Route("returnD/{code}"), HttpGet]
         public IHttpActionResult returnD(int code)
         {
             return Ok(BL.lendingItemsBL.ReturnD(code));

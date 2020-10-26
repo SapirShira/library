@@ -15,7 +15,7 @@ namespace BL
             using (libraryEntities db = new libraryEntities())
             {
 
-                if (db.Subscribers.First(x => x.id == s.id) != null)
+                if (db.Subscribers.FirstOrDefault(x => x.id == s.id) != null)
                 {
                     s.startDate = DateTime.Today;
                     updateSubsciber(s);
