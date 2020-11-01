@@ -21,6 +21,11 @@ export class LendindDitilsService {
     return this.http.get<boolean>(environment.api + 'lendingItem/returnD/'+code);
   }
 
+
+  GetItemToReturn(code: number) {
+    return this.http.get(environment.api + 'lendingItem/GetItemToReturn/'+code);
+  }
+
 }
 
 

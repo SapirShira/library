@@ -28,21 +28,33 @@ export class LendingComponent implements OnInit {
 
   returnD(code: number) {
     this.lendingDitilsService.returnD(code).subscribe(res =>
-      this.lendingService.getAllLending().subscribe((data: newLendingDitaile) => { this.lendingDitils = data.lendingItemsToSub &&  this.codelend = data.code}));
-    this.lendingDitils = this.newData.lendingItemsToSub;
-   ;
+      this.lendingDitilsService.getAllLendind_ditils().subscribe((data: newLendingDitaile) => {
+        this.lendingDitils = data.lendingItemsToSub;
+        this.codelend = data.code
+      }));
+    
+    
   }
 
   addLend() {
     this.newLending.date = new Date();
     this.lendingService.createLending(this.newLending).subscribe(res =>
 
-      this.lendingDitilsService.getAllLendind_ditils().subscribe((data: lending_ditills[]) => { this.lendingDitils = data }));
+      this.lendingDitilsService.getAllLendind_ditils().subscribe((data: newLendingDitaile) => {
+        this.lendingDitils = data.lendingItemsToSub;
+        this.codelend = data.code
+      }));
 
   }
 
   addBookToLend() {
-    this.lendingDitilsService.createLendind_ditils(this.newLendingDitail).subscribe();
+    this.newLendingDitail.codeLending=this.codelend;
+    this.lendingDitilsService.createLendind_ditils(this.newLendingDitail).subscribe(res =>
+
+      this.lendingDitilsService.getAllLendind_ditils().subscribe((data: newLendingDitaile) => {
+        this.lendingDitils = data.lendingItemsToSub;
+        this.codelend = data.code
+      }));
   }
 
 

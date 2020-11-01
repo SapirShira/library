@@ -2,10 +2,10 @@
 
 
 
-<button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon"  routerLink="/addSubscribers/-1">
+<button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" routerLink="/addSubscribers/-1">
     <mat-icon>plus_one</mat-icon>
   </button>
-  <br>
+<br>
 
 <!-- 
    Material input 
@@ -13,84 +13,84 @@
   <input type="text" id="inputDisabledEx" class="form-control" disabled>
   <label for="inputDisabledEx" class="disabled">Example label</label>
  </div>‏ -->
-  
 
-  <table mat-table [dataSource]="sub" class="mat-elevation-z8">
+
+<table mat-table [dataSource]="sub" class="mat-elevation-z8">
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
-  
+
     <!-- Position Column -->
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> קוד מנוי </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        <th mat-header-cell *matHeaderCellDef> קוד מנוי </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
     </ng-container>
-  
+
     <!-- Name Column -->
     <ng-container matColumnDef="firstName">
-      <th mat-header-cell *matHeaderCellDef> שם פרטי </th>
-      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        <th mat-header-cell *matHeaderCellDef> שם פרטי </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
     </ng-container>
-  
+
     <!-- Weight Column -->
     <ng-container matColumnDef="lastName">
-      <th mat-header-cell *matHeaderCellDef> שם משפחה </th>
-      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        <th mat-header-cell *matHeaderCellDef> שם משפחה </th>
+        <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
     </ng-container>
-  
+
     <!-- Symbol Column -->
     <ng-container matColumnDef="address">
-      <th mat-header-cell *matHeaderCellDef> כתובת </th>
-      <td mat-cell *matCellDef="let element"> {{  element.address }} </td>
+        <th mat-header-cell *matHeaderCellDef> כתובת </th>
+        <td mat-cell *matCellDef="let element"> {{ element.address }} </td>
     </ng-container>
-  
+
     <ng-container matColumnDef="phon">
-      <th mat-header-cell *matHeaderCellDef> מספר טלפון </th>
-      <td mat-cell *matCellDef="let element"> {{element.phon}} </td>
+        <th mat-header-cell *matHeaderCellDef> מספר טלפון </th>
+        <td mat-cell *matCellDef="let element"> {{element.phon}} </td>
     </ng-container>
-  
-  
+
+
     <ng-container matColumnDef="email">
-      <th mat-header-cell *matHeaderCellDef> מייל </th>
-      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        <th mat-header-cell *matHeaderCellDef> מייל </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
     </ng-container>
-  
+
     <ng-container matColumnDef="startDate">
-      <th mat-header-cell *matHeaderCellDef> תאריך פתיחת מנוי </th>
-      <td mat-cell *matCellDef="let element"> {{element.startDate| date:'shortDate'}} </td>
+        <th mat-header-cell *matHeaderCellDef> תאריך פתיחת מנוי </th>
+        <td mat-cell *matCellDef="let element"> {{element.startDate| date:'shortDate'}} </td>
     </ng-container>
-  
-   
+
+
 
     <ng-container matColumnDef="numOfBooks">
         <th mat-header-cell *matHeaderCellDef> כמות ספרים </th>
         <td mat-cell *matCellDef="let element"> {{element.numOfBooks}} </td>
-      </ng-container>
+    </ng-container>
 
 
-      <ng-container matColumnDef="update">
-        <th mat-header-cell *matHeaderCellDef>  </th>
-        <td mat-cell *matCellDef="let element"> 
-          <button mat-fab color="primary"   routerLink="/addSubscribers/{{element.id}}">>
-            <mat-icon>update</mat-icon>
-          </button>  
-        </td>
-      </ng-container>
-
-
-      <ng-container matColumnDef="garbege">
-        <th mat-header-cell *matHeaderCellDef>  </th>
+    <ng-container matColumnDef="update">
+        <th mat-header-cell *matHeaderCellDef> </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-fab color="primary"  class="example-button-container" aria-label="Example icon button with a delete icon" (click)="delete(element.id)">
-            <mat-icon>delete</mat-icon>
-          </button>  
+            <button mat-fab color="primary" routerLink="/addSubscribers/{{element.id}}">
+            <mat-icon>update</mat-icon>
+          </button>
         </td>
-      </ng-container>
-
-     
+    </ng-container>
 
 
-     
-  
+    <ng-container matColumnDef="garbege">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-fab color="primary" class="example-button-container" aria-label="Example icon button with a delete icon" (click)="delete(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+    </ng-container>
+
+
+
+
+
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+</table>

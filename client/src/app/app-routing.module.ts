@@ -13,6 +13,7 @@ import { WorkesComponent } from './components/workes/workes.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { AddSubscriberComponent } from './components/add-subscriber/add-subscriber.component';
 import { AddWorkerComponent } from './components/add-worker/add-worker.component';
+import { ReturnsComponent } from './components/returns/returns.component';
 
 
 
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'books', component: BooksComponent },
   { path: 'addBook', component: AddBookComponent },
   { path: 'categories', component: CategoriesComponent },
+  { path: 'return', component: ReturnsComponent },
   { path: 'copiec/:id', component: CopiecComponent },
   { path: 'copiec', component: CopiecComponent },
   { path: 'crowd', component: CrowdComponent },

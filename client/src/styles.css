@@ -1,34 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+
 body {
     direction: rtl !important;
     background-image: url('src/assets/cube222.jpg');
-
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: ankaclm, "Helvetica Neue", sans-serif; text-align: center;}
 
-@font-face
-{
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: ankaclm, "Helvetica Neue", sans-serif;
+    text-align: center;
+}
+
+@font-face {
     font-family: ankaclm;
     src: url(src/assets/ankaclm-bold-webfont.ttf) format("OpenType");
 }
-@font-face
-{
+
+@font-face {
     font-family: GveretLevin;
     src: url(src/assets/GveretLevinAlefAlefAlef-Regular.ttf) format("OpenType");
 }
-@font-face
-{
+
+@font-face {
     font-family: DanaYad;
     src: url(src/assets/DanaYadAlefAlefAlef-Normal.otf) format("OpenType");
 }
 
-h1{
-    font-family:'DanaYad' ;
+h1 {
+    font-family: 'DanaYad';
 }
 
-
-input{
+input {
     margin: 2%;
 }
 
@@ -38,55 +45,49 @@ input[text] {
     height: 30px;
 }
 
-input[submit]{
+input[submit] {
     border: none;
     width: 50px;
     height: 30px;
 }
 
-mat-label{
+mat-label {
     text-align: center;
 }
+
+
 /* a{
     
 } */
-.headerA{
+
+.headerA {
     font-size: 200%;
 }
-
-
 
 table {
     width: 80%;
     margin-right: 10%;
     text-align: center;
     border-bottom: none;
-
     /* color: pink; */
     overflow: initial;
-  }
-
-  th{
-text-align: center;
-color: rgb(219, 126, 141);
-overflow: initial;
-background-color: lightgray;
-border: none;
-
-  }
-  td{
-text-align: center;
-overflow: initial;
-
-  }
-
-  h2{
-    font-size: 300%;
-    font-family:'GveretLevin' ;
-
 }
 
- 
+th {
+    text-align: center;
+    color: rgb(219, 126, 141);
+    overflow: initial;
+    background-color: lightgray;
+    border: none;
+}
 
+td {
+    text-align: center;
+    overflow: initial;
+}
 
-  
+h2 {
+    font-size: 300%;
+    font-family: 'GveretLevin';
+    color: rgba(219, 126, 141);
+}

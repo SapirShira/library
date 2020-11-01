@@ -20,6 +20,14 @@ namespace labrery.Controllers
         }
 
 
+
+        [Route("GetItemToReturn/{code}"), HttpGet]
+        public IHttpActionResult GetItemToReturn(int code)
+        {
+            return Ok(BL.lendingItemsBL.GetItemToReturn(code));
+        }
+
+
         [Route("AddGetLendingItem"), HttpPost]
         public IHttpActionResult AddGetLendingItem(LendingItemDTO l)
         {

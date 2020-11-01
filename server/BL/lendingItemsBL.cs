@@ -44,6 +44,19 @@ namespace BL
             }
         }
 
+        public static LendingItemDTO GetItemToReturn(int code)
+        {
+            using (libraryEntities db = new libraryEntities())
+            {
+
+                LendingItem au = db.LendingItems.FirstOrDefault(x => x.codeOtek == code && x.returnDate == null);
+                LendingItemDTO uaDTO = Converters.LendingItemConverter.ConvertLendingItemToDTO(au);
+                return uaDTO;
+               
+            }
+
+        }
+
 
         public static bool ReturnD(int code)
         {
