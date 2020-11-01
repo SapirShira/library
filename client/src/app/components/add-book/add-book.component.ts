@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BookService } from 'src/app/servises/book.service';
 import { Book } from 'src/app/classes/book';
 import { CrowdService } from 'src/app/servises/crowd.service';
@@ -9,6 +9,7 @@ import { CategoryService } from 'src/app/servises/category.service';
 import { categories } from 'src/app/classes/categories';
 import {FormControl} from '@angular/forms';
 import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
   templateUrl: './add-book.component.html',
   styleUrls: ['./add-book.component.css']
 })
-export class AddBookComponent implements OnInit {
+export class AddBookComponent implements OnInit,OnDestroy {
   dateClass = (d: Date): MatCalendarCellCssClasses => {
     const date = d.getDate();
 
@@ -32,7 +33,14 @@ export class AddBookComponent implements OnInit {
   category:categories[];
   myControl = new FormControl();
 
-  constructor(private bookServise: BookService, private crowdService:CrowdService, private authorService:AuthorService, private categoryService:CategoryService) { }
+  constructor(private bookServise: BookService, private crowdService:CrowdService, private authorService:AuthorService, private categoryService:CategoryService,
+    private router:Router) { }
+  
+  ngOnDestroy(): void {
+console.log("destroied")
+alert("ff")
+this.router.navigate(['addBook'])
+  }
 
  
 

@@ -3,6 +3,9 @@ h1 {
     text-align: center;
     font-family: 'GveretLevin';
     color: rgba(219, 126, 141);
+    display: inline-block;
+    width: 85%;
+    margin: 3%;
 }
 
 div {
@@ -21,9 +24,12 @@ a {
 
 img {
     margin-top: 0%;
-    margin-right: 90%;
+    /* margin-right: 90%; */
     width: 10%;
     height: 100px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
 }
 
 h1 {
