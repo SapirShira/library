@@ -66,6 +66,7 @@ import { AddBookComponent } from './components/add-book/add-book.component';
 import { AddSubscriberComponent } from './components/add-subscriber/add-subscriber.component';
 import { AddWorkerComponent } from './components/add-worker/add-worker.component';
 import { ReturnsComponent } from './components/returns/returns.component';
+import { AddAuthorComponent } from './components/add-author/add-author.component';
  
 
 
@@ -89,7 +90,8 @@ import { ReturnsComponent } from './components/returns/returns.component';
     AddBookComponent,
     AddSubscriberComponent,
     AddWorkerComponent,
-    ReturnsComponent
+    ReturnsComponent,
+    AddAuthorComponent
   ],
   imports: [
     MatAutocompleteModule,

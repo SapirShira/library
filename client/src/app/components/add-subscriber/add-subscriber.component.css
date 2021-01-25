@@ -7,9 +7,14 @@
 h2 {
     font-size: 300%;
     font-family: 'GveretLevin';
+    font-weight: bold;
 }
 
 .wrapper {
     display: inline-block;
     margin: 2%;
+}
+
+input {
+    font-weight: bold;
 }

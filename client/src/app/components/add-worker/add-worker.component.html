@@ -1,5 +1,4 @@
 <br><br>
-<h2>הוספת עובד</h2>
 
 
 <form>
@@ -8,63 +7,65 @@
 
 
 
-  
-      <div *ngIf="id != -1">
-  
-      <mat-form-field >
-          <mat-label>תעודת זהות</mat-label>
-          <input matInput name="subId" [(ngModel)]="newWorker.idWorker" disabled>
+
+    <div *ngIf="id != -1">
+        <h2>עדכון עובד</h2>
+
+        <mat-form-field>
+            <mat-label>תעודת זהות</mat-label>
+            <input matInput name="subId" [(ngModel)]="newWorker.idWorker" disabled>
         </mat-form-field><br><br>
-      </div>
-   
+    </div>
+
     <div *ngIf="id==-1">
-  
-      <mat-form-field >
-          <mat-label>תעודת זהות</mat-label>
-          <input matInput name="subId" [(ngModel)]="newWorker.idWorker">
-        </mat-form-field><br><br>
-  
-    </div> 
-  
+        <h2>הוספת עובד</h2>
+
         <mat-form-field>
-          <mat-label>שם </mat-label>
-          <input matInput name="subFirstName" [(ngModel)]="newWorker.name">
+            <mat-label>תעודת זהות</mat-label>
+            <input matInput name="subId" [(ngModel)]="newWorker.idWorker">
         </mat-form-field><br><br>
-  
-  
-        <mat-form-field>
-          <mat-label>כתובת</mat-label>
-          <input matInput name="subAddress" [(ngModel)]="newWorker.address">
-        </mat-form-field><br><br>
-  
-        <mat-form-field>
-          <mat-label>טלפון</mat-label>
-          <input matInput name="subPhon" type="tel" [(ngModel)]="newWorker.phone">
-        </mat-form-field><br><br>
+
+    </div>
+
+    <mat-form-field>
+        <mat-label>שם </mat-label>
+        <input matInput name="subFirstName" [(ngModel)]="newWorker.name">
+    </mat-form-field><br><br>
+
+
+    <mat-form-field>
+        <mat-label>כתובת</mat-label>
+        <input matInput name="subAddress" [(ngModel)]="newWorker.address">
+    </mat-form-field><br><br>
+
+    <mat-form-field>
+        <mat-label>טלפון</mat-label>
+        <input matInput name="subPhon" type="tel" [(ngModel)]="newWorker.phone">
+    </mat-form-field><br><br>
 
 
 
-  <mat-form-field appearance="fill">
-          <mat-label> סוג עובד .</mat-label>
-          <mat-select [(ngModel)]="newWorker.typeWork" name="subType">
+    <mat-form-field appearance="fill">
+        <mat-label> סוג עובד .</mat-label>
+        <mat-select [(ngModel)]="newWorker.typeWork" name="subType">
             <mat-option *ngFor="let type of types" [value]="type">
-     
-              {{type}}
+
+                {{type}}
             </mat-option>
-          </mat-select>
-        </mat-form-field><br><br>
+        </mat-select>
+    </mat-form-field><br><br>
 
 
 
-        <mat-form-field>
-          <mat-label>סיסמא</mat-label>
-          <input matInput name="subMail" type="email" [(ngModel)]="newWorker.password">
-        </mat-form-field><br><br>
-  
-        
-      
-        <button class="example-button-row" mat-stroked-button color="accent" (click)="savaWorker()" routerLink="/workes">Accent</button>
-  
-  
-  
-  </form>
+    <mat-form-field>
+        <mat-label>סיסמא</mat-label>
+        <input matInput name="subMail" type="email" [(ngModel)]="newWorker.password">
+    </mat-form-field><br><br>
+
+
+
+    <button class="example-button-row" mat-stroked-button color="accent" (click)="savaWorker()" routerLink="/workes">Accent</button>
+
+
+
+</form>

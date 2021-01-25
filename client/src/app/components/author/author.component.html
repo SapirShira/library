@@ -1,10 +1,66 @@
-<h2> מחברים</h2>
-
-
 <form>
-    קוד מחבר:<input type="number"><br>
-     שם:<input type="number"><br>
-    משפחה:<input type="number"><br>
-  כינוי ספרותי<input type="text"><br>
+    <br><br>
+    <h2> מחברים</h2>
+
+    <!-- קוד מחבר:<input type="number"><br> שם:
+    <input type="number"><br> משפחה:
+    <input type="number"><br> כינוי ספרותי<input type="text"><br>
     <input type="submit" value=" ">
- </form>
+</form> -->
+
+    <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" routerLink="/addAuthor/-1">
+  <mat-icon>plus_one</mat-icon>
+</button>
+    <br>
+
+    <!-- 
+ Material input 
+<div class="md-form">
+<input type="text" id="inputDisabledEx" class="form-control" disabled>
+<label for="inputDisabledEx" class="disabled">Example label</label>
+</div>‏ -->
+
+
+    <table mat-table [dataSource]="authors" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="codAauthor">
+            <th mat-header-cell *matHeaderCellDef> קוד מחבר </th>
+            <td mat-cell *matCellDef="let element"> {{element.codAauthor}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstName">
+            <th mat-header-cell *matHeaderCellDef> שם פרטי </th>
+            <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="lastName">
+            <th mat-header-cell *matHeaderCellDef> שם משפחה </th>
+            <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="LiteraryAlias">
+            <th mat-header-cell *matHeaderCellDef> כינוי ספרותי </th>
+            <td mat-cell *matCellDef="let element"> {{element.LiteraryAlias}} </td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="update">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-fab color="primary" routerLink="/addSubscribers/{{element.id}}">
+          <mat-icon>update</mat-icon>
+        </button>
+            </td>
+        </ng-container>
+
+
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>

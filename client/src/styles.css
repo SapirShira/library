@@ -90,4 +90,9 @@ h2 {
     font-size: 300%;
     font-family: 'GveretLevin';
     color: rgba(219, 126, 141);
+    font-weight: bold;
+}
+
+input {
+    font-weight: bold;
 }

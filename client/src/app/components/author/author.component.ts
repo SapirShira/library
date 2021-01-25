@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthorService } from 'src/app/servises/author.service';
+import { Author } from 'src/app/classes/author';
 
 @Component({
   selector: 'app-author',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorComponent implements OnInit {
 
-  constructor() { }
+  authors:Author[]=[];
+  displayedColumns:string[]=['codAauthor', 'firstName', 'lastName', 'LiteraryAlias'];
+
+  constructor(private authorService:AuthorService) { }
 
   ngOnInit(): void {
+    this.authorService.getAllAuthor().subscribe((data:Author[])=>{this.authors=data});
   }
 
 }

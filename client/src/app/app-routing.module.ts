@@ -14,11 +14,14 @@ import { AddBookComponent } from './components/add-book/add-book.component';
 import { AddSubscriberComponent } from './components/add-subscriber/add-subscriber.component';
 import { AddWorkerComponent } from './components/add-worker/add-worker.component';
 import { ReturnsComponent } from './components/returns/returns.component';
+import { AddAuthorComponent } from './components/add-author/add-author.component';
 
 
 
 const routes: Routes = [
   { path: 'author', component: AuthorComponent },
+  { path: 'addAuthor/:id', component: AddAuthorComponent },
+
   { path: 'books', component: BooksComponent },
   { path: 'addBook', component: AddBookComponent },
   { path: 'categories', component: CategoriesComponent },

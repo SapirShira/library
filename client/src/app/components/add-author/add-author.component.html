@@ -1,0 +1,28 @@
+<br><br>
+
+<form #f="ngForm" (ngSubmit)="f.valid && savaAuthor()">
+    <h2>הוספת מחבר</h2>
+
+
+    <mat-form-field>
+        <mat-label>שם פרטי</mat-label>
+        <input matInput name="authorFirstName" [(ngModel)]="newAuthor.firstName" required>
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>שם משפחה</mat-label>
+        <input matInput name="authorLasttName" [(ngModel)]="newAuthor.lastName" required>
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>שם עט</mat-label>
+        <input matInput name="authorSerialName" [(ngModel)]="newAuthor.lastName" required>
+    </mat-form-field>
+
+
+
+
+    <input type="submit" value="הוסף"><br><br>
+</form>

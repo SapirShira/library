@@ -9,17 +9,19 @@ h1 {
 }
 
 div {
-    background-color: #92c2f3;
+    /* background-color: #92c2f3; */
     text-align: right;
-    height: 50px;
+    height: 30px;
     font-size: 80%;
-    margin-bottom: 1%;
+    /* margin-bottom: 5%; */
 }
 
-a {
-    margin-right: 1%;
+button {
     margin-bottom: 1%;
     font-family: 'GveretLevin';
+    border: inset;
+    background-color: #92c2f3;
+    border-color: #92c2f3;
 }
 
 img {
