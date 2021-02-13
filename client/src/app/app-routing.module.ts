@@ -23,7 +23,7 @@ import { LoginComponent } from './components/login/login.component';
 const routes: Routes = [
   { path: 'author', component: AuthorComponent, canActivate:[AuthGuard]},
   { path: 'addAuthor/:id', component: AddAuthorComponent, canActivate:[AuthGuard]},
-  { path: 'login', component:LoginComponent},
+  { path: 'login', component:LoginComponent },
   { path: 'books', component: BooksComponent, canActivate:[AuthGuard]},
   { path: 'addBook', component: AddBookComponent, canActivate:[AuthGuard] },
   { path: 'categories', component: CategoriesComponent, canActivate:[AuthGuard] },

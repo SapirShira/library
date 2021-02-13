@@ -1,18 +1,24 @@
 <br><br>
 
+<form #f="ngForm" (ngSubmit)="f.valid && login()">
 
-<h2>כניסה</h2>
-<br>
+    <h2>התחברות</h2>
+    <br>
 
-<mat-form-field>
-    <mat-label>מספר זהות</mat-label>
-    <input matInput name="subId" [(ngModel)]="idWorker">
-</mat-form-field><br><br>
-
-
+    <mat-form-field>
+        <mat-label>מספר זהות</mat-label>
+        <input matInput name="subId" [(ngModel)]="idWorker">
+    </mat-form-field><br><br>
 
 
-<mat-form-field>
-    <mat-label>סיסמא</mat-label>
-    <input matInput name="subMail" type="email" [(ngModel)]="password">
-</mat-form-field><br><br>
+
+
+    <mat-form-field>
+        <mat-label>סיסמא</mat-label>
+        <input matInput name="subMail" type="email" [(ngModel)]="password">
+    </mat-form-field><br><br>
+
+    <input class="a" type="submit" value="התחבר"><br><br>
+
+
+</form>
