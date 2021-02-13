@@ -67,6 +67,8 @@ import { AddSubscriberComponent } from './components/add-subscriber/add-subscrib
 import { AddWorkerComponent } from './components/add-worker/add-worker.component';
 import { ReturnsComponent } from './components/returns/returns.component';
 import { AddAuthorComponent } from './components/add-author/add-author.component';
+import { AuthGuard } from './auth.guard';
+import { LoginComponent } from './components/login/login.component';
  
 
 
@@ -91,7 +93,8 @@ import { AddAuthorComponent } from './components/add-author/add-author.component
     AddSubscriberComponent,
     AddWorkerComponent,
     ReturnsComponent,
-    AddAuthorComponent
+    AddAuthorComponent,
+    LoginComponent
   ],
   imports: [
     MatAutocompleteModule,
@@ -146,7 +149,7 @@ import { AddAuthorComponent } from './components/add-author/add-author.component
     A11yModule,
     MatTreeModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

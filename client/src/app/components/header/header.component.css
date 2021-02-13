@@ -34,6 +34,13 @@ img {
     left: 0;
 }
 
+a {
+    display: inline-block;
+    position: absolute;
+    left: 11%;
+    top: 80px;
+}
+
 h1 {
     width: 88%;
 }

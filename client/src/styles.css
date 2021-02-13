@@ -2,7 +2,7 @@
 
 body {
     direction: rtl !important;
-    background-image: url('src/assets/cube222.jpg');
+    background-image: url('src/assets/cube2222.jpg');
 }
 
 html,
@@ -40,9 +40,9 @@ input {
 }
 
 input[text] {
-    border: none;
+    border: bold;
     width: 15%;
-    height: 30px;
+    height: 60px;
 }
 
 input[submit] {
@@ -53,12 +53,10 @@ input[submit] {
 
 mat-label {
     text-align: center;
+    font-weight: bold;
+    color: black;
+    font-size: 23px;
 }
-
-
-/* a{
-    
-} */
 
 .headerA {
     font-size: 200%;

@@ -1,0 +1,16 @@
+h2 {
+    font-size: 300%;
+    font-family: 'GveretLevin';
+    font-weight: bold;
+}
+
+input {
+    font-weight: bold;
+}
+
+
+/* 
+mat-label {
+    font-weight: bold;
+    color: black;
+} */
