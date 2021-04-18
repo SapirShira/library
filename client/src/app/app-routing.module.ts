@@ -38,7 +38,9 @@ const routes: Routes = [
   { path: 'subscribers', component: SubscribersComponent, canActivate:[AuthGuard] },
   // { path: 'addSubscribers', component: AddSubscriberComponent },
   { path: 'workes', component: WorkesComponent , canActivate:[AuthGuard]},
-  {path:'addWorker/:id', component:AddWorkerComponent, canActivate:[AuthGuard]}
+  {path:'addWorker/:id', component:AddWorkerComponent, canActivate:[AuthGuard]},
+  { path: '',component:LoginComponent, canActivate:[AuthGuard]},
+
 ];
 
 @NgModule({

@@ -11,12 +11,14 @@ export class LoginComponent implements OnInit {
 
   idWorker:string='';
   password:string='';
+  s:boolean=false;
 
   constructor(private authService:AuthService) { }
 
   login()
   {
-    
+    this.s=this.authService.login0(this.idWorker, this.password);
+    console.log(this.s);
   }
 
   ngOnInit(): void {

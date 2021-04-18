@@ -38,7 +38,10 @@ a {
     display: inline-block;
     position: absolute;
     left: 11%;
-    top: 80px;
+    top: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
 }
 
 h1 {
