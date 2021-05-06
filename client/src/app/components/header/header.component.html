@@ -2,13 +2,15 @@
 
 <img src='../../../assets/pinkLogo1.png' routerLink="">
 <div *ngIf="isLogin != true">
-    <a routerLink="login">{{link}}</a>
+    <a routerLink="login">{{link}}
+    </a>
 </div>
 <div *ngIf="isLogin == true">
-    <a routerLink="/" (click)="logout()">{{link}}</a>
+    <a routerLink="/" (click)="logout()">{{link}}
+    </a>
     <!-- name="log" [(ngModel)]="link" -->
 </div>
-<button (click)="logout()"></button>
+<!-- <button (click)="logout()"></button> -->
 
 <h1>הספרים שאהבנו</h1>
 <br>

@@ -10,12 +10,12 @@ import { AuthService } from 'src/app/servises/auth.service';
 export class HeaderComponent implements OnInit {
 
   isLogin:boolean=false;
-  link:string="התחבר";
+  link:string="";
   constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
     this.isLogin=this.authService.isLogin();
-    this.link="התחבר"
+    this.link="התנתק/התחבר"
   }
 
   // is()
@@ -28,16 +28,12 @@ export class HeaderComponent implements OnInit {
   // }
   logout()
   {
-    if(this.authService.isLogin()==true)
-    {
-      this.link="התנתק"
-    }
-    else
-    {
-      this.link="התחבר"
-    }
+    // if(this.authService.isLogin()==true)
+    // {
+      this.authService.logout();
+    // }
 
-    this.authService.logout();
+
   }
 
 }
