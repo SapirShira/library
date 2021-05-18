@@ -1,7 +1,9 @@
-<form>
+<br><br>
+<form (submit)="saveCrowd()">
     <h2>הוספת קהל יעד</h2>
-
-    קוד:<input type="text"><br> שם:
-    <input type="text"><br>
-    <input type="submit" value=" ">
+    <mat-form-field>
+        <mat-label>שם </mat-label>
+        <input matInput name="subFirstName" [(ngModel)]="crowd.nameCrowd" required>
+    </mat-form-field><br><br>
+    <input type="submit" value="שמירה ">
 </form>

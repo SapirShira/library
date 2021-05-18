@@ -52,6 +52,7 @@ this.router.navigate(['addBook'])
     this.crowdService.getAllCrowd().subscribe((data:crowd[])=> {this.crowds = data ; console.log(this.crowds); });
     this.authorService.getAllAuthor().subscribe((data:Author[])=> {this.authors = data ; console.log(this.authors); });
     this.categoryService.getAllCategory().subscribe((data:categories[])=> {this.category = data ; console.log(this.category); });
+    this.newBook.date=new Date();
   }
 
 

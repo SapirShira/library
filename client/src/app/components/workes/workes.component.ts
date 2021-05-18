@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkersService } from 'src/app/servises/workers.service';
 import { worker } from 'src/app/classes/workes';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,12 +16,17 @@ export class WorkesComponent implements OnInit {
 
 
 
-  constructor(private workersService: WorkersService) { }
+  constructor(private workersService: WorkersService, private router:Router) { }
 
   ngOnInit(): void {
+    this.router.events.subscribe(
+      e => { this.workerList()});
+      this.workerList()
+  }
 
+  workerList()
+  {
     this.workersService.getAllWorkers().subscribe((data: worker[]) => { this.workers = data });
-
   }
 
   delete(id:number) {

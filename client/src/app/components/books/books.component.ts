@@ -4,6 +4,7 @@ import { BookService } from 'src/app/servises/book.service';
 import { Book } from 'src/app/classes/book';
 import { CrowdService } from 'src/app/servises/crowd.service';
 import { crowd } from 'src/app/classes/crowd';
+import { Router } from '@angular/router';
 
 
 
@@ -24,17 +25,20 @@ export class BooksComponent implements OnInit {
   books: Book[];
   dataSource: Book[];
   displayedColumns: string[] = ['codeBooke', 'name', 'author', 'date', 'crowd', 'category', 'numOtakim', 'otakim'];
-  constructor(private bookServise: BookService, private crowdService:CrowdService) { }
+  constructor(private bookServise: BookService, private crowdService: CrowdService, private router:Router) { }
 
-  
+
 
   ngOnInit(): void {
+    this.router.events.subscribe(
+      e => { this.bookList()});
+      this.bookList()
+
+  }
+
+  bookList() {
+
     this.bookServise.getAllBooks().subscribe((data: Book[]) => { this.books = data });
-    
-    //this.dataSource=this.books;
-
-
-
   }
 
 }

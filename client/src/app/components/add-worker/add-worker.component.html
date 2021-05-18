@@ -1,7 +1,7 @@
 <br><br>
 
 
-<form>
+<form #f="ngForm" (ngSubmit)="f.valid && savaWorker()">
 
     <!-- <div *ngIf="id!=null"> -->
 
@@ -13,7 +13,7 @@
 
         <mat-form-field>
             <mat-label>תעודת זהות</mat-label>
-            <input matInput name="subId" [(ngModel)]="newWorker.idWorker" disabled>
+            <input matInput name="subId" [(ngModel)]="newWorker.idWorker" disabled required>
         </mat-form-field><br><br>
     </div>
 
@@ -22,32 +22,32 @@
 
         <mat-form-field>
             <mat-label>תעודת זהות</mat-label>
-            <input matInput name="subId" [(ngModel)]="newWorker.idWorker">
+            <input matInput name="subId" [(ngModel)]="newWorker.idWorker" required>
         </mat-form-field><br><br>
 
     </div>
 
     <mat-form-field>
         <mat-label>שם </mat-label>
-        <input matInput name="subFirstName" [(ngModel)]="newWorker.name">
+        <input matInput name="subFirstName" [(ngModel)]="newWorker.name" required>
     </mat-form-field><br><br>
 
 
     <mat-form-field>
         <mat-label>כתובת</mat-label>
-        <input matInput name="subAddress" [(ngModel)]="newWorker.address">
+        <input matInput name="subAddress" [(ngModel)]="newWorker.address" required>
     </mat-form-field><br><br>
 
     <mat-form-field>
         <mat-label>טלפון</mat-label>
-        <input matInput name="subPhon" type="tel" [(ngModel)]="newWorker.phone">
+        <input matInput name="subPhon" type="tel" [(ngModel)]="newWorker.phone" required>
     </mat-form-field><br><br>
 
 
 
     <mat-form-field appearance="fill">
         <mat-label> סוג עובד .</mat-label>
-        <mat-select [(ngModel)]="newWorker.typeWork" name="subType">
+        <mat-select [(ngModel)]="newWorker.typeWork" name="subType" required>
             <mat-option *ngFor="let type of types" [value]="type">
 
                 {{type}}
@@ -59,12 +59,12 @@
 
     <mat-form-field>
         <mat-label>סיסמא</mat-label>
-        <input matInput name="subMail" type="email" [(ngModel)]="newWorker.password">
+        <input matInput name="subMail" type="email" [(ngModel)]="newWorker.password" required>
     </mat-form-field><br><br>
 
 
 
-    <button class="example-button-row" mat-stroked-button color="accent" (click)="savaWorker()" routerLink="/workes">Accent</button>
+    <input type="submit" class="example-button-row" mat-stroked-button color="accent" value="save"> routerLink="/workes"
 
 
 

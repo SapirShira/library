@@ -1,7 +1,9 @@
 <br><br>
 <form (submit)="saveCategory()">
     <h2>הוספת קטגוריה</h2>
-
-    שם:<input type="text" [(ngModel)]="category.nameCategory" name="name"><br>
+    <mat-form-field>
+        <mat-label>שם </mat-label>
+        <input matInput name="subFirstName" [(ngModel)]="category.nameCategory" required>
+    </mat-form-field><br><br>
     <input type="submit" value="שמירה ">
 </form>

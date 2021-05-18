@@ -18,6 +18,8 @@ export class AddSubscriberComponent implements OnInit {
   newSubsriber: subscribers = new subscribers();
   id: number = null;
   workerTypes:string[]=['מנהל','ספרנית'];
+  link:string="";
+  answer:boolean
 
 
   subscriptionTypes: subcription_types[];
@@ -27,7 +29,8 @@ export class AddSubscriberComponent implements OnInit {
     if (this.id == -1) {
       this.newSubsriber.isDeleted = false;
       this.newSubsriber.startDate = new Date();
-      this.subscribersService.createSubscribers(this.newSubsriber).subscribe(res => { })
+     this.subscribersService.createSubscribers(this.newSubsriber).subscribe(res => {this.answer=res })
+     console.log(this.answer);
     }
     else {
       this.subscribersService.updateSubscribers(this.newSubsriber).subscribe(res => { })

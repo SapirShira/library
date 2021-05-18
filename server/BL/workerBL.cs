@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Mail;
+using System.Net;
 
 namespace BL
 {
@@ -15,16 +17,24 @@ namespace BL
             using (libraryEntities db = new libraryEntities())
             {
 
+                string mailBody = $" Hi " + s.name + " You have successfully joined our team  \n " +
+                            $"your password is " + s.password + " \n Thanks ";
                 if (db.Workers.FirstOrDefault(x => x.idWorker == s.idWorker) != null)
                 {
                     s.status = true;
                     updateWorker(s);
+             
                 }
                 else
+                { 
                     db.Workers.Add(Converters.WorkerConverter.ConvertWorkerDTOToDAL(s));
+                    //bool b = SendMail(s.address, "ברוכים הבאים לצוות עובדנו", mailBody);
+
+                }
                 try
                 {
                     db.SaveChanges();
+                    bool b = SendMail(s.address, "ברוכים הבאים לצוות עובדנו", mailBody);
                     return true;
                 }
                 catch (Exception e)
@@ -52,6 +62,7 @@ namespace BL
                 try
                 {
                     db.SaveChanges();
+                    bool b = SendMail(a.address, "ברוכים הבאים לצוות עובדנו", "פרטיך עודכנו בהצלחה במערכת ");
                     return true;
                 }
                 catch (Exception e)
@@ -105,9 +116,81 @@ namespace BL
             }
         }
 
-       // the.book.we.loved@gmail.com
-       //book5252?
+
+        public static bool SendMail(string mailAdrress, string title, string mailBody)
+        {
+            //try
+            //{
+            //    SmtpClient client = new SmtpClient("smpt.gmail.com", 587);
+            //    MailMessage message = new MailMessage();
+            //    message.From = new MailAddress("the.book.we.loved@gmail.com");
+            //    message.To.Add("shirahalili78@gmail.com");
+            //    message.Body = "בדיקה";
+            //    message.Subject = "בדיקה";
+            //    client.UseDefaultCredentials = false;
+            //    client.EnableSsl = true;
+            //    client.Credentials = new System.Net.NetworkCredential("the.book.we.loved@gmail.com", "book5252?");
+            //    client.Send(message);
+            //    message = null;
+            //    return true;
+            //}
+            //catch (Exception s)
+            //{
+            //    return false;
+
+            //}
+
+            //$" Hi shira halili You have successfully joined our club card. \n " +
+            //        $"We hope meet you again soon \n Thanks ";
+            try
+            {
+
+
+
+                var fromAddress = new MailAddress("the.book.we.loved@gmail.com", "The Book We Loved");
+                var toAddress = new MailAddress(mailAdrress, "To Name");
+                const string fromPassword = "book5252?";
+                string subject = title;
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = mailBody
+                })
+
+                    smtp.Send(message);
+
+
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
 
 
     }
-}
+
+
+
+
+           
+
+
+
+        // the.book.we.loved@gmail.com
+        //book5252?
+
+
+    }
+

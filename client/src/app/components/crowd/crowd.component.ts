@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { crowd } from 'src/app/classes/crowd';
+import { CrowdService } from 'src/app/servises/crowd.service';
 
 @Component({
   selector: 'app-crowd',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrowdComponent implements OnInit {
 
-  constructor() { }
+  crowd:crowd = new crowd();
+  constructor(private crowdService:CrowdService) { }
+
 
   ngOnInit(): void {
+
+  }
+
+  saveCrowd()
+  {
+    this.crowdService.createCrowd(this.crowd).subscribe(res=>{})
   }
 
 }
