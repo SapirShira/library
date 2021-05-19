@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { worker } from '../classes/workes';
 import { Observable } from 'rxjs';
@@ -9,23 +9,21 @@ import { Observable } from 'rxjs';
 })
 export class WorkersService {
 
-  constructor(private http:HttpClient) { }
+
+  constructor(private http: HttpClient) { }
 
 
-
-  getAllWorkers()
-  {
-    return this.http.get(environment.api+"worker/GetWorkers");
+  getAllWorkers() {
+    return this.http.get(environment.api + "worker/GetWorkers");
   }
 
-  GetWorkerById(id:number) {
-    return this.http.get(environment.api + "worker/GetWorkerById/"+id );
+  GetWorkerById(id: number) {
+    return this.http.get(environment.api + "worker/GetWorkerById/" + id);
   }
 
 
-  createWorkers(workers:worker):Observable<boolean>
-  {
-      return this.http.post<boolean>(environment.api+'worker/AddWorker',workers)
+  createWorkers(workers: worker): Observable<boolean> {
+    return this.http.post<boolean>(environment.api + 'worker/AddWorker', workers)
   }
 
 
@@ -34,7 +32,7 @@ export class WorkersService {
   }
 
   deleteWorker(id: number): Observable<boolean> {
-    return this.http.delete<boolean>(environment.api + 'worker/DeleteWorker/'+ id)
+    return this.http.delete<boolean>(environment.api + 'worker/DeleteWorker/' + id)
   }
 
 }

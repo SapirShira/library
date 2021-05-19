@@ -11,10 +11,10 @@
 
 
 
-<mat-form-field>
+<!-- <mat-form-field>
     <mat-label>תז עובד</mat-label>
     <input matInput name="subId" [(ngModel)]="newLending.worker">
-</mat-form-field>
+</mat-form-field> -->
 
 
 <button mat-mini-fab color="accent" aria-label="Example icon button with a search one icon" (click)="addLend()">
@@ -27,6 +27,11 @@
     <mat-form-field>
         <mat-label>קוד ספר להשאלה</mat-label>
         <input matInput name="codeOtek" [(ngModel)]="newLendingDitail.codeOtek">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>הערה להשאלה</mat-label>
+        <input matInput name="note" [(ngModel)]="newLendingDitail.comment">
     </mat-form-field>
 
     <button mat-mini-fab color="accent" aria-label="Example icon button with a search one icon" (click)="addBookToLend()">

@@ -5,6 +5,7 @@ import { lending } from 'src/app/classes/lending';
 import { LendindDitilsService } from 'src/app/servises/lendind-ditils.service';
 import { lending_ditills } from 'src/app/classes/lending_ditills';
 import { newLendingDitaile } from 'src/app/classes/newLendingDitaile';
+import { AuthService } from 'src/app/servises/auth.service';
 
 @Component({
   selector: 'app-lending',
@@ -20,7 +21,7 @@ export class LendingComponent implements OnInit {
   codelend: number = null;
   newData: newLendingDitaile = null;
 
-  constructor(private lendingService: LendingService, private lendingDitilsService: LendindDitilsService) { }
+  constructor(private lendingService: LendingService, private lendingDitilsService: LendindDitilsService, private authService:AuthService) { }
 
   ngOnInit(): void {
 
@@ -37,6 +38,7 @@ export class LendingComponent implements OnInit {
   }
 
   addLend() {
+    this.newLending.worker=this.authService.worker.idWorker;
     this.newLending.date = new Date();
     this.lendingService.createLending(this.newLending).subscribe(res =>
 

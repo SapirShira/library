@@ -12,7 +12,7 @@ import { LendingService } from 'src/app/servises/lending.service';
 export class ReturnsComponent implements OnInit {
   returnItem: lending_ditills;
   code: number = null;
-  displayedColumns: string[] = ['serial', 'bookName', 'comment'];
+  displayedColumns: string[] = ['serial', 'bookName', 'comment', 'return'];
   list=[];
 returnTable: MatTableDataSource<lending_ditills[]>=new  MatTableDataSource<lending_ditills[]>(this.list);
 
@@ -30,6 +30,17 @@ returnTable: MatTableDataSource<lending_ditills[]>=new  MatTableDataSource<lendi
     this.returnTable=new   MatTableDataSource<lending_ditills[]> (this.list);
 
     });
+    
+  }
+
+  returnD(code: number) {
+    this.lendingDitilsService.returnD(code).subscribe(res =>{}
+      // this.lendingDitilsService.getAllLendind_ditils().subscribe((data: newLendingDitaile) => {
+      //   this.lendingDitils = data.lendingItemsToSub;
+      //   this.codelend = data.code
+      // })
+    );
+    
     
   }
 

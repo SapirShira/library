@@ -14,6 +14,8 @@ namespace BL
         {
             using (libraryEntities db = new libraryEntities())
             {
+                LendingItem au = db.LendingItems.FirstOrDefault(x => x.codeOtek == l.codeOtek && x.returnDate == null);
+
                 db.LendingItems.Add(Converters.LendingItemConverter.ConvertLendingItemDTOToDAL(l));
                 db.Otakims.First(a => a.codeOtek == l.codeOtek).status = "מושאל";
                 try
@@ -50,9 +52,16 @@ namespace BL
             {
 
                 LendingItem au = db.LendingItems.FirstOrDefault(x => x.codeOtek == code && x.returnDate == null);
+                if(au==null)
+                {
+                    return null;
+                }
                 LendingItemDTO uaDTO = Converters.LendingItemConverter.ConvertLendingItemToDTO(au);
-                return uaDTO;
-               
+                if (uaDTO.returnDate != null)
+                    return uaDTO;
+               else
+                    return uaDTO;
+
             }
 
         }
@@ -65,7 +74,8 @@ namespace BL
                
                 LendingItem au = db.LendingItems.FirstOrDefault(x => x.codeOtek == code && x.returnDate==null);
                 au.returnDate = DateTime.Today;
-              
+
+                db.Otakims.First(a => a.codeOtek == au.codeOtek).status = "נמצא";
 
                 try
                 {

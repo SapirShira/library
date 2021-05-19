@@ -5,7 +5,7 @@ import { SubcriptionTypesService } from 'src/app/servises/subcription-types.serv
 import { subcription_types } from 'src/app/classes/subcription_types';
 import { FormControl } from '@angular/forms';
 import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -17,23 +17,31 @@ export class AddSubscriberComponent implements OnInit {
 
   newSubsriber: subscribers = new subscribers();
   id: number = null;
-  workerTypes:string[]=['מנהל','ספרנית'];
-  link:string="";
-  answer:boolean
+  workerTypes: string[] = ['מנהל', 'ספרנית'];
+  link: string = "";
+  answer: boolean
 
 
   subscriptionTypes: subcription_types[];
-  constructor(private subscribersService: SubscribersService, private subcriptionTypesService: SubcriptionTypesService, private activatedRoute: ActivatedRoute) { }
+  constructor(private subscribersService: SubscribersService, private router: Router, private subcriptionTypesService: SubcriptionTypesService, private activatedRoute: ActivatedRoute) { }
 
   savaSubscriber() {
     if (this.id == -1) {
       this.newSubsriber.isDeleted = false;
       this.newSubsriber.startDate = new Date();
-     this.subscribersService.createSubscribers(this.newSubsriber).subscribe(res => {this.answer=res })
-     console.log(this.answer);
+      this.subscribersService.createSubscribers(this.newSubsriber).subscribe(res => { this.answer = res })
+      console.log(this.answer);
+      if (this.answer == true) {
+        this.router.navigate(['/subscribers'])
+
+      }
     }
     else {
-      this.subscribersService.updateSubscribers(this.newSubsriber).subscribe(res => { })
+      this.subscribersService.updateSubscribers(this.newSubsriber).subscribe(res => {this.answer=res })
+      if (this.answer == true) {
+        this.router.navigate(['/subscribers'])
+
+      }
     }
   }
 
