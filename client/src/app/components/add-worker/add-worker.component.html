@@ -22,14 +22,14 @@
 
         <mat-form-field>
             <mat-label>תעודת זהות</mat-label>
-            <input matInput name="subId" [(ngModel)]="newWorker.idWorker" required>
+            <input matInput name="subId" type="number" [(ngModel)]="newWorker.idWorker" required>
         </mat-form-field><br><br>
 
     </div>
 
     <mat-form-field>
         <mat-label>שם </mat-label>
-        <input matInput name="subFirstName" [(ngModel)]="newWorker.address" required>
+        <input matInput name="subFirstName" pattern="[A-Za-z]+" title="אנא הזן אותיות A-Z בלבד" [(ngModel)]="newWorker.address" required>
     </mat-form-field><br><br>
 
 
@@ -59,7 +59,7 @@
 
     <mat-form-field>
         <mat-label>סיסמא</mat-label>
-        <input matInput name="subMail" type="email" [(ngModel)]="newWorker.password" required>
+        <input matInput name="subMail" type="password" [(ngModel)]="newWorker.password" required>
     </mat-form-field><br><br>
 
 

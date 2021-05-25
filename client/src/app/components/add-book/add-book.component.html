@@ -53,14 +53,14 @@
 
     <mat-form-field appearance="fill">
         <mat-label>מס עותקים</mat-label>
-        <input matInput type="number" name="numOfCopies" [(ngModel)]="newBook.numOtakim" class="form-control" required>
+        <input matInput type="number" name="numOfCopies" (keyup)="_keyUp($event)" [(ngModel)]="newBook.numOtakim" class="form-control" required>
     </mat-form-field><br><br>
 
 
 
     <mat-form-field>
         <mat-label>מחיר</mat-label>
-        <input matInput name="price" [(ngModel)]="newBook.price" class="form-control" required/>
+        <input matInput name="price" type="number" (keyup)="_keyUp($event)" [(ngModel)]="newBook.price" class="form-control" required/>
     </mat-form-field><br><br>
     <input type="submit" value="הוסף"><br><br>
 </form>

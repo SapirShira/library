@@ -10,7 +10,7 @@ import { categories } from 'src/app/classes/categories';
 import { FormControl } from '@angular/forms';
 import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 import { Router } from '@angular/router';
-import { DatePipe } from '@angular/common';
+// import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -36,8 +36,8 @@ export class AddBookComponent implements OnInit, OnDestroy {
   answer: boolean;
 
   constructor(private bookServise: BookService, private crowdService: CrowdService, private authorService: AuthorService, private categoryService: CategoryService,
-    private router: Router, private datePipe: DatePipe) { }
-
+    private router: Router) { }
+// , private datePipe: DatePipe
   ngOnDestroy(): void {
     console.log("destroied")
     alert("ff")
@@ -61,9 +61,20 @@ export class AddBookComponent implements OnInit, OnDestroy {
     this.categoryService.getAllCategory().subscribe((data: categories[]) => { this.category = data; console.log(this.category); });
     this.newBook.date = new Date();
 
-    // this.newBook.date = this.datePipe.transform(this.newBook.date, 'yyyy-MM-dd');
+    //  this.newBook.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
 
   }
+
+
+  _keyUp(event: any) {
+    const pattern = /[0-9\+\-\ ]/;
+    let inputChar = String.fromCharCode(event.key);
+
+    if (!pattern.test(inputChar)) {
+      // invalid character, prevent input
+      event.preventDefault();
+    }
+}
 
 
   // this.newCrowd=this.crowds[0];
