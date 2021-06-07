@@ -29,13 +29,13 @@
 
     <mat-form-field>
         <mat-label>שם </mat-label>
-        <input matInput name="subFirstName" pattern="[A-Za-z]+" title="אנא הזן אותיות A-Z בלבד" [(ngModel)]="newWorker.address" required>
+        <input matInput name="subFirstName" pattern="[A-Za-z]+" title="אנא הזן אותיות A-Z בלבד" [(ngModel)]="newWorker.name" required>
     </mat-form-field><br><br>
 
 
     <mat-form-field>
         <mat-label> כתובת מייל</mat-label>
-        <input matInput name="subAddress" [(ngModel)]="newWorker.name" required>
+        <input matInput name="subAddress" [(ngModel)]="newWorker.address" required>
     </mat-form-field><br><br>
 
     <mat-form-field>

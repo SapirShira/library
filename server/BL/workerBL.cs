@@ -17,7 +17,7 @@ namespace BL
             using (libraryEntities db = new libraryEntities())
             {
 
-                string mailBody = $" Hi " + s.address + " You have successfully joined our team  \n " +
+                string mailBody = $" Hi " + s.name + " You have successfully joined our team  \n " +
                             $"your password is " + s.password + " \n Thanks ";
                 if (db.Workers.FirstOrDefault(x => x.idWorker == s.idWorker) != null)
                 {
@@ -34,7 +34,7 @@ namespace BL
                 try
                 {
                     db.SaveChanges();
-                    bool b = SendMail(s.name, "ברוכים הבאים לצוות עובדנו", mailBody);
+                    bool b = SendMail(s.address, "ברוכים הבאים לצוות עובדנו", mailBody);
                     return true;
                 }
                 catch (Exception e)
