@@ -18,21 +18,18 @@ export class AuthService {
 
   }
 
-  login0(name:string, password: string):boolean
+  login0(name:string, password: string)
   {
-    this.GetWorkerById(+name).subscribe((data: worker[]) => { this.worker = data[0] });
-    console.log(this.worker.name);
-    console.log(this.worker.password);
-    if(password==this.worker.password)
-    {
-      this.login(name, password);
-      return true;
-    }
-    return false;
+  return  this.GetWorkerById(+name)
+
+
+
+  
   }
-  login(name:string, password: string)
+  login(worker)
   {
-    const currentUser={"name":name, "password": password};
+    this.worker=worker;
+    const currentUser={"name":worker.name, "password":worker. password};
     localStorage.setItem("currentUser", JSON.stringify(currentUser));   
   }
 

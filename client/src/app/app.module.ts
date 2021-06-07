@@ -64,7 +64,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
  import {OverlayModule} from '@angular/cdk/overlay';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { AddSubscriberComponent } from './components/add-subscriber/add-subscriber.component';
-import { AddWorkerComponent } from './components/add-worker/add-worker.component';
+import { AddWorkerComponent, try1 } from './components/add-worker/add-worker.component';
 import { ReturnsComponent } from './components/returns/returns.component';
 import { AddAuthorComponent } from './components/add-author/add-author.component';
 import { AuthGuard } from './auth.guard';
@@ -94,7 +94,9 @@ import { LoginComponent } from './components/login/login.component';
     AddWorkerComponent,
     ReturnsComponent,
     AddAuthorComponent,
-    LoginComponent
+    LoginComponent,
+    try1
+
   ],
   imports: [
     MatAutocompleteModule,

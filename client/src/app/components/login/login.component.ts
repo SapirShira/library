@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/servises/auth.service';
 import { CanActivate, ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
+import { worker } from 'src/app/classes/workes';
 
 
 
@@ -19,9 +20,16 @@ export class LoginComponent implements OnInit {
 
   login()
   {
-    this.s=this.authService.login0(this.idWorker, this.password);
-    console.log(this.s);
-    this.router.navigate(['/books'])
+   this.authService.login0(this.idWorker, this.password).subscribe((data: worker[]) => {  
+   
+    if(this.password==data[0].password)
+    {
+      this.authService.login(data[0]);
+      this.router.navigate(['/books'])
+
+    }
+  });;
+   
 
   }
 

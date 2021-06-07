@@ -14,8 +14,6 @@
         <EntityTypeShape EntityType="libraryModel.Otakim" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="libraryModel.Subscriber" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="libraryModel.SubscriptionType" Width="1.5" PointX="0.75" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="libraryModel.sysdiagram" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="libraryModel.Worker" Width="1.5" PointX="3" PointY="13.5" IsExpanded="true" />
         <AssociationConnector Association="libraryModel.fk_codeAuthor" ManuallyRouted="false" />
         <AssociationConnector Association="libraryModel.FK__Books__codeCateg__681373AD" ManuallyRouted="false" />
         <AssociationConnector Association="libraryModel.FK__Books__codeCrowd__690797E6" ManuallyRouted="false" />
@@ -23,8 +21,9 @@
         <AssociationConnector Association="libraryModel.FK__LendingIt__codeL__24285DB4" ManuallyRouted="false" />
         <AssociationConnector Association="libraryModel.FK__LendingIt__codeO__251C81ED" ManuallyRouted="false" />
         <AssociationConnector Association="libraryModel.FK__Lendings__idSubs__1E6F845E" ManuallyRouted="false" />
-        <AssociationConnector Association="libraryModel.FK__Lendings__worker__2057CCD0" ManuallyRouted="false" />
         <AssociationConnector Association="libraryModel.FK__Subscriber__type__59C55456" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="libraryModel.Worker" Width="1.5" PointX="5.375" PointY="5" />
+        <AssociationConnector Association="libraryModel.FK__Lendings__worker__3E52440B" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

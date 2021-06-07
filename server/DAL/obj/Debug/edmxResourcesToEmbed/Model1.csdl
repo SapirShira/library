@@ -15,7 +15,7 @@
       <PropertyRef Name="codeBook" />
     </Key>
     <Property Name="codeBook" Type="Int32" Nullable="false" />
-    <Property Name="name" Type="String" MaxLength="35" FixedLength="false" Unicode="true" />
+    <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="codAauthor" Type="Int32" />
     <Property Name="date" Type="DateTime" Precision="0" />
     <Property Name="codeCategory" Type="Int32" />
@@ -66,7 +66,7 @@
     <Property Name="expectReturnDate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="LendingItems" Relationship="Self.FK__LendingIt__codeL__24285DB4" FromRole="Lendings" ToRole="LendingItem" />
     <NavigationProperty Name="Subscriber" Relationship="Self.FK__Lendings__idSubs__1E6F845E" FromRole="Lendings" ToRole="Subscribers" />
-    <NavigationProperty Name="Worker1" Relationship="Self.FK__Lendings__worker__2057CCD0" FromRole="Lendings" ToRole="Workers" />
+    <NavigationProperty Name="Worker1" Relationship="libraryModel.FK__Lendings__worker__3E52440B" FromRole="Lending" ToRole="Worker" />
   </EntityType>
   <EntityType Name="Otakim">
     <Key>
@@ -105,29 +105,6 @@
     <Property Name="price" Type="Int32" />
     <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Subscribers" Relationship="Self.FK__Subscriber__type__59C55456" FromRole="SubscriptionType" ToRole="Subscribers" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="Worker">
-    <Key>
-      <PropertyRef Name="idWorker" />
-    </Key>
-    <Property Name="idWorker" Type="Int32" Nullable="false" />
-    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="address" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="typeWork" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
-    <Property Name="status" Type="Boolean" />
-    <Property Name="password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="Lendings" Relationship="Self.FK__Lendings__worker__2057CCD0" FromRole="Workers" ToRole="Lendings" />
   </EntityType>
   <Association Name="fk_codeAuthor">
     <End Role="Aauthor" Type="Self.Aauthor" Multiplicity="0..1" />
@@ -213,18 +190,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Lendings__worker__2057CCD0">
-    <End Role="Workers" Type="Self.Worker" Multiplicity="0..1" />
-    <End Role="Lendings" Type="Self.Lending" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Workers">
-        <PropertyRef Name="idWorker" />
-      </Principal>
-      <Dependent Role="Lendings">
-        <PropertyRef Name="worker" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Subscriber__type__59C55456">
     <End Role="SubscriptionType" Type="Self.SubscriptionType" Multiplicity="0..1" />
     <End Role="Subscribers" Type="Self.Subscriber" Multiplicity="*" />
@@ -247,8 +212,6 @@
     <EntitySet Name="Otakims" EntityType="Self.Otakim" />
     <EntitySet Name="Subscribers" EntityType="Self.Subscriber" />
     <EntitySet Name="SubscriptionTypes" EntityType="Self.SubscriptionType" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="Workers" EntityType="Self.Worker" />
     <AssociationSet Name="fk_codeAuthor" Association="Self.fk_codeAuthor">
       <End Role="Aauthor" EntitySet="Aauthors" />
       <End Role="Books" EntitySet="Books" />
@@ -275,10 +238,6 @@
     </AssociationSet>
     <AssociationSet Name="FK__Lendings__idSubs__1E6F845E" Association="Self.FK__Lendings__idSubs__1E6F845E">
       <End Role="Subscribers" EntitySet="Subscribers" />
-      <End Role="Lendings" EntitySet="Lendings" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Lendings__worker__2057CCD0" Association="Self.FK__Lendings__worker__2057CCD0">
-      <End Role="Workers" EntitySet="Workers" />
       <End Role="Lendings" EntitySet="Lendings" />
     </AssociationSet>
     <AssociationSet Name="FK__Subscriber__type__59C55456" Association="Self.FK__Subscriber__type__59C55456">
@@ -315,6 +274,11 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Workers" EntityType="libraryModel.Worker" />
+    <AssociationSet Name="FK__Lendings__worker__3E52440B" Association="libraryModel.FK__Lendings__worker__3E52440B">
+      <End Role="Worker" EntitySet="Workers" />
+      <End Role="Lending" EntitySet="Lendings" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -327,4 +291,29 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="Worker">
+    <Key>
+      <PropertyRef Name="idWorker" />
+    </Key>
+    <Property Name="idWorker" Type="Int32" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="typeWork" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="status" Type="Boolean" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Lendings" Relationship="libraryModel.FK__Lendings__worker__3E52440B" FromRole="Worker" ToRole="Lending" />
+  </EntityType>
+  <Association Name="FK__Lendings__worker__3E52440B">
+    <End Type="libraryModel.Worker" Role="Worker" Multiplicity="0..1" />
+    <End Type="libraryModel.Lending" Role="Lending" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Worker">
+        <PropertyRef Name="idWorker" />
+      </Principal>
+      <Dependent Role="Lending">
+        <PropertyRef Name="worker" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

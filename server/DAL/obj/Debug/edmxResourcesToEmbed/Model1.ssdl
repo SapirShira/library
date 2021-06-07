@@ -14,7 +14,7 @@
       <PropertyRef Name="codeBook" />
     </Key>
     <Property Name="codeBook" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="35" />
+    <Property Name="name" Type="nvarchar" MaxLength="20" />
     <Property Name="codAauthor" Type="int" />
     <Property Name="date" Type="date" />
     <Property Name="codeCategory" Type="int" />
@@ -89,29 +89,19 @@
     <Property Name="price" Type="int" />
     <Property Name="status" Type="nvarchar" MaxLength="20" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="Workers">
     <Key>
       <PropertyRef Name="idWorker" />
     </Key>
     <Property Name="idWorker" Type="int" Nullable="false" />
     <Property Name="name" Type="nvarchar" MaxLength="30" />
-    <Property Name="address" Type="nvarchar" MaxLength="20" />
+    <Property Name="address" Type="nvarchar" MaxLength="50" />
     <Property Name="phone" Type="nvarchar" MaxLength="10" />
     <Property Name="typeWork" Type="nvarchar" MaxLength="15" />
     <Property Name="status" Type="bit" />
     <Property Name="password" Type="nvarchar" MaxLength="10" Nullable="false" />
   </EntityType>
-  <Association Name="FK__Books__codeCateg__44952D46">
+  <Association Name="FK__Books__codeCateg__38996AB5">
     <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
     <End Role="Books" Type="Self.Books" Multiplicity="*" />
     <ReferentialConstraint>
@@ -123,7 +113,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Books__codeCrowd__477199F1">
+  <Association Name="FK__Books__codeCrowd__398D8EEE">
     <End Role="Crowd" Type="Self.Crowd" Multiplicity="0..1" />
     <End Role="Books" Type="Self.Books" Multiplicity="*" />
     <ReferentialConstraint>
@@ -135,7 +125,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__LendingIt__codeL__4E1E9780">
+  <Association Name="FK__LendingIt__codeL__3B75D760">
     <End Role="Lendings" Type="Self.Lendings" Multiplicity="1" />
     <End Role="LendingItem" Type="Self.LendingItem" Multiplicity="*" />
     <ReferentialConstraint>
@@ -147,7 +137,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__LendingIt__codeO__51EF2864">
+  <Association Name="FK__LendingIt__codeO__3C69FB99">
     <End Role="Otakim" Type="Self.Otakim" Multiplicity="1" />
     <End Role="LendingItem" Type="Self.LendingItem" Multiplicity="*" />
     <ReferentialConstraint>
@@ -159,7 +149,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Lendings__idSubs__4C364F0E">
+  <Association Name="FK__Lendings__idSubs__3D5E1FD2">
     <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="0..1" />
     <End Role="Lendings" Type="Self.Lendings" Multiplicity="*" />
     <ReferentialConstraint>
@@ -171,7 +161,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Lendings__worker__4D2A7347">
+  <Association Name="FK__Lendings__worker__3E52440B">
     <End Role="Workers" Type="Self.Workers" Multiplicity="0..1" />
     <End Role="Lendings" Type="Self.Lendings" Multiplicity="*" />
     <ReferentialConstraint>
@@ -183,7 +173,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Otakim__codeBook__50FB042B">
+  <Association Name="FK__Otakim__codeBook__3F466844">
     <End Role="Books" Type="Self.Books" Multiplicity="0..1" />
     <End Role="Otakim" Type="Self.Otakim" Multiplicity="*" />
     <ReferentialConstraint>
@@ -195,7 +185,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Subscriber__type__54CB950F">
+  <Association Name="FK__Subscriber__type__403A8C7D">
     <End Role="SubscriptionType" Type="Self.SubscriptionType" Multiplicity="0..1" />
     <End Role="Subscribers" Type="Self.Subscribers" Multiplicity="*" />
     <ReferentialConstraint>
@@ -219,37 +209,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="libraryModelStoreContainer">
     <EntitySet Name="Aauthor" EntityType="Self.Aauthor" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
@@ -260,37 +219,36 @@
     <EntitySet Name="Otakim" EntityType="Self.Otakim" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Subscribers" EntityType="Self.Subscribers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SubscriptionType" EntityType="Self.SubscriptionType" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Workers" EntityType="Self.Workers" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Books__codeCateg__44952D46" Association="Self.FK__Books__codeCateg__44952D46">
+    <AssociationSet Name="FK__Books__codeCateg__38996AB5" Association="Self.FK__Books__codeCateg__38996AB5">
       <End Role="Categories" EntitySet="Categories" />
       <End Role="Books" EntitySet="Books" />
     </AssociationSet>
-    <AssociationSet Name="FK__Books__codeCrowd__477199F1" Association="Self.FK__Books__codeCrowd__477199F1">
+    <AssociationSet Name="FK__Books__codeCrowd__398D8EEE" Association="Self.FK__Books__codeCrowd__398D8EEE">
       <End Role="Crowd" EntitySet="Crowd" />
       <End Role="Books" EntitySet="Books" />
     </AssociationSet>
-    <AssociationSet Name="FK__LendingIt__codeL__4E1E9780" Association="Self.FK__LendingIt__codeL__4E1E9780">
+    <AssociationSet Name="FK__LendingIt__codeL__3B75D760" Association="Self.FK__LendingIt__codeL__3B75D760">
       <End Role="Lendings" EntitySet="Lendings" />
       <End Role="LendingItem" EntitySet="LendingItem" />
     </AssociationSet>
-    <AssociationSet Name="FK__LendingIt__codeO__51EF2864" Association="Self.FK__LendingIt__codeO__51EF2864">
+    <AssociationSet Name="FK__LendingIt__codeO__3C69FB99" Association="Self.FK__LendingIt__codeO__3C69FB99">
       <End Role="Otakim" EntitySet="Otakim" />
       <End Role="LendingItem" EntitySet="LendingItem" />
     </AssociationSet>
-    <AssociationSet Name="FK__Lendings__idSubs__4C364F0E" Association="Self.FK__Lendings__idSubs__4C364F0E">
+    <AssociationSet Name="FK__Lendings__idSubs__3D5E1FD2" Association="Self.FK__Lendings__idSubs__3D5E1FD2">
       <End Role="Subscribers" EntitySet="Subscribers" />
       <End Role="Lendings" EntitySet="Lendings" />
     </AssociationSet>
-    <AssociationSet Name="FK__Lendings__worker__4D2A7347" Association="Self.FK__Lendings__worker__4D2A7347">
+    <AssociationSet Name="FK__Lendings__worker__3E52440B" Association="Self.FK__Lendings__worker__3E52440B">
       <End Role="Workers" EntitySet="Workers" />
       <End Role="Lendings" EntitySet="Lendings" />
     </AssociationSet>
-    <AssociationSet Name="FK__Otakim__codeBook__50FB042B" Association="Self.FK__Otakim__codeBook__50FB042B">
+    <AssociationSet Name="FK__Otakim__codeBook__3F466844" Association="Self.FK__Otakim__codeBook__3F466844">
       <End Role="Books" EntitySet="Books" />
       <End Role="Otakim" EntitySet="Otakim" />
     </AssociationSet>
-    <AssociationSet Name="FK__Subscriber__type__54CB950F" Association="Self.FK__Subscriber__type__54CB950F">
+    <AssociationSet Name="FK__Subscriber__type__403A8C7D" Association="Self.FK__Subscriber__type__403A8C7D">
       <End Role="SubscriptionType" EntitySet="SubscriptionType" />
       <End Role="Subscribers" EntitySet="Subscribers" />
     </AssociationSet>

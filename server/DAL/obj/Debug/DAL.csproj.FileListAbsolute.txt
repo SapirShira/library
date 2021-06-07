@@ -33,4 +33,3 @@ C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DAL\
 C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DAL\obj\Debug\DAL.dll
 C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DAL\obj\Debug\DAL.pdb
-C:\Users\shira\OneDrive\שולחן העבודה\פרויקט\library\server\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
