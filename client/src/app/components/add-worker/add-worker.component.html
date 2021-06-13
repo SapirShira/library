@@ -29,7 +29,7 @@
 
     <mat-form-field>
         <mat-label>שם </mat-label>
-        <input matInput name="subFirstName" pattern="[A-Za-z]+" title="אנא הזן אותיות A-Z בלבד" [(ngModel)]="newWorker.name" required>
+        <input matInput name="subFirstName" pattern="[A-Za-z\u0590-\u05FF]*" title="אנא הזן אותיות A-Z בלבד" [(ngModel)]="newWorker.name" required>
     </mat-form-field><br><br>
 
 
