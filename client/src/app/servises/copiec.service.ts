@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { copiec } from '../classes/copiec';
 import { Observable } from 'rxjs';
+import { OtekToAddDTO } from '../classes/OtekToAddDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class CopiecService {
     return this.http.get(environment.api + "copy/GetCopiesByCodeBook/"+code );
   }
 
-  createCopiec(copiec: copiec): Observable<boolean> {
+  createCopiec(copiec: OtekToAddDTO): Observable<boolean> {
     return this.http.post<boolean>(environment.api + 'copy/AddCopiec', copiec)
   }
 

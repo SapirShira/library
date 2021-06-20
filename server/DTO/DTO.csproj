@@ -49,6 +49,7 @@
     <Compile Include="LendingItemDTO.cs" />
     <Compile Include="newLendingDitaile.cs" />
     <Compile Include="OtakimDTO.cs" />
+    <Compile Include="OtekToAddDTO.cs" />
     <Compile Include="SubsciberDTO.cs" />
     <Compile Include="SubscriptionTypeDTO.cs" />
     <Compile Include="WorkerDTO.cs" />

@@ -24,7 +24,10 @@ namespace BL
                 {
                     db.SaveChanges();
                     codeN = db.Books.First(b => b.name == bo.name).codeBook;
-                    return otekBL.addotek(codeN, Convert.ToInt32(bo.numOtakim), Convert.ToDouble(bo.price), Convert.ToInt32(bo.numOtakim));
+                    OtekToAddDTO ot = new OtekToAddDTO();
+                    ot.codeB = codeN;
+                    ot.numOt = Convert.ToInt32(bo.numOtakim);
+                    return otekBL.addotek(ot, Convert.ToDouble(bo.price) );
                 }
                 catch (Exception e)
                 {
@@ -43,20 +46,20 @@ namespace BL
             }
          }
 
-        public static bool addExistsBook(int code, int amount, double price)
+        public static bool addExistsBook(OtekToAddDTO ot)
         {
             using (libraryEntities db = new libraryEntities())
             {
                 foreach (var item in db.Books)
                 {
-                    if (item.codeBook == code)
-                        item.numOtakim += amount;
+                    if (item.codeBook == ot.codeB)
+                        item.numOtakim += ot.numOt;
                 }
                 try
                 {
                     db.SaveChanges();
-                    Book bo = db.Books.First(b => b.codeBook == code);
-                    return otekBL.addotek(code, amount, price, Convert.ToInt32(bo.numOtakim));
+                    Book bo = db.Books.First(b => b.codeBook == ot.codeB);
+                    return otekBL.addotek(ot, 0);
                 }
                 catch (Exception e)
                 {

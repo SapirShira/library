@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -30,6 +31,13 @@ namespace labrery.Controllers
         public IHttpActionResult DeleteCopy(int codeCopy)
         {
             return Ok(BL.otekBL.updateOtekStatus(codeCopy,"נמחק"));
+        }
+
+
+        [Route("AddCopiec"), HttpPost]
+        public IHttpActionResult AddCopiec(OtekToAddDTO book)
+        {
+            return Ok(BL.bookBL.addExistsBook(book));
         }
 
     }

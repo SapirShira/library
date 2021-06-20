@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>הוספת עותק</h1>
+<div mat-dialog-content>
+
+
+    <mat-form-field>
+        <mat-label>כמות </mat-label>
+        <input matInput [(ngModel)]="data.amonte ">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>מחיר </mat-label>
+        <input matInput [(ngModel)]="data.price">
+    </mat-form-field>
+
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)=" onNoClick() ">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.amonte" kFocusInitial>Ok</button>
+</div>

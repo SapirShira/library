@@ -10,7 +10,7 @@ import { LendingComponent } from './components/lending/lending.component';
 import { CrowdComponent } from './components/crowd/crowd.component';
 import { LendindDitilsComponent } from './components/lendind-ditils/lendind-ditils.component';
 import { WorkesComponent } from './components/workes/workes.component';
-import { CopiecComponent } from './components/copiec/copiec.component';
+import { addCopy1, CopiecComponent } from './components/copiec/copiec.component';
 import { SubcriptionTypesComponent } from './components/subcription-types/subcription-types.component';
 import { AuthorComponent } from './components/author/author.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -69,6 +69,8 @@ import { ReturnsComponent } from './components/returns/returns.component';
 import { AddAuthorComponent } from './components/add-author/add-author.component';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './components/login/login.component';
+
+
  
 
 
@@ -95,7 +97,9 @@ import { LoginComponent } from './components/login/login.component';
     ReturnsComponent,
     AddAuthorComponent,
     LoginComponent,
-    try1
+    try1,
+    addCopy1
+    
 
   ],
   imports: [

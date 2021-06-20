@@ -10,19 +10,25 @@ namespace BL
 {
     public class otekBL
     {
-        public static bool addotek(int codeB, int amount, double priceO, int numOt)
+        public static bool addotek(OtekToAddDTO ot, double priceO)
         {
             using (libraryEntities db = new libraryEntities())
             {
-                for (int i = numOt-amount+1; i <= numOt; i++)
+                Book bo = db.Books.First(b => b.codeBook == ot.codeB);
+                List <Otakim> o = db.Otakims.Where(b => b.codeBook == ot.codeB).ToList();
+                Otakim otek = o.Last();
+                int las = Convert.ToInt32(otek.Serial);
+                for (int i =0  ; i < ot.numOt; i++)
                 {
+                    las++;
                     db.Otakims.Add(new Otakim
                     {
-                        codeBook = codeB,
-                        Serial = i,
+                        codeBook = ot.codeB,
+                        
+                        Serial = las,
                         price = Convert.ToInt32(priceO),
-                        status="נמצא"
-                    }) ;
+                        status = "נמצא"
+                    }) ; 
                 }
                 try
                 {
@@ -43,6 +49,11 @@ namespace BL
             {
                 Otakim b = db.Otakims.First(x => x.codeOtek == code);
                 b.status = status;
+                foreach (var item in db.Books)
+                {
+                    if (item.codeBook == b.codeBook)
+                        item.numOtakim--;
+                }
 
                 try
                 {
@@ -68,7 +79,7 @@ namespace BL
         {
             using (libraryEntities db = new libraryEntities())
             {
-                List < OtakimDTO > t= Converters.OtekConverter.ConvertOtakimListToDTO(db.Otakims.Where(x => x.codeBook == code).ToList());
+                List < OtakimDTO > t= Converters.OtekConverter.ConvertOtakimListToDTO(db.Otakims.Where(x => x.codeBook == code && x.status=="נמצא").ToList());
                 return t;
             }
         }
