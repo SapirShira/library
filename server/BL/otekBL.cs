@@ -14,21 +14,30 @@ namespace BL
         {
             using (libraryEntities db = new libraryEntities())
             {
+                int las;
                 Book bo = db.Books.First(b => b.codeBook == ot.codeB);
-                List <Otakim> o = db.Otakims.Where(b => b.codeBook == ot.codeB).ToList();
-                Otakim otek = o.Last();
-                int las = Convert.ToInt32(otek.Serial);
-                for (int i =0  ; i < ot.numOt; i++)
+
+                List<Otakim> o = db.Otakims.Where(b => b.codeBook == ot.codeB).ToList();
+                try
+                {
+                    Otakim otek = o.Last();
+                    las = Convert.ToInt32(otek.Serial);
+                }
+                catch
+                {
+                    las = 0;
+                }
+                for (int i = 0; i < ot.numOt; i++)
                 {
                     las++;
                     db.Otakims.Add(new Otakim
                     {
                         codeBook = ot.codeB,
-                        
+
                         Serial = las,
                         price = Convert.ToInt32(priceO),
                         status = "נמצא"
-                    }) ; 
+                    });
                 }
                 try
                 {
@@ -40,7 +49,7 @@ namespace BL
                     return false;
                 }
             }
-                
+
         }
 
         public static bool updateOtekStatus(int code, string status)
