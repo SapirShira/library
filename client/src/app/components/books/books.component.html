@@ -3,13 +3,16 @@
 <br>
 <h2> ספרים</h2>
 
-
-<button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon" routerLink="/addBook">
+<mat-form-field>
+    <mat-label>חיפוש לפי שם</mat-label>
+    <input matInput name="subId" [(ngModel)]="serchName" (input)="onSearchChange($event.target.value)">
+</mat-form-field>
+<button mat-mini-fab color="accent" id="a" aria-label=" Example icon button with a plus one icon " routerLink="/addBook ">
   <mat-icon>plus_one</mat-icon>
 </button>
 <br>
 
-<table mat-table [dataSource]="books" class="mat-elevation-z8">
+<table mat-table [dataSource]="books " class="mat-elevation-z8 ">
     <!--- Note that these columns can be defined in any order.
         The actual rendered columns are set as a property on the row definition" -->
 

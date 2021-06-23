@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./books.component.css']
 })
 export class BooksComponent implements OnInit {
+    serchName:string
 
   dateClass = (d: Date): MatCalendarCellCssClasses => {
     const date = d.getDate();
@@ -24,6 +25,8 @@ export class BooksComponent implements OnInit {
   }
   
   books: Book[];
+  books2: Book[];
+
   dataSource: Book[];
   displayedColumns: string[] = ['codeBooke', 'name', 'author', 'date', 'crowd', 'category', 'numOtakim', 'otakim'];
   constructor(private bookServise: BookService, private crowdService: CrowdService, private router:Router) { }
@@ -40,6 +43,16 @@ export class BooksComponent implements OnInit {
   bookList() {
 
     this.bookServise.getAllBooks().subscribe((data: Book[]) => { this.books = data });
+  }
+
+  onSearchChange(searchValue:string)
+  {
+    console.log(searchValue);
+
+    this.books =this.books.filter(item =>{item.name.includes(searchValue)
+          console.log(item.name.toString)
+
+    })
   }
 
 }

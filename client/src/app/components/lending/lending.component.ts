@@ -71,7 +71,7 @@ export class LendingComponent implements OnInit {
 
         })
       }
-      else{
+      else {
         alert("מנוי לא קיים או שת.ז. אינה תקינה")
       }
 
@@ -81,14 +81,15 @@ export class LendingComponent implements OnInit {
 
   addBookToLend() {
     this.newLendingDitail.codeLending = this.codelend;
-    this.lendingDitilsService.createLendind_ditils(this.newLendingDitail).subscribe(res =>
-
+    this.lendingDitilsService.createLendind_ditils(this.newLendingDitail).subscribe(res => {
+      console.log(res)
       this.lendingDitilsService.getAllLendind_ditils().subscribe((data: newLendingDitaile) => {
         this.lendingDitils = data.lendingItemsToSub;
         this.codelend = data.code
         this.sum = this.newSubsriber.numOfBooks - this.lendingDitils.length;
         console.log("כמות הספרים שנותר להשאיל: " + this.sum)
-      }));
+      })
+    });
   }
 
 
