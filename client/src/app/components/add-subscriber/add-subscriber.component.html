@@ -18,34 +18,52 @@
 
         <mat-form-field>
             <mat-label>תעודת זהות</mat-label>
-            <input matInput name="subId" type="id" [(ngModel)]="newSubsriber.id" required>
+            <input matInput name="subId" type="id" pattern="[0-9]{8,9}" [(ngModel)]="newSubsriber.id" required>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+                id is <strong>required</strong>
+            </mat-error>
         </mat-form-field>
 
     </div>
     <div class="wrapper">
         <mat-form-field>
             <mat-label>שם פרטי</mat-label>
-            <input matInput name="subFirstName" [(ngModel)]="newSubsriber.firstName" required>
+            <input matInput name="subFirstName" pattern="[A-Za-z\u0590-\u05FF ]*" [(ngModel)]="newSubsriber.firstName" required>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+                first name is <strong>required</strong>
+            </mat-error>
         </mat-form-field>
     </div>
     <mat-form-field>
         <mat-label>שם משפחה</mat-label>
-        <input matInput name="subLastName" [(ngModel)]="newSubsriber.lastName" required>
+        <input matInput name="subLastName" pattern="[A-Za-z\u0590-\u05FF ]*" [(ngModel)]="newSubsriber.lastName" required>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            last name is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>כתובת</mat-label>
         <input matInput name="subAddress" [(ngModel)]="newSubsriber.address" required>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            address is <strong>required</strong>
+        </mat-error>
     </mat-form-field><br><br>
 
     <mat-form-field>
         <mat-label>טלפון</mat-label>
-        <input matInput name="subPhon" type="tel" [(ngModel)]="newSubsriber.phon" required>
+        <input matInput name="subPhon" type="tel" pattern="[0-9]{9, 10}" [(ngModel)]="newSubsriber.phon" required>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            phone number is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field>
         <mat-label>מייל</mat-label>
-        <input matInput name="subMail" type="email" [(ngModel)]="newSubsriber.email" required>
+        <input matInput name="subMail" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [(ngModel)]="newSubsriber.email" required>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -53,12 +71,12 @@
         <mat-select [(ngModel)]="newSubsriber.type" name="subType">
             <mat-option *ngFor="let subType of subscriptionTypes" [value]="subType.codeType" required>
 
-                {{subType.numOfBooks}}
+                {{subType.numOfBooks+" ספרים, מחיר: "+ subType.price+' ש"ח'}}
             </mat-option>
         </mat-select>
     </mat-form-field><br><br>
 
-    <input type="submit" class="example-button-row" mat-stroked-button color="accent" value="save"> routerLink="/subscribers"
+    <input type="submit" class="example-button-row" mat-stroked-button color="accent" value="save">
 
 
 </form>

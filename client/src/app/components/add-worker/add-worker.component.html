@@ -23,13 +23,19 @@
         <mat-form-field>
             <mat-label>תעודת זהות</mat-label>
             <input matInput name="subId" type="number" pattern="[0-9]{8,9}" [(ngModel)]="newWorker.idWorker" required>
+            <mat-error *ngIf="emailFormControl.hasError('required')">
+                id is <strong>required</strong>
+            </mat-error>
         </mat-form-field><br><br>
 
     </div>
 
     <mat-form-field>
         <mat-label>שם </mat-label>
-        <input matInput name="subFirstName" pattern="[A-Za-z\u0590-\u05FF]*" title="אנא הזן אותיות בלבד" [(ngModel)]="newWorker.name" required>
+        <input matInput name="subFirstName" pattern="[A-Za-z\u0590-\u05FF ]*" title="אנא הזן אותיות בלבד" [(ngModel)]="newWorker.name" required>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            name is <strong>required</strong>
+        </mat-error>
     </mat-form-field><br><br>
 
 
@@ -48,6 +54,9 @@
     <mat-form-field>
         <mat-label>טלפון</mat-label>
         <input matInput name="subPhon" type="number" pattern="[0-9]{10}" [(ngModel)]="newWorker.phone" required>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            phone is <strong>required</strong>
+        </mat-error>
     </mat-form-field><br><br>
 
 
@@ -67,7 +76,10 @@
     <mat-form-field>
         <mat-label>סיסמא</mat-label>
         <input matInput name="subMail" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" [(ngModel)]="newWorker.password" required>
-
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+            <br> and must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters
+        </mat-error>
 
     </mat-form-field>
     <p>Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</p>

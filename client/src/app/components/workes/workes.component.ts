@@ -4,7 +4,6 @@ import { worker } from 'src/app/classes/workes';
 import { Router } from '@angular/router';
 import { DialogData } from '../copiec/copiec.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AuthService } from 'src/app/servises/auth.service';
 
 
 @Component({
@@ -19,7 +18,7 @@ export class WorkesComponent implements OnInit {
 
 
 
-  constructor(private workersService: WorkersService, private router: Router, public dialog: MatDialog, private authService:AuthService) { }
+  constructor(private workersService: WorkersService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.router.events.subscribe(

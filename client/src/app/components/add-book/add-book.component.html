@@ -6,7 +6,10 @@
 
     <mat-form-field>
         <mat-label>שם ספר</mat-label>
-        <input matInput name="bookName" [(ngModel)]="newBook.name" required>
+        <input matInput name="bookName" pattern="[A-Za-z\u0590-\u05FF ]*" [(ngModel)]="newBook.name" required>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            book name is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
 
 
@@ -53,7 +56,10 @@
 
     <mat-form-field appearance="fill">
         <mat-label>מס עותקים</mat-label>
-        <input matInput type="number" name="numOfCopies" (keyup)="_keyUp($event)" [(ngModel)]="newBook.numOtakim" class="form-control" required>
+        <input matInput type="number" name="numOfCopies" pattern="[0-9]" (keyup)="_keyUp($event)" [(ngModel)]="newBook.numOtakim" class="form-control" required>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            <strong>required</strong>
+        </mat-error>
     </mat-form-field><br><br>
 
 
@@ -61,6 +67,9 @@
     <mat-form-field>
         <mat-label>מחיר</mat-label>
         <input matInput name="price" type="number" (keyup)="_keyUp($event)" [(ngModel)]="newBook.price" class="form-control" required/>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            price is <strong>required</strong>
+        </mat-error>
     </mat-form-field><br><br>
     <input type="submit" value="הוסף"><br><br>
 </form>

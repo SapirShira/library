@@ -13,8 +13,8 @@ export class ReturnsComponent implements OnInit {
   returnItem: lending_ditills;
   code: number = null;
   displayedColumns: string[] = ['serial', 'bookName', 'comment', 'return'];
-  list=[];
-returnTable: MatTableDataSource<lending_ditills[]>=new  MatTableDataSource<lending_ditills[]>(this.list);
+  list = [];
+  returnTable: MatTableDataSource<lending_ditills[]> = new MatTableDataSource<lending_ditills[]>(this.list);
 
   constructor(private lendingService: LendingService, private lendingDitilsService: LendindDitilsService) { }
 
@@ -22,26 +22,30 @@ returnTable: MatTableDataSource<lending_ditills[]>=new  MatTableDataSource<lendi
     // this.bookServise.getAllBooks().subscribe((data: Book[]) => { this.books = data });
   }
 
-  bring()
-  {
-    this.lendingDitilsService.GetItemToReturn(this.code).subscribe((data: lending_ditills) => { this.returnItem=data ; this.list.push(this.returnItem)
-    console.log(data)
-    console.log(this.returnTable)
-    this.returnTable=new   MatTableDataSource<lending_ditills[]> (this.list);
+  bring() {
+    this.lendingDitilsService.GetItemToReturn(this.code).subscribe((data: lending_ditills) => {
+      console.log(data)
 
+      if (data) {
+        this.returnItem = data; this.list.push(this.returnItem)
+        this.returnTable = new MatTableDataSource<lending_ditills[]>(this.list);
+        console.log(this.returnTable)
+      }
+      else
+        alert("עותק אינו מושאל")
     });
-    
+
   }
 
   returnD(code: number) {
-    this.lendingDitilsService.returnD(code).subscribe(res =>{}
+    this.lendingDitilsService.returnD(code).subscribe(res => { }
       // this.lendingDitilsService.getAllLendind_ditils().subscribe((data: newLendingDitaile) => {
       //   this.lendingDitils = data.lendingItemsToSub;
       //   this.codelend = data.code
       // })
     );
-    
-    
+
+
   }
 
 }

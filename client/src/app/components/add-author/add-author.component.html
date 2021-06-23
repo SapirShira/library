@@ -6,19 +6,27 @@
 
     <mat-form-field>
         <mat-label>שם פרטי</mat-label>
-        <input matInput name="authorFirstName" [(ngModel)]="newAuthor.firstName" required>
+        <input matInput name="authorFirstName" pattern="[A-Za-z\u0590-\u05FF ]*" [(ngModel)]="newAuthor.firstName" required>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            first name is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
 
 
     <mat-form-field>
         <mat-label>שם משפחה</mat-label>
-        <input matInput name="authorLasttName" [(ngModel)]="newAuthor.lastName" required>
+        <input matInput name="authorLasttName" pattern="[A-Za-z\u0590-\u05FF ]*" [(ngModel)]="newAuthor.lastName" required> emailFormControl = new FormControl('', [ Validators.required, Validators.email, ]);
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            last name is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
 
 
     <mat-form-field>
         <mat-label>שם ספרותי</mat-label>
-        <input matInput name="authorSerialName" [(ngModel)]="newAuthor.LiteraryAlias" required>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+            <strong>required</strong>
+        </mat-error> <input matInput name="authorSerialName" pattern="[A-Za-z\u0590-\u05FF ]*" [(ngModel)]="newAuthor.LiteraryAlias" required>
     </mat-form-field>
 
 

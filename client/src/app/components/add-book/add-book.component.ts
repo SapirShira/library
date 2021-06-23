@@ -7,9 +7,11 @@ import { AuthorService } from 'src/app/servises/author.service';
 import { Author } from 'src/app/classes/author';
 import { CategoryService } from 'src/app/servises/category.service';
 import { categories } from 'src/app/classes/categories';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 import { Router } from '@angular/router';
+import { try1 } from '../add-worker/add-worker.component';
+import { MatDialog } from '@angular/material/dialog';
 // import { DatePipe } from '@angular/common';
 
 
@@ -35,8 +37,13 @@ export class AddBookComponent implements OnInit, OnDestroy {
   myControl = new FormControl();
   answer: boolean;
 
+  emailFormControl = new FormControl('', [
+    Validators.required,
+    Validators.email,
+  ]);
+
   constructor(private bookServise: BookService, private crowdService: CrowdService, private authorService: AuthorService, private categoryService: CategoryService,
-    private router: Router) { }
+    private router: Router, private matDialog: MatDialog) { }
 // , private datePipe: DatePipe
   ngOnDestroy(): void {
     console.log("destroied")
@@ -49,7 +56,11 @@ export class AddBookComponent implements OnInit, OnDestroy {
   savaBook() {
     this.bookServise.createBooks(this.newBook).subscribe(res => { this.answer = res })
     if (this.answer == true) {
+      const dialogRef = this.matDialog.open(try1);
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
       this.router.navigate(['/books'])
+    });
 
     }
 
