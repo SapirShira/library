@@ -3,6 +3,7 @@ export class lending_ditills {
    codeOtek:number;
    bookName:string;
    comment: string;
+   expectedReturnDate:Date;
    returnDate: Date;
     constructor(){}
 }

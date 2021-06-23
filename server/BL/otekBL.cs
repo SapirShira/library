@@ -88,7 +88,7 @@ namespace BL
         {
             using (libraryEntities db = new libraryEntities())
             {
-                List < OtakimDTO > t= Converters.OtekConverter.ConvertOtakimListToDTO(db.Otakims.Where(x => x.codeBook == code && x.status=="נמצא").ToList());
+                List < OtakimDTO > t= Converters.OtekConverter.ConvertOtakimListToDTO(db.Otakims.Where(x => x.codeBook == code && x.status!="נמחק").ToList());
                 return t;
             }
         }

@@ -24,22 +24,28 @@
 
 <div *ngIf="lendingDitils != null">
 
-    <mat-form-field>
-        <mat-label>קוד ספר להשאלה</mat-label>
-        <input matInput name="codeOtek" [(ngModel)]="newLendingDitail.codeOtek">
-    </mat-form-field>
-
-    <mat-form-field>
-        <mat-label>הערה להשאלה</mat-label>
-        <input matInput name="note" [(ngModel)]="newLendingDitail.comment">
-    </mat-form-field>
-
-    <button mat-mini-fab color="accent" aria-label="Example icon button with a search one icon" (click)="addBookToLend()">
-    <mat-icon>search</mat-icon>
-</button>
+    <p>שם מנוי: {{newSubsriber.firstName+" "+ newSubsriber.lastName}}
+        <br><br> כמות הספרים שניתן להשאיל בסה"כ היא {{newSubsriber.numOfBooks }}
+        <br></p>
 
 
-    <table mat-table [dataSource]="lendingDitils" class="mat-elevation-z8">
+    <div *ngIf="sum > 0">
+        <mat-form-field>
+            <mat-label>קוד ספר להשאלה</mat-label>
+            <input matInput name=" codeOtek " [(ngModel)]="newLendingDitail.codeOtek ">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>הערה להשאלה</mat-label>
+            <input matInput name="note " [(ngModel)]="newLendingDitail.comment ">
+        </mat-form-field>
+        <!-- color="accent " -->
+        <button mat-mini-fab aria-label="Example icon button with a search one icon " (click)="addBookToLend() ">
+        <mat-icon>search</mat-icon>
+        </button>
+
+    </div>
+    <table mat-table [dataSource]="lendingDitils " class="mat-elevation-z8 ">
 
         <!--- Note that these columns can be defined in any order.
                 The actual rendered columns are set as a property on the row definition" -->
@@ -63,11 +69,17 @@
             <td mat-cell *matCellDef="let element"> {{element.comment}} </td>
         </ng-container>
 
+        <ng-container matColumnDef="expectedReturnDate">
+            <th mat-header-cell *matHeaderCellDef> תאריך החזרה צפוי</th>
+            <td mat-cell *matCellDef="let element"> {{ element.exexpectedReturnDate| date:'shortDate' }} </td>
+        </ng-container>
+
         <ng-container matColumnDef="return">
             <th mat-header-cell *matHeaderCellDef> החזרה </th>
             <td mat-cell *matCellDef="let element">
                 <button mat-fab color="primary" class="example-button-container" aria-label="Example icon button with a keyboard_return icon" (click)="returnD(element.codeOtek)">
-              <mat-icon>keyboard_return</mat-icon>
+             
+                    <mat-icon>keyboard_return</mat-icon>
             </button>
             </td>
         </ng-container>

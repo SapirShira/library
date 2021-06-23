@@ -47,13 +47,13 @@
 
     <mat-form-field>
         <mat-label>טלפון</mat-label>
-        <input matInput name="subPhon" type="tel" pattern="[0-9]{10}" [(ngModel)]="newWorker.phone" required>
+        <input matInput name="subPhon" type="number" pattern="[0-9]{10}" [(ngModel)]="newWorker.phone" required>
     </mat-form-field><br><br>
 
 
 
     <mat-form-field appearance="fill">
-        <mat-label> סוג עובד .</mat-label>
+        <mat-label>תפקיד .</mat-label>
         <mat-select [(ngModel)]="newWorker.typeWork" name="subType" required>
             <mat-option *ngFor="let type of types" [value]="type">
 

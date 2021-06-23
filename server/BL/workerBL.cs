@@ -17,8 +17,8 @@ namespace BL
             using (libraryEntities db = new libraryEntities())
             {
 
-                string mailBody = $" Hi " + s.name + " You have successfully joined our team  \n " +
-                            $"your password is " + s.password + " \n Thanks ";
+                string mailBody = $" הי " + s.name + " הצטרפת בהצלחה לצוות עובדינו  \n " +
+                            $"סיסמתך היא " + s.password + " \n תודה רבה \n צוות הספרייה ";
                 if (db.Workers.FirstOrDefault(x => x.idWorker == s.idWorker) != null)
                 {
                     s.status = true;
@@ -57,12 +57,13 @@ namespace BL
                 au.phone = a.phone;
                 au.password = a.password;
                 au.typeWork = a.typeWork;
-
+                string mailBody = $" הי " + a.name + " פרטיך עודכנו בהצלחה במערכת  \n " +
+                          $"סיסמתך היא: " + a.password + " \n תודה רבה \n צוות הספרייה ";
 
                 try
                 {
                     db.SaveChanges();
-                    bool b = SendMail(a.name, "ברוכים הבאים לצוות עובדנו", "פרטיך עודכנו בהצלחה במערכת ");
+                    bool b = SendMail(a.address, "עדכון פרטים במערכת", mailBody);
                     return true;
                 }
                 catch (Exception e)

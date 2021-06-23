@@ -9,7 +9,7 @@ import { SubscribersComponent } from './components/subscribers/subscribers.compo
 import { LendingComponent } from './components/lending/lending.component';
 import { CrowdComponent } from './components/crowd/crowd.component';
 import { LendindDitilsComponent } from './components/lendind-ditils/lendind-ditils.component';
-import { WorkesComponent } from './components/workes/workes.component';
+import { delete1, WorkesComponent } from './components/workes/workes.component';
 import { addCopy1, CopiecComponent } from './components/copiec/copiec.component';
 import { SubcriptionTypesComponent } from './components/subcription-types/subcription-types.component';
 import { AuthorComponent } from './components/author/author.component';
@@ -98,7 +98,8 @@ import { LoginComponent } from './components/login/login.component';
     AddAuthorComponent,
     LoginComponent,
     try1,
-    addCopy1
+    addCopy1,
+    delete1
     
 
   ],

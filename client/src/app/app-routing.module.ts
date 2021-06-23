@@ -33,7 +33,7 @@ const routes: Routes = [
   { path: 'crowd', component: CrowdComponent, canActivate:[AuthGuard] },
   { path: 'lendind ditils', component: LendindDitilsComponent, canActivate:[AuthGuard] },
   { path: 'lending', component: LendingComponent, canActivate:[AuthGuard] },
-  { path: 'subcription types', component: SubcriptionTypesComponent, canActivate:[AuthGuard] },
+  // { path: 'subcription types', component: SubcriptionTypesComponent, canActivate:[AuthGuard] },
   { path: 'addSubscribers/:id', component: AddSubscriberComponent, canActivate:[AuthGuard] },
   { path: 'subscribers', component: SubscribersComponent, canActivate:[AuthGuard] },
   // { path: 'addSubscribers', component: AddSubscriberComponent },

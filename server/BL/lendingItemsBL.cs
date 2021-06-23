@@ -16,7 +16,14 @@ namespace BL
             {
                 LendingItem au = db.LendingItems.FirstOrDefault(x => x.codeOtek == l.codeOtek && x.returnDate == null);
 
+            
                 db.LendingItems.Add(Converters.LendingItemConverter.ConvertLendingItemDTOToDAL(l));
+                try { 
+                    Otakim o = db.Otakims.First(a => a.codeOtek == l.codeOtek);
+                    if (o.status == "מושאל" || o.status == "נמחק")
+                        return false;
+                }
+                catch { return false; }
                 db.Otakims.First(a => a.codeOtek == l.codeOtek).status = "מושאל";
                 try
                 {

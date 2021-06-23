@@ -3,7 +3,7 @@ export class worker {
     name: string;
     address:string;
     phone:number;
-    typeWork:Text;
+    typeWork:string;
     password: string;
     status:boolean;
 

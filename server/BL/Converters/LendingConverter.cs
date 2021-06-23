@@ -14,13 +14,13 @@ namespace BL.Converters
         {
             return new LendingDTO
             {
-                codeLending=lending.codeLending,
-                SubscriberFullName=lending.Subscriber.firstName+" "+lending.Subscriber.lastName,
-                WorkerFullName=lending.Worker1.name,
+                codeLending = lending.codeLending,
+                SubscriberFullName = lending.Subscriber.firstName + " " + lending.Subscriber.lastName,
+                WorkerFullName = lending.Worker1.name,
                 idSubscribers = lending.idSubscribers,
                 worker = lending.worker,
                 date = lending.date,
-                expectReturnDate = lending.expectReturnDate,
+                expectReturnDate = Convert.ToDateTime(lending.date).AddDays(30)
             };
         }
 
@@ -31,7 +31,7 @@ namespace BL.Converters
                 idSubscribers = lending.idSubscribers,
                 worker = lending.worker,
                 date = lending.date,
-                expectReturnDate = lending.expectReturnDate,
+                expectReturnDate = Convert.ToDateTime(lending.date).AddDays(30),
             };
         }
 

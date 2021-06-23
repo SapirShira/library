@@ -22,6 +22,7 @@ namespace BL.Converters
                     idSUB = Convert.ToInt32(lendingItem.Lending.idSubscribers),
                     comment = lendingItem.comment,
                     returnDate = lendingItem.returnDate,
+                    expectedReturnDate=Convert.ToDateTime(lendingItem.Lending.expectReturnDate),
                     bookName = db.Books.First(b => b.codeBook ==lendingItem.Otakim.codeBook).name
                 };
             }
