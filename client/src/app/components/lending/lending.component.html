@@ -15,36 +15,38 @@
     <mat-label>תז עובד</mat-label>
     <input matInput name="subId" [(ngModel)]="newLending.worker">
 </mat-form-field> -->
-
-
 <button mat-mini-fab color="accent" aria-label="Example icon button with a search one icon" (click)="addLend()">
-    <mat-icon>search</mat-icon>
-</button>
-<br>
+    
+        <mat-icon>search</mat-icon>
+    </button>
+<div *ngIf="flag==true">
 
-<div *ngIf="lendingDitils != null">
-
+    <br>
     <p>שם מנוי: {{newSubsriber.firstName+" "+ newSubsriber.lastName}}
         <br><br> כמות הספרים שניתן להשאיל בסה"כ היא {{newSubsriber.numOfBooks }}
         <br></p>
+</div>
 
 
-    <div *ngIf="sum > 0">
-        <mat-form-field>
-            <mat-label>קוד ספר להשאלה</mat-label>
-            <input matInput name=" codeOtek " [(ngModel)]="newLendingDitail.codeOtek ">
-        </mat-form-field>
 
-        <mat-form-field>
-            <mat-label>הערה להשאלה</mat-label>
-            <input matInput name="note " [(ngModel)]="newLendingDitail.comment ">
-        </mat-form-field>
-        <!-- color="accent " -->
-        <button mat-mini-fab aria-label="Example icon button with a search one icon " (click)="addBookToLend() ">
+<div *ngIf="sum > 0">
+    <mat-form-field>
+        <mat-label>קוד ספר להשאלה</mat-label>
+        <input matInput name=" codeOtek " [(ngModel)]="newLendingDitail.codeOtek ">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>הערה להשאלה</mat-label>
+        <input matInput name="note " [(ngModel)]="newLendingDitail.comment ">
+    </mat-form-field>
+    <!-- color="accent " -->
+    <button mat-mini-fab aria-label="Example icon button with a search one icon " (click)="addBookToLend() ">
         <mat-icon>search</mat-icon>
         </button>
 
-    </div>
+</div>
+<div *ngIf="lendingDitils != null">
+
     <table mat-table [dataSource]="lendingDitils " class="mat-elevation-z8 ">
 
         <!--- Note that these columns can be defined in any order.
@@ -71,7 +73,7 @@
 
         <ng-container matColumnDef="expectedReturnDate">
             <th mat-header-cell *matHeaderCellDef> תאריך החזרה צפוי</th>
-            <td mat-cell *matCellDef="let element"> {{ element.exexpectedReturnDate| date:'shortDate' }} </td>
+            <td mat-cell *matCellDef="let element"> {{ element.expectedReturnDate| date:'shortDate' }} </td>
         </ng-container>
 
         <ng-container matColumnDef="return">

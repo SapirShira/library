@@ -6,7 +6,7 @@
 
     <mat-form-field>
         <mat-label>שם ספר</mat-label>
-        <input matInput name="bookName" pattern="[A-Za-z\u0590-\u05FF ]*" [(ngModel)]="newBook.name" required>
+        <input matInput name="bookName" pattern="[A-Za-z\u0590-\u05FF ]*{20}" [(ngModel)]="newBook.name" required>
         <mat-error *ngIf="emailFormControl.hasError('required')">
             book name is <strong>required</strong>
         </mat-error>

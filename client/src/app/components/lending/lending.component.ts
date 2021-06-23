@@ -46,7 +46,9 @@ export class LendingComponent implements OnInit {
 
   }
   ans: boolean
+  flag: boolean
   addLend() {
+    this.lendingDitils=null
     this.newLending.worker = this.authService.worker.idWorker;
     this.newLending.date = new Date();
     this.lendingService.createLending(this.newLending).subscribe(res => {
@@ -54,22 +56,29 @@ export class LendingComponent implements OnInit {
       if (this.ans) {
         console.log("res: " + res + " ans: " + this.ans)
         this.lendingDitilsService.getAllLendind_ditils().subscribe((data: newLendingDitaile) => {
-          console.log(data[0])
-          this.lendingDitils = data.lendingItemsToSub;
+          console.log(data.code)
+          if (data.lendingItemsToSub) {
+            this.lendingDitils = data.lendingItemsToSub;
+            console.log(this.lendingDitils[this.lendingDitils.length - 1].codeOtek, this.lendingDitils[this.lendingDitils.length - 1].expectedReturnDate)
+
+          }
           this.codelend = data.code
-          console.log(this.lendingDitils[this.lendingDitils.length - 1].codeOtek, this.lendingDitils[this.lendingDitils.length - 1].expectedReturnDate)
           this.subscribersService.getAllSubscribersById(this.newLending.idSubscribers).subscribe((data: subscribers[]) => {
             console.log(data[0].firstName)
             this.newSubsriber = data[0],
 
               console.log("מנוי " + this.newSubsriber.firstName)
-            this.sum = this.newSubsriber.numOfBooks - this.lendingDitils.length;
+            if (this.lendingDitils)
+              this.sum = this.newSubsriber.numOfBooks - this.lendingDitils.length;
+            else
+              this.sum = this.newSubsriber.numOfBooks
             console.log("כמות הספרים שנותר להשאיל: " + this.sum)
 
 
           });
 
         })
+        this.flag = true
       }
       else {
         alert("מנוי לא קיים או שת.ז. אינה תקינה")
@@ -84,6 +93,7 @@ export class LendingComponent implements OnInit {
     this.lendingDitilsService.createLendind_ditils(this.newLendingDitail).subscribe(res => {
       console.log(res)
       this.lendingDitilsService.getAllLendind_ditils().subscribe((data: newLendingDitaile) => {
+        console.log("data: " + data[0])
         this.lendingDitils = data.lendingItemsToSub;
         this.codelend = data.code
         this.sum = this.newSubsriber.numOfBooks - this.lendingDitils.length;
